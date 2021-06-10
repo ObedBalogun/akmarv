@@ -373,3 +373,11 @@ table th{
   }
 
 }
+
+.toast-header{
+  background-color: #ae3131 !important;
+  color: white!important;
+}
+.toast-header .close{
+  color: white !important;
+}

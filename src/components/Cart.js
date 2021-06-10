@@ -1,16 +1,21 @@
 import React, {useState} from 'react';
 import { useCart} from "react-use-cart";
-import {Button, Col, Container, Form, Row, Table} from "react-bootstrap";
+import {Button, Col, Container, Form, Row, Table,Toast} from "react-bootstrap";
 import Navigation from "./Navigation";
 import axios from "axios";
 
 const Cart = () => {
-    const { items,totalUniqueItems,cartTotal,removeItem } = useCart();
+    const { items,totalUniqueItems,cartTotal,removeItem ,emptyCart} = useCart();
     const [email, setEmail] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
 
+    const [show, setShow] = useState(false);
+
+
+
     const onSubmit = e => {
+        setShow(true)
         e.preventDefault();
 
         const user = {
@@ -19,13 +24,31 @@ const Cart = () => {
             lastName: lastName
         };
 
-        axios.post('/api/client/manage-payment/', {user,cartTotal,items}).then(function (response) {
-            console.log(response);
+        axios.post('/api/client/manage-payment/', {user,cartTotal,items})
+            .then(function (response) {
+                setTimeout(()=>{
+                // window.location.replace('/');
+                emptyCart();
+            },9000)
         })
     }
        return (
            <>
                <Navigation/>
+               <Row>
+                  <Col xs={6}>
+                    <Toast onClose={() => setShow(false)} show={show} delay={1000}
+                           style={{
+                               position: 'absolute',
+                               top: 0,
+                               right: 0,
+                           }}>
+                      <Toast.Header>
+                        <strong className="mr-auto">Processing Order</strong>
+                      </Toast.Header>
+                    </Toast>
+                  </Col>
+               </Row>
                <Container>
                    <div className="mt-5">
                         <h2 className={'text-center font-weight-bold'}>Confirm Your Order</h2>

@@ -18,10 +18,8 @@ class App extends Component {
   render() {
     return (
         <Router>
-          <Route exact path="/homepage" component={IndexPage}/>
+          <Route exact path="/" component={IndexPage}/>
           <Route exact path="/wavegod" component={UploadPage}/>
-          <Route exact path="/login" component={LoginPage}/>
-          {/*<Route exact path="/logout" component={Logout}/>*/}
           <Route exact path="/contact" component={SignUpPage}/>
           <Route exact path="/beats" component={BeatsPage}/>
           <Route exact path="/beat/:id" component={BeatDetailPage}/>

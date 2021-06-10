@@ -9,7 +9,7 @@ const LoginPage = () => {
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
-            window.location.replace('/homepage');
+            window.location.replace('/');
         } else {
             setLoading(false);
         }

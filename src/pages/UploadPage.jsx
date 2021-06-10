@@ -35,15 +35,9 @@ const UploadPage = () => {
         formData.append('genre',genre)
         formData.append('artwork',artwork)
 
-        const beat = {
-            title:title ,
-            data:formData
-        };
-
-
-        console.log(beat)
-        axios.post('/api/client/beats/', formData)
-        // console.log(beat)
+        axios.post('/api/client/beats/', formData).then(()=>{
+            window.location.replace('/')
+        })
     }
 
     return (
