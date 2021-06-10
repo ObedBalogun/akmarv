@@ -184,6 +184,7 @@ td img{
 .card-header{
   background-color: black !important;
   color: white !important;
+  padding: 0 !important;
 
 }
 .license{
@@ -334,6 +335,11 @@ table th{
 }
 /*Responsiveness*/
 
+@media(max-width: 698px) {
+  .card-deck{
+    display: none;
+  }
+}
 @media(max-width: 776px) {
 
   .headliner{
@@ -363,7 +369,7 @@ table th{
   display: block;
   }
   .card-deck{
-    display: none;
+    display: none !important;
   }
   .carousel-indicators{
     bottom: -70px !important;

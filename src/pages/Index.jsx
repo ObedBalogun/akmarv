@@ -79,9 +79,9 @@ const IndexPage = () => {
                         <CardDeck>
                             <Card>
                                 <Card.Header >
-                                    <div className={"text-center card-info"}>
+                                    <div className={"text-center card-info"} style={{paddingTop:"5em"}}>
                                         <span className={"license-name d-block"}>
-                                            MP3 licence
+                                            MP3 license
                                         </span>
                                         <span className={"license-price d-block font-weight-bold"}>
                                             $80.00
@@ -104,9 +104,9 @@ const IndexPage = () => {
                             </Card>
                             <Card>
                                 <Card.Header >
-                                    <div className={"text-center card-info"}>
+                                    <div className={"text-center card-info"} style={{paddingTop:"5em"}}>
                                         <span className={"license-name d-block"}>
-                                            Wav licence
+                                            Wav license
                                         </span>
                                         <span className={"license-price d-block font-weight-bold"}>
                                             $120.00
@@ -130,8 +130,8 @@ const IndexPage = () => {
                             <Card >
                                 <Card.Header >
                                     <div className={"text-center card-info"}>
-                                    <span className="license-name d-block text-nowrap text-center">
-                                        Premium licence
+                                    <span className="license-name d-block text-center" style={{lineHeight:'28px'}}>
+                                        Wav License <br/>+<br/> Trackouts
                                     </span>
                                         <span className={"license-price d-block font-weight-bold"}>
                                         $150.00
@@ -154,12 +154,12 @@ const IndexPage = () => {
                             </Card>
                             <Card >
                                 <Card.Header >
-                                    <div className={"text-center card-info"}>
-                                    <span className={"license-name d-block"}>
-                                        Exclusive
+                                    <div className={"text-center card-info"} style={{paddingTop:"5em"}}>
+                                    <span className={"license-name d-block"} >
+                                        Exclusive License
                                     </span>
                                         <span className={"license-price d-block font-weight-bold"}>
-                                        $150.00
+                                        $300.00
                                     </span>
                                         <span className={'text-uppercase font-weight-bold d-block'}>
                                         per unit
@@ -184,7 +184,7 @@ const IndexPage = () => {
                                     <Card.Header >
                                         <div className={"text-center card-info"}>
                                         <span className={"license-name d-block"}>
-                                            MP3 licence
+                                            MP3 license
                                         </span>
                                             <span className={"license-price d-block font-weight-bold"}>
                                             $80.00
@@ -211,7 +211,7 @@ const IndexPage = () => {
                                     <Card.Header >
                                         <div className={"text-center card-info"}>
                                         <span className={"license-name d-block"}>
-                                            Wav licence
+                                            Wav license
                                         </span>
                                             <span className={"license-price d-block font-weight-bold"}>
                                             $120.00
@@ -239,10 +239,38 @@ const IndexPage = () => {
                                     <Card.Header >
                                         <div className={"text-center card-info"}>
                                     <span className={"license-name d-block"}>
-                                        Premium licence
+                                        Wav license + Trackouts
                                     </span>
                                             <span className={"license-price d-block font-weight-bold"}>
                                         $150.00
+                                    </span>
+                                            <span className={'text-uppercase font-weight-bold d-block'}>
+                                        per unit
+                                    </span>
+                                        </div>
+
+
+                                        <br/>
+
+                                    </Card.Header>
+
+                                    <Card.Body>
+                                        <div className={"license-button"}>
+                                            <Button className={""}>Read full license</Button>
+                                        </div>
+                                    </Card.Body>
+                                </Card>
+
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <Card >
+                                    <Card.Header >
+                                        <div className={"text-center card-info"}>
+                                    <span className={"license-name d-block"}>
+                                       Exclusive license
+                                    </span>
+                                            <span className={"license-price d-block font-weight-bold"}>
+                                        $300.00
                                     </span>
                                             <span className={'text-uppercase font-weight-bold d-block'}>
                                         per unit

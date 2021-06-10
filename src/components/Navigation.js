@@ -25,13 +25,6 @@ const Navigation = () => {
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
-                        {/*<Nav.Link href="/cart">*/}
-                        {/*        <span>*/}
-                        {/*            <i className={"fa fa-shopping-cart text-white"}/>*/}
-                        {/*        </span>*/}
-                        {/*    &nbsp; Cart: ${cartTotal? cartTotal : 0}*/}
-                        {/*</Nav.Link>*/}
-
                     </Container>
                 </Navbar>
 
