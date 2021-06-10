@@ -2,7 +2,7 @@ from decouple import config
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.authtoken.models import Token
@@ -52,6 +52,8 @@ def manage_beat(request, beat_id):
 
         return Response(success_msg("Beat updated successfully", serialized.data), status=status.HTTP_200_OK)
 
+
+# @ensure_csrf_cookie
 @csrf_exempt
 @api_view(['GET', 'POST', 'DELETE', ])
 # @permission_classes((IsAuthenticatedOrReadOnly,))

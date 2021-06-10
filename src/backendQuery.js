@@ -24,8 +24,8 @@ export function apiGetBeats(callback) {
 // }
 
 
-export function apiGetLocation(clientId, callback) {
-    backendLookup("GET", `http://127.0.0.1:8000/api/client/locations/${clientId}/`, callback)
+export function apiBeat(callback,data) {
+    backendLookup("POST", `/api/client/beats/`, callback,data)
 }
 
 export function apiRequests(callback) {

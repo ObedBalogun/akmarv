@@ -24,6 +24,9 @@ const Cart = () => {
             lastName: lastName
         };
 
+        axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
+        axios.defaults.xsrfCookieName = 'csrftoken';
+
         axios.post('/api/client/manage-payment/', {user,cartTotal,items})
             .then(function (response) {
                 setTimeout(()=>{
