@@ -1,0 +1,14 @@
+from rest_framework import serializers
+from .models import Beat, OrderItem
+
+
+class BeatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Beat
+        fields = ['title', 'artwork', 'genre', 'mp3_file', 'wav_file', 'stem_tracks']
+        
+
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OrderItem
+        fields = ["license", "beat", "order_date", "order_price"]

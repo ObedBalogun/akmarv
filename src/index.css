@@ -1,0 +1,375 @@
+body {
+  margin: 0;
+  font-family: 'Yanone Kaffeesatz', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+body::-webkit-scrollbar {
+  background-color: white;
+  width: 0.5em;
+}
+#root{
+  min-height: 100vh;
+}
+
+
+body::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+.navbar{
+  padding: .5rem 1rem !important;
+  background-color: #000 !important;
+}
+
+.navbar-brand{
+  padding: 0 !important;
+}
+.navbar-brand img{
+  height:6em;
+  margin: -1em 0 !important;
+
+}
+.nav-link{
+  font-size: 1.5em;
+    color: white !important;
+}
+.nav-link:hover{
+    color: #ae3131!important;
+}
+
+.main-bg{
+  background: #000;
+}
+
+.headliner{
+  /*position: relative;*/
+  padding: 20em 0 10em;
+
+
+}
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 100px;
+  height: 6em;
+}
+
+.input-box{
+  max-width: 70%;
+
+}
+
+.main-search{
+  width: 70%;
+  height: auto;
+  display: block;
+  position: relative;
+  border: 2px solid #eaeaea;
+  background: rgba(0,0,0,.7);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.beat-search{
+    width: 100%;
+    background:white !important;
+}
+.main-search > button{
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 70px;
+  color: #fff;
+  border: none;
+  background: 0 0;
+}
+
+
+.button-1,.contact-div button,.modal-footer button,.btt{
+  background: #000 !important;
+  color: white;
+  border: 1px solid black !important;
+  border-radius: 0;
+  font-weight: bold;
+}
+.contact-div button,.license button, .button-2{
+  background: #ae3131!important;
+  color: white;
+  border: 1px solid #ae3131 !important;
+  border-radius: 0;
+  font-weight: bold;
+
+
+}
+thead{
+  color: grey;
+}
+td > button{
+  background: #000 !important;
+  color: white;
+  border: 1px solid black !important;
+  border-radius: 0 !important;
+  font-weight: bold;
+}
+
+td img{
+    width: 44px;
+    height: 44px;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 0;
+    float: left;
+
+}
+
+.beat-title-col{
+    margin-right: 1.5em!important;
+    vertical-align:sub;
+}
+.main-bg input[type=search], .contact-form input, .contact-form textarea{
+  width: 100%;
+  height: 70px;
+  display: block;
+  background: 0 0;
+  padding: 10px 20px;
+  font-size: 24px;
+  border: none;
+  color: #fff;
+  font-weight: 400;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.upload-form input{
+  width: 100%;
+  height: 70px;
+  display: block;
+  background: 0 0;
+  padding: 10px 20px;
+  font-size: 24px;
+  border: none;
+  color: #000;
+  font-weight: 400;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.searchbar input[type=search]{
+  border: black;
+  background: 0 0;
+  padding: 10px 20px;
+  width: 100%;
+  height: 70px;
+  display: block;
+
+
+
+}
+.card{
+   border: 0 !important;
+
+}
+.card-header{
+  background-color: black !important;
+  color: white !important;
+
+}
+.license{
+  flex-direction: row;
+}
+.card-info{
+  padding: 46px 20px;
+  line-height:50px
+}
+.license-name{
+  font-size: 2em !important;
+}
+.license-price{
+  font-size: 3em !important;
+}
+.contact-div,.upload-div{
+  margin-top:10em;
+}
+
+.contact-form-input{
+  border:1px solid white !important;
+
+}
+.upload-form-input{
+  border:1px solid #ae3131 !important;
+}
+.checkout-form-input{
+  border:1px solid black !important;
+}
+.contact-div .form-label{
+  color: white
+}
+
+.modal-header img{
+  width: 160px;
+  height: 160px;
+  position: absolute;
+  top: 20px;
+  left: 20px
+}
+.beat-info{
+  width: 100%;
+  height: auto;
+  display: inline-block;
+  padding-left: 190px;
+  padding-top: 50px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.table{
+  margin-left: 0 !important;
+
+}
+table th{
+  text-align: center !important;
+}
+.show-more,.license-button{
+  text-align: center !important;
+
+}
+.beat-labels{
+  display: inline-block;
+  height: 24px;
+  padding: 0 10px;
+  margin: 0;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.modal-header,.modal-footer{
+  border-bottom: 0 !important;
+  border-top: 0 !important;
+}
+
+.license-types .card{
+  background:#ae3131;
+  color: white;
+}
+
+.modal-beat-label{
+  border-color: #000 !important;
+  background-color: #ae3131 !important;
+  color: #fff !important;
+}
+
+.container > input[type=checkbox] {
+  position: absolute !important;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.radio-buttons {
+  position: absolute;
+  right: 1em;
+  height: 25px;
+  width: 25px;
+  border-radius: 1em;
+  background-color: #000;
+}
+
+
+.rhap_container{
+  position: fixed !important;
+  bottom: -1px;
+  z-index: 100;
+}
+.rhap_main-controls-button{
+  color:black !important;
+}
+.rhap_progress-filled{
+  background-color: #ae3131!important;
+}
+.rhap_progress-indicator{
+  background: black !important;
+}
+.rhap_download-progress {
+  background-color: rgba(174, 49, 49, 0.3)!important;
+}
+
+.footer{
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
+
+}
+ .beatslist .footer-div{
+  border-top: 1px solid black;
+}
+.footer-links a,.footer-social a{
+  color:black !important;
+  align-items: center;
+  text-align: left;
+}
+
+.carousel{
+  display: none;
+}
+
+.mobile-btn{
+  display: none;
+}
+/*Responsiveness*/
+
+@media(max-width: 776px) {
+
+  .headliner{
+    padding: 4em 0 4em !important;
+  }
+  .main-search{
+    width: 100% !important;
+  }
+  .main-bg input[type=search]{
+    height: 48px!important;
+  }
+  .main-search > button{
+    top: -11px !important;
+    right: -7px !important;
+  }
+  .table{
+    margin-top: 3em !important;
+  }
+
+  .mobile-btn{
+   display: block !important;
+  }
+  .detail-length,th{
+    display: none;
+  }
+  .carousel{
+  display: block;
+  }
+  .card-deck{
+    display: none;
+  }
+  .carousel-indicators{
+    bottom: -70px !important;
+    }
+  .cart-btn, .share-btn{
+    display: none !important;
+  }
+
+}
