@@ -10,7 +10,7 @@ const Navigation = () => {
             <>
                 <Navbar variant="dark" expand={"lg"} className={'font-weight-bold'}>
                     <Container fluid>
-                    <Navbar.Brand href="/homepage"><img src="aklogo.png" alt=""/></Navbar.Brand>
+                    <Navbar.Brand href="/homepage"><img src="/static/aklogo.png" alt=""/></Navbar.Brand>
                     <Navbar.Toggle aria-controls={"navbar-nav"}/>
                     <Navbar.Collapse id={"navbar-nav"}>
                         <Nav className="ml-auto">
