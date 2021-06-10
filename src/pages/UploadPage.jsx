@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import Navigation from "../components/Navigation";
 import axios from "axios";
-import {apiBeat} from "../backendQuery";
 
 const UploadPage = () => {
     const [title, setTitle] = useState('');
@@ -37,17 +36,13 @@ const UploadPage = () => {
         formData.append('artwork',artwork)
 
 
-        // axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
-        // axios.defaults.xsrfCookieName = 'csrftoken';
-        // axios.defaults.withCredentials = true;
-        //
-        // axios.post('/api/client/beats/', formData).then(()=>{
-        //     window.location.replace('/')
-        // })
-        const hand = (data) =>{
-            console.log(data)
-        }
-        apiBeat(hand,formData)
+        axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
+        axios.defaults.xsrfCookieName = 'csrftoken';
+        axios.defaults.withCredentials = true;
+
+        axios.post('/api/client/beats/', formData).then(()=>{
+            window.location.replace('/')
+        })
     }
 
     return (

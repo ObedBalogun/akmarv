@@ -60,6 +60,12 @@ INSTALLED_APPS = [
     'storages',
 
 ]
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
 CORS_ALLOW_ALL_ORIGINS = True
 
 MIDDLEWARE = [
@@ -108,6 +114,7 @@ WSGI_APPLICATION = 'akmarv_backend.wsgi.application'
 #     # }
 # }
 DATABASES = {'default': dj_database_url.config(conn_max_age=600)}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
