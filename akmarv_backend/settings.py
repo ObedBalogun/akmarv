@@ -67,6 +67,8 @@ REST_FRAMEWORK = {
     ]
 }
 CORS_ALLOW_ALL_ORIGINS = True
+CSRF_COOKIE_NAME = "XSRF-TOKEN"
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

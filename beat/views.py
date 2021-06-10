@@ -53,14 +53,10 @@ def manage_beat(request, beat_id):
         return Response(success_msg("Beat updated successfully", serialized.data), status=status.HTTP_200_OK)
 
 
-# @ensure_csrf_cookie
 @csrf_exempt
 @api_view(['GET', 'POST', 'DELETE', ])
-# @permission_classes((IsAuthenticatedOrReadOnly,))
 def manage_beats(request):
-    print('HERE OBED')
     if request.method == 'GET':
-        # beat = Beat.objects.filter(title=request.GET['title'])
         beat = Beat.objects.all().order_by('-id')
         serialized = BeatSerializer(beat, many=True)
         return Response(success_msg("Beats retrieved successfully", serialized.data),
