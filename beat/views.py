@@ -57,6 +57,7 @@ def manage_beat(request, beat_id):
 @api_view(['GET', 'POST', 'DELETE', ])
 def manage_beats(request):
     if request.method == 'GET':
+        # beat = Beat.objects.filter(title=request.GET['title'])
         beat = Beat.objects.all().order_by('-id')
         serialized = BeatSerializer(beat, many=True)
         return Response(success_msg("Beats retrieved successfully", serialized.data),

@@ -35,7 +35,6 @@ const UploadPage = () => {
         formData.append('genre',genre)
         formData.append('artwork',artwork)
 
-
         axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
         axios.defaults.xsrfCookieName = 'csrftoken';
         axios.defaults.withCredentials = true;
