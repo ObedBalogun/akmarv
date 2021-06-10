@@ -8,7 +8,7 @@ import React, {Component} from "react";
 import IndexPage from "./pages/Index";
 import BeatsPage from "./pages/BeatsPage";
 import LoginPage from "./pages/LoginPage";
-import SignUpPage from "./pages/SignUpPage";
+import ContactPage from "./pages/ContactPage";
 import CartPage from "./pages/CartPage";
 import UploadPage from "./pages/UploadPage";
 import BeatDetailPage from "./pages/beat-detail";
@@ -20,7 +20,7 @@ class App extends Component {
         <Router>
           <Route exact path="/" component={IndexPage}/>
           <Route exact path="/wavegod" component={UploadPage}/>
-          <Route exact path="/contact" component={SignUpPage}/>
+          <Route exact path="/contact" component={ContactPage}/>
           <Route exact path="/beats" component={BeatsPage}/>
           <Route exact path="/beat/:id" component={BeatDetailPage}/>
           <Route exact path="/cart" component={CartPage}/>

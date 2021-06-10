@@ -81,7 +81,8 @@ def manage_beats(request):
         if not stem_tracks:
             return Response(error_msg("stems are missing."))
         # beat = Beat(title=title, mp3_file=mp3_file, wav_file=wav_file, stem_tracks=stem_tracks)
-        beat = Beat(title=title,genre=genre,artwork=artwork, mp3_file=mp3_file, wav_file=wav_file, stem_tracks=stem_tracks)
+        beat = Beat(title=title, genre=genre, artwork=artwork, mp3_file=mp3_file, wav_file=wav_file,
+                    stem_tracks=stem_tracks)
         beat.save()
         serialized = BeatSerializer(beat)
         return Response(success_msg("Beat created successfully", serialized.data),
@@ -183,10 +184,9 @@ def manage_checkout(request):
     #   New order
     order = Order(customer=customer)
 
-
     order.total_amount = total_amount
 
-    transaction = Transaction(order.total_amount, 'customer.email@test.com')
+    transaction = Transaction(int(order.total_amount), 'customer.email@test.com')
     transaction.metadata = {"order_id": order_count + 1}
 
     transaction_manager = TransactionsManager()
@@ -213,7 +213,6 @@ def manage_checkout(request):
             order_item = OrderItem(license="premium", name=beat, price=item['price'])
             order_item.save()
             order.order_items.add(order_item)
-
 
     webbrowser.open(url)
 
@@ -253,7 +252,7 @@ def manage_payment_confirmation(request):
                 download_url_3 = create_presigned_url(f"marvs_beats/stem_files/${item.name}.mp3")
 
                 order_list.extend([download_url_1, download_url_2, download_url_3])
-    #
+        #
         beat_order_notification(order_list, order, 'b.obed@yahoo.com')
         Response(success_msg("Beat order successful", 'added'),
                  status=status.HTTP_200_OK)

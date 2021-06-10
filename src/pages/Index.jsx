@@ -267,7 +267,7 @@ const IndexPage = () => {
                     </Container>
                 </div>
                 <div className="contact-div">
-                    <h2 className={'text-center text-white font-weight-bold'}>Contact</h2>
+                    <h2 className={'text-center text-white font-weight-bold'}>Contact me for mixing and mastering orders.</h2>
                     <div className="contact-form m-5">
                         <Container>
                             <Form>
@@ -278,7 +278,7 @@ const IndexPage = () => {
                                     </Form.Group>
                                     <Form.Group as={Col}>
                                         <Form.Label>Email</Form.Label>
-                                        <Form.Control type="email" placeholder="Enter email" className={'contact-form-input'}/>
+                                        <Form.Control type="email" className={'contact-form-input'}/>
                                     </Form.Group>
                                 </Form.Row>
                                 <Form.Row>
