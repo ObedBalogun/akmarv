@@ -29,7 +29,7 @@ const IndexPage = () => {
     return (
         <>
             <Navigation/>
-            <div className={'page-top main-bg'} style={{backgroundImage:"url('background.png')",
+            <div className={'page-top main-bg'} style={{backgroundImage:"url('/static/background.png')",
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'}}>
