@@ -56,6 +56,7 @@ def manage_beat(request, beat_id):
 @api_view(['GET', 'POST', 'DELETE', ])
 # @permission_classes((IsAuthenticatedOrReadOnly,))
 def manage_beats(request):
+    print('HERE OBED')
     if request.method == 'GET':
         # beat = Beat.objects.filter(title=request.GET['title'])
         beat = Beat.objects.all().order_by('-id')
