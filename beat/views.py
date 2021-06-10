@@ -52,7 +52,7 @@ def manage_beat(request, beat_id):
 
         return Response(success_msg("Beat updated successfully", serialized.data), status=status.HTTP_200_OK)
 
-
+@csrf_exempt
 @api_view(['GET', 'POST', 'DELETE', ])
 # @permission_classes((IsAuthenticatedOrReadOnly,))
 def manage_beats(request):
