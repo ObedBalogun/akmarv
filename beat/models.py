@@ -5,10 +5,10 @@ from djmoney.models.fields import MoneyField
 from .utils import generate_reference_number
 
 LICENSES = (
-    ('mp3', 'MP3 Lease'),
-    ('wav', 'WAV Lease'),
-    ('full-body', 'Full Body Lease'),
-    ('exclusive', 'Exclusive'),
+    ('mp3', 'MP3 License'),
+    ('wav', 'WAV License'),
+    ('wtrackout', 'WAV + Trackouts'),
+    ('exclusive', 'Exclusive License'),
 )
 
 
@@ -28,8 +28,9 @@ class Beat(models.Model):
 
 
 class License(models.Model):
-    license_type = models.CharField(max_length=250, choices=LICENSES)
+    license_type = models.CharField(max_length=50, choices=LICENSES)
     license_details = models.TextField()
+    license_price = models.IntegerField()
 
     def __str__(self):
         return f"{self.license_type}"

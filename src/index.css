@@ -333,10 +333,16 @@ table th{
 .mobile-btn{
   display: none;
 }
+.phone-deck{
+  display: none;
+}
+.main-deck .card-body{
+  padding: 0!important;
+}
 /*Responsiveness*/
 
 @media(max-width: 698px) {
-  .card-deck{
+  .license .card-deck{
     display: none;
   }
 }
@@ -368,7 +374,7 @@ table th{
   .carousel{
   display: block;
   }
-  .card-deck{
+  .license .card-deck{
     display: none !important;
   }
   .carousel-indicators{
@@ -376,6 +382,23 @@ table th{
     }
   .cart-btn, .share-btn{
     display: none !important;
+  }
+  .phone-deck .card-body{
+      background-color: #ae3131;
+      padding-inline: 3px !important;
+      color:white;
+      padding: initial;
+  }
+  .phone-deck .card-text{
+    margin-top: 2em;
+  }
+  .phone-deck .radio-buttons{
+    bottom: 30px;
+    right: 30px;
+  }
+  .react-pdf__Page__canvas {
+    transform: scale(1.2,1.8) !important;
+
   }
 
 }
@@ -386,4 +409,18 @@ table th{
 }
 .toast-header .close{
   color: white !important;
+}
+.pdf-body{
+  width: calc(100% - 10%);
+  max-width: 1110px;
+  margin-bottom: 4em;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  font-size: 19px;
+}
+.react-pdf__Page__canvas{
+  width: 100% !important;
+  height: 100% !important;
 }

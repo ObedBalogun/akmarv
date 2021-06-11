@@ -1,16 +1,12 @@
-from decouple import config
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from rest_framework.authtoken.models import Token
 from python_paystack.objects.transactions import Transaction
 from python_paystack.managers import TransactionsManager
 
 from .helpers import error_msg, success_msg
-from akmarv_backend.aws_uploader import upload_to_aws
 from akmarv_backend.aws_downloader import create_presigned_url
 from .mailer import beat_order_notification, beat_order_failed
 from rest_framework.decorators import api_view, permission_classes
@@ -57,7 +53,6 @@ def manage_beat(request, beat_id):
 @api_view(['GET', 'POST', 'DELETE', ])
 def manage_beats(request):
     if request.method == 'GET':
-        # beat = Beat.objects.filter(title=request.GET['title'])
         beat = Beat.objects.all().order_by('-id')
         serialized = BeatSerializer(beat, many=True)
         return Response(success_msg("Beats retrieved successfully", serialized.data),
@@ -96,7 +91,15 @@ def manage_beats(request):
             beat.delete()
             return Response(success_msg("That beat was deleted successfully", None), status=status.HTTP_200_OK)
         except Beat.DoesNotExist:
-            return Response(error_msg("Beat with id does not exist."))
+            return Response(error_msg("Beat with id does not exist."))@api_view(['GET', 'POST', 'DELETE', ])
+
+
+def manage_licenses(request):
+    if request.method == 'GET':
+        beat = License.objects.all().order_by('-id')
+        serialized = BeatSerializer(beat, many=True)
+        return Response(success_msg("Licenses retrieved successfully", serialized.data),
+                        status=status.HTTP_200_OK)
 
 
 #   CART LOGIC
@@ -254,8 +257,10 @@ def manage_payment_confirmation(request):
                 order_list.extend([download_url_1, download_url_2, download_url_3])
         #
         beat_order_notification(order_list, order, 'b.obed@yahoo.com')
-        Response(success_msg("Beat order successful", 'added'),
-                 status=status.HTTP_200_OK)
+        return HttpResponseRedirect(redirect_to='http://www.akmarv.com')
+
+        # Response(success_msg("Beat order successful", 'added'),
+        #          status=status.HTTP_200_OK)
     else:
         beat_order_failed()
         Response(success_msg("Beat order failed", 'fail'),

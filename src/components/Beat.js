@@ -22,7 +22,7 @@ function MyVerticallyCenteredModal(props) {
                 </div>
             </Modal.Header>
             <Modal.Body>
-                <div className="license-types mt-5">
+                <div className="license-types mt-5 main-deck">
                     <CardDeck>
                         <Card className={"text-center p-3"}>
                             <Card.Body>
@@ -37,14 +37,14 @@ function MyVerticallyCenteredModal(props) {
                                     </label>
                                     </div>
 
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                        <Card className={"text-center p-3"}>
+                              </Card.Text>
+                             </Card.Body>
+                         </Card>
+                         <Card className={"text-center p-3"}>
                             <Card.Body>
-                                <Card.Text>
-                                    <div id="wav"  onClick={(e) => props.handleselection(props.beatItem,e) }>
-                                        <span style={{fontSize:1.5+"em"}}>Wav license</span> <br/>
+                                 <Card.Text>
+                                     <div id="wav"  onClick={(e) => props.handleselection(props.beatItem,e) }>
+                                        <span style={{fontSize:1.5+"em"}}>WAV license</span> <br/>
                                         <span style={{fontSize:3.5+"em"}}>$120</span><br/>
                                         <small className={'text-uppercase'}>Mp3 and Wav tagged.</small>
                                         <label className="container">
@@ -55,13 +55,28 @@ function MyVerticallyCenteredModal(props) {
                                 </Card.Text>
                             </Card.Body>
 
-                        </Card>
-                        <Card className={"text-center p-3"}>
-                            <Card.Body>
+                         </Card>
+                         <Card className={"text-center p-3"}>
+                             <Card.Body>
                                 <Card.Text>
-                                    <div id="premium" onClick={(e) => props.handleselection(props.beatItem,e) }>
-                                        <span style={{fontSize:1.5+"em"}}>Premium license</span> <br/>
+                                    <div id="trackouts" onClick={(e) => props.handleselection(props.beatItem,e) }>
+                                        <span style={{fontSize:1.5+"em"}}>WAV + Trackouts </span> <br/>
                                         <span style={{fontSize:3.5+"em"}}>$150</span><br/>
+                                        <small className={'text-uppercase'}>Mp3 tagged.</small>
+                                        <label className="container">
+                                        <input type="checkbox"/>
+                                        <span className={'radio-buttons'}/>
+                                    </label>
+                                    </div>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                         <Card className={"text-center p-3"}>
+                             <Card.Body>
+                                <Card.Text>
+                                    <div id="exclusive" onClick={(e) => props.handleselection(props.beatItem,e) }>
+                                        <span style={{fontSize:1.5+"em"}}>Exclusive license</span> <br/>
+                                        <span style={{fontSize:3.5+"em"}}>$300</span><br/>
                                         <small className={'text-uppercase'}>Mp3 tagged.</small>
                                         <label className="container">
                                         <input type="checkbox"/>
@@ -73,8 +88,85 @@ function MyVerticallyCenteredModal(props) {
                         </Card>
                     </CardDeck>
                 </div>
-                <div>
-                    
+                <div className={"phone-deck"}>
+                    <CardDeck>
+                        <Card className={"text-center p-3"}>
+                            <Card.Body>
+                                <Card.Text>
+                                    <div id="mp3" className="d-inline-block" onClick={(e) => props.handleselection(props.beatItem,e) }>
+                                        <div className="float-left">
+                                            <span  style={{fontSize:1.5+"em"}}>Mp3 license</span> <br/>
+                                            <small className={'text-uppercase'}>Mp3 tagged.</small>
+                                        </div>
+                                        <div className="float-right">
+                                            <span style={{fontSize:3.5+"em"}}>$80</span><br/>
+                                        </div>
+                                        <label className="container">
+                                        <input type="checkbox"/>
+                                        <span className={'radio-buttons'}/>
+                                    </label>
+                                    </div>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                        <Card className={"text-center p-3"}>
+                            <Card.Body>
+                                <Card.Text>
+                                    <div id="wav" className="d-inline-block" onClick={(e) => props.handleselection(props.beatItem,e) }>
+                                        <div className="float-left">
+                                            <span  style={{fontSize:1.5+"em"}}>WAV license</span> <br/>
+                                            <small className={'text-uppercase'}>Mp3 & WAV tagged.</small>
+                                        </div>
+                                        <div className="float-right">
+                                            <span style={{fontSize:3.5+"em"}}>$120</span><br/>
+                                        </div>
+                                        <label className="container">
+                                        <input type="checkbox"/>
+                                        <span className={'radio-buttons'}/>
+                                    </label>
+                                    </div>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                        <Card className={"text-center p-3"}>
+                            <Card.Body>
+                                <Card.Text>
+                                    <div id="trackouts" className="d-inline-block" onClick={(e) => props.handleselection(props.beatItem,e) }>
+                                        <div className="float-left">
+                                            <span  style={{fontSize:1.5+"em"}}>WAV + Trackouts</span> <br/>
+                                            <small className={'text-uppercase'}>Mp3 & WAV tagged.</small>
+                                        </div>
+                                        <div className="float-right">
+                                            <span style={{fontSize:3.5+"em"}}>$150</span><br/>
+                                        </div>
+                                        <label className="container">
+                                        <input type="checkbox"/>
+                                        <span className={'radio-buttons'}/>
+                                    </label>
+                                    </div>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                        <Card className={"text-center p-3"}>
+                            <Card.Body>
+                                <Card.Text>
+                                    <div id="exclusive" className="d-inline-block" onClick={(e) => props.handleselection(props.beatItem,e) }>
+                                        <div className="float-left">
+                                            <span  style={{fontSize:1.5+"em"}}>Exclusive license</span> <br/>
+                                            <small className={'text-uppercase'}>Mp3 & WAV tagged.</small>
+                                        </div>
+                                        <div className="float-right">
+                                            <span style={{fontSize:3.5+"em"}}>$300</span><br/>
+                                        </div>
+                                        <label className="container">
+                                        <input type="checkbox"/>
+                                        <span className={'radio-buttons'}/>
+                                    </label>
+                                    </div>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </CardDeck>
                 </div>
             </Modal.Body>
             <Modal.Footer>
@@ -101,11 +193,11 @@ const Beat = ({beat}) => {
             })
             .then((array) => {
                 audioCtx.decodeAudioData(array, (buffer) => {
-                    // source.buffer = buffer
+                     // source.buffer = buffer
                     const beatDuration = buffer.duration;
                     console.log(beat.title+buffer.length+buffer.sampleRate)
                     var date = new Date(0);
-                    date.setSeconds(beatDuration); // specify value for SECONDS here
+                    date.setSeconds(beatDuration);  //specify value for SECONDS here
                     var timeString = date.toISOString().substr(14, 5);
                     setDuration(timeString)
                 })
@@ -126,8 +218,13 @@ const Beat = ({beat}) => {
             setModalShow(false)
 
         }
-        else if(e.target.id === "premium"){
-            addItem({id:beat.title,name:beat.title,price:150,license:"premium"})
+        else if(e.target.id === "trackouts"){
+            addItem({id:beat.title,name:beat.title,price:150,license:"WAV + Trackouts"})
+            setModalShow(false)
+
+        }
+        else if(e.target.id === "exclusive"){
+            addItem({id:beat.title,name:beat.title,price:300,license:"exclusive"})
             setModalShow(false)
 
         }

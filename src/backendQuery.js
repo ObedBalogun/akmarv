@@ -12,17 +12,12 @@ export function apiAuthenticateUser(callback, username, password) {
 }
 
 export function apiGetBeats(callback) {
-
     axios.get('/api/client/beats/').then(r => callback(r.data,r.status))
-
-
 }
 
-
-// export function apiGetShyneRequest(callback) {
-//     backendLookup("POST", "/shyne-request/", callback)
-// }
-
+export function apiGetLicense(callback){
+    axios.get('/api/client/licenses/').then(r => callback(r.data,r.status))
+}
 
 export function apiBeat(callback,data) {
     backendLookup("POST", `/api/client/beats/`, callback,data)
