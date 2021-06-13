@@ -203,6 +203,7 @@ def manage_checkout(request):
     transaction = transaction_manager.initialize_transaction('STANDARD', transaction,
                                                              callback_url="http://127.0.0.1:8000/api/client/confirm-payment/")
     url = transaction.authorization_url
+    print(url)
     reference = transaction.reference
 
     order.reference_id = reference
