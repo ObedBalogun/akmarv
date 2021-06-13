@@ -31,7 +31,7 @@ const Cart = () => {
         axios.post('/api/client/manage-payment/', {user,cartTotal,items})
             .then(function (response) {
                 setTimeout(()=>{
-                // window.location.replace('/');
+                window.location.replace(response);
                 emptyCart();
             },5000)
         })

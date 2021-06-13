@@ -18,6 +18,9 @@ const BeatsPage = () => {
     const [beat, setBeat] = useState("")
     const [showPlayer, setShowPlayer] = useState(false)
 
+    const {search} = window.location;
+    const query  = new URLSearchParams(search).get('s');
+    const [searchQuery, setSearchQuery] = useState(query || '');
 
     const selectedBeat =(beat)=>{
         setBeat(beat);
@@ -43,6 +46,8 @@ const BeatsPage = () => {
                                      placeholder="What are you looking for?"
                                      aria-label="beats-query-search"
                                      aria-describedby="basic-addon2"
+                                     onChange={e => setSearchQuery(e.target.value)}
+
                                  />
                              </InputGroup>
                              <button>
@@ -54,7 +59,7 @@ const BeatsPage = () => {
                     </Form>
                 </div>
                 <div className="beatslist">
-                    <BeatList selectedBeat={selectedBeat}/>
+                    <BeatList searchQuery={searchQuery} selectedBeat={selectedBeat}/>
                     <div className={'show-more'}>
                         <Button className={'mt-5 mb-5 button-2'}>
                             Browse All Tracks

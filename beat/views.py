@@ -24,6 +24,18 @@ import webbrowser
 AUDIO_FILE_TYPES = ['wav', 'mp3', 'ogg']
 
 
+class Assets(View):
+
+    def get(self, _request, filename):
+        path = os.path.join(os.path.dirname(__file__), 'static', filename)
+
+        if os.path.isfile(path):
+            with open(path, 'rb') as file:
+                return HttpResponse(file.read(), content_type='application/javascript')
+        else:
+            return HttpResponseNotFound()
+
+
 @api_view(['GET', 'PUT', ])
 # @permission_classes((IsAuthenticatedOrReadOnly,))
 def manage_beat(request, beat_id):
@@ -94,7 +106,8 @@ def manage_beats(request):
             beat.delete()
             return Response(success_msg("That beat was deleted successfully", None), status=status.HTTP_200_OK)
         except Beat.DoesNotExist:
-            return Response(error_msg("Beat with id does not exist."))@api_view(['GET', 'POST', 'DELETE', ])
+            return Response(error_msg("Beat with id does not exist.")) @ api_view(['GET', 'POST', 'DELETE', ])
+
 
 @api_view(['GET', 'POST', 'DELETE', ])
 @csrf_exempt
@@ -108,7 +121,7 @@ def manage_licenses(request):
         license_type = request.data.get('type', None)
         license_price = request.data.get('price', None)
         license_content = request.data.get('content', None)
-        beat_license = License(license_type=license_type,license_price=license_price,license_content=license_content)
+        beat_license = License(license_type=license_type, license_price=license_price, license_content=license_content)
         beat_license.save()
 
 
@@ -228,11 +241,10 @@ def manage_checkout(request):
             order_item.save()
             order.order_items.add(order_item)
 
-    # webbrowser.open(url)
-    return HttpResponseRedirect(url)
+    webbrowser.open(url)
 
-    # return Response(success_msg("Payment successful", 'done'),
-    #                 status=status.HTTP_200_OK)
+    return Response(success_msg("Payment initiation successful", url),
+                    status=status.HTTP_200_OK)
 
 
 @api_view(["GET", ])
@@ -279,16 +291,5 @@ def manage_payment_confirmation(request):
                  status=status.HTTP_402_PAYMENT_REQUIRED)
     # Response(success_msg("Payment verification done", 'done'),
     #          status=status.HTTP_200_OK)
-
-class Assets(View):
-
-    def get(self, _request, filename):
-        path = os.path.join(os.path.dirname(__file__), 'static', filename)
-
-        if os.path.isfile(path):
-            with open(path, 'rb') as file:
-                return HttpResponse(file.read(), content_type='application/javascript')
-        else:
-            return HttpResponseNotFound()
 
 # TODO: fix
