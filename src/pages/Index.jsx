@@ -1,7 +1,7 @@
 import React, { useState} from 'react';
 import BeatList from "../components/BeatList";
 import Navigation from "../components/Navigation"
-import  {InputGroup, FormControl, Button,Form, Card, Container, Row, Col,CardDeck,Carousel} from "react-bootstrap"
+import  {InputGroup, FormControl, Button,Form, Container, Row, Col} from "react-bootstrap"
 import Player from "../components/AudioPlayer";
 import Footer from "../components/Footer";
 import LicenseList from "../components/LicenseList";

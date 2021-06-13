@@ -2,11 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {apiGetLicense} from "../backendQuery";
 import {CardDeck, Carousel, Container} from "react-bootstrap";
 import License from "./License";
-import hmm from "../sample.pdf"
-import hm from "../k.pdf"
-import fo from "../foo.pdf"
 
-import {Document, Page} from "react-pdf/dist/umd/entry.webpack";
 
 const LicenseList = () => {
     const [licenses, setLicenses] = useState([])
@@ -18,10 +14,10 @@ const LicenseList = () => {
     }
 
     useEffect(() => {
-        const handleBeatsList = (response) => {
+        const handleLicenseList = (response) => {
             setLicenses(response.data);
         }
-        apiGetLicense(handleBeatsList)
+        apiGetLicense(handleLicenseList)
     },[])
 
 

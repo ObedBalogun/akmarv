@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from djmoney.models.fields import MoneyField
 
-from .utils import generate_reference_number
 
 LICENSES = (
     ('mp3', 'MP3 License'),
@@ -29,7 +28,7 @@ class Beat(models.Model):
 
 class License(models.Model):
     license_type = models.CharField(max_length=50, choices=LICENSES)
-    license_details = models.TextField()
+    license_content = models.FileField(upload_to=f'licenses')
     license_price = models.IntegerField()
 
     def __str__(self):

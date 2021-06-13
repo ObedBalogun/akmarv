@@ -11,7 +11,7 @@ class BeatSerializer(serializers.ModelSerializer):
 class LicenseSerializer(serializers.ModelSerializer):
     class Meta:
         model = License
-        fields = ['title', 'artwork', 'genre', 'mp3_file', 'wav_file', 'stem_tracks']
+        fields = ['license_type', 'license_price','license_details']
 
 
 class OrderSerializer(serializers.ModelSerializer):

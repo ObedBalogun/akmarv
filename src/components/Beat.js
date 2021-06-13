@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Button, ButtonGroup, Card, CardDeck, Modal} from "react-bootstrap";
-import { useCart} from "react-use-cart";
+import {useCart} from "react-use-cart";
 
 
 function MyVerticallyCenteredModal(props) {
@@ -182,25 +182,25 @@ function MyVerticallyCenteredModal(props) {
 }
 
 const Beat = ({beat}) => {
-    const [duration, setDuration] = useState()
-    const AudioContext = window.AudioContext;
-    const audioCtx = new AudioContext();
+    const [duration, setDuration] = useState(null)
 
     useEffect(()=>{
+        const AudioContext = window.AudioContext;
+        const audioCtx = new AudioContext();
         fetch(beat.mp3_file)
             .then((data) => {
                 return data.arrayBuffer();
             })
             .then((array) => {
                 audioCtx.decodeAudioData(array, (buffer) => {
-                     // source.buffer = buffer
+                    // source.buffer = buffer
                     const beatDuration = buffer.duration;
-                    console.log(beat.title+buffer.length+buffer.sampleRate)
+                    console.log(beat.title + buffer.length + buffer.sampleRate)
                     var date = new Date(0);
                     date.setSeconds(beatDuration);  //specify value for SECONDS here
                     var timeString = date.toISOString().substr(14, 5);
                     setDuration(timeString)
-                })
+                }).then(r  => console.log(r))
             })
     },[])
 

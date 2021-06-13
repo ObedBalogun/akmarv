@@ -1,19 +1,9 @@
 import React, {useState} from 'react';
 import {Button, Card, Modal} from "react-bootstrap";
 import {Document, Page} from "react-pdf/dist/umd/entry.webpack";
-// import hmm from "../axe.pdf"
-import hmm from "../sample.pdf"
+
 
 const License = ({license}) => {
-    const [pageNumber, setPageNumber] = useState(1);
-      const [numPages, setNumPages] = useState(null);
-
-    function onDocumentLoadSuccess({ numPages }) {
-    setNumPages(numPages);
-    setPageNumber(1);
-  }
-
-
     function LicenseModal(props) {
     return (
         <Modal
@@ -30,14 +20,11 @@ const License = ({license}) => {
             </Modal.Header>
             <Modal.Body>
                 <div className="pdf-body">
-                <Document file={license.license_details}
-                        onLoadSuccess={onDocumentLoadSuccess}
->
+                <Document file={license.license_content}>
                 <Page pageNumber={1} />
                 </Document>
                 </div>
 
-                {/*{license.license_details}*/}
             </Modal.Body>
         </Modal>
     );
@@ -46,7 +33,6 @@ const License = ({license}) => {
 
     return (
         <>
-
             <Card >
                 <Card.Header >
                     <div className={"text-center card-info text-nowrap"} style={{paddingTop:"5em"}}>

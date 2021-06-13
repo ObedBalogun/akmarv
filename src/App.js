@@ -7,7 +7,6 @@ import {
 import React, {Component} from "react";
 import IndexPage from "./pages/Index";
 import BeatsPage from "./pages/BeatsPage";
-import LoginPage from "./pages/LoginPage";
 import ContactPage from "./pages/ContactPage";
 import CartPage from "./pages/CartPage";
 import UploadPage from "./pages/UploadPage";

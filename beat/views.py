@@ -11,7 +11,7 @@ from akmarv_backend.aws_downloader import create_presigned_url
 from .mailer import beat_order_notification, beat_order_failed
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
-from .serializers import BeatSerializer, OrderSerializer
+from .serializers import BeatSerializer, OrderSerializer, LicenseSerializer
 from .models import Beat, License, OrderItem, Order, Customer, Payment
 from cart.cart import Cart
 import webbrowser
@@ -93,13 +93,20 @@ def manage_beats(request):
         except Beat.DoesNotExist:
             return Response(error_msg("Beat with id does not exist."))@api_view(['GET', 'POST', 'DELETE', ])
 
-
+@api_view(['GET', 'POST', 'DELETE', ])
+@csrf_exempt
 def manage_licenses(request):
     if request.method == 'GET':
         beat = License.objects.all().order_by('-id')
-        serialized = BeatSerializer(beat, many=True)
+        serialized = LicenseSerializer(beat, many=True)
         return Response(success_msg("Licenses retrieved successfully", serialized.data),
                         status=status.HTTP_200_OK)
+    elif request.method == "POST":
+        license_type = request.data.get('type', None)
+        license_price = request.data.get('price', None)
+        license_content = request.data.get('content', None)
+        beat_license = License(license_type=license_type,license_price=license_price,license_content=license_content)
+        beat_license.save()
 
 
 #   CART LOGIC
