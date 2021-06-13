@@ -11,7 +11,7 @@ class BeatSerializer(serializers.ModelSerializer):
 class LicenseSerializer(serializers.ModelSerializer):
     class Meta:
         model = License
-        fields = ['license_type', 'license_price','license_details']
+        fields = ['license_type', 'license_price','license_content']
 
 
 class OrderSerializer(serializers.ModelSerializer):
