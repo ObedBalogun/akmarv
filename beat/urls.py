@@ -1,5 +1,7 @@
+from django.conf.urls.static import static
 from django.urls.conf import path
 
+from akmarv_backend import settings
 from .views import *
 
 from .auth import UserAuthToken
@@ -19,3 +21,4 @@ urlpatterns = [
     path('manage-payment/', manage_checkout, name='make-payment'),
     path('confirm-payment/', manage_payment_confirmation, name='payment-confirm'),
 ]
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
