@@ -4,10 +4,10 @@ from djmoney.models.fields import MoneyField
 
 
 LICENSES = (
-    ('mp3', 'MP3 License'),
-    ('wav', 'WAV License'),
-    ('wtrackout', 'WAV + Trackouts'),
-    ('exclusive', 'Exclusive License'),
+    ('MP3 License','mp3'),
+    ('WAV License','wav'),
+    ('WAV + Trackouts','wtrackout'),
+    ('Exclusive License','exclusive'),
 )
 
 
@@ -55,7 +55,7 @@ class Customer(models.Model):
     email = models.EmailField()
 
     def __str__(self):
-        return f" Order for {self.first_name} "
+        return f" {self.first_name} "
 
 
 class Order(models.Model):

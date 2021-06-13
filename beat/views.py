@@ -1,5 +1,8 @@
-from django.http import HttpResponseRedirect
+import os
+
+from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect
+from django.views import View
 from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
@@ -225,10 +228,11 @@ def manage_checkout(request):
             order_item.save()
             order.order_items.add(order_item)
 
-    webbrowser.open(url)
+    # webbrowser.open(url)
+    return HttpResponseRedirect(url)
 
-    return Response(success_msg("Payment successful", 'done'),
-                    status=status.HTTP_200_OK)
+    # return Response(success_msg("Payment successful", 'done'),
+    #                 status=status.HTTP_200_OK)
 
 
 @api_view(["GET", ])
@@ -275,5 +279,16 @@ def manage_payment_confirmation(request):
                  status=status.HTTP_402_PAYMENT_REQUIRED)
     # Response(success_msg("Payment verification done", 'done'),
     #          status=status.HTTP_200_OK)
+
+class Assets(View):
+
+    def get(self, _request, filename):
+        path = os.path.join(os.path.dirname(__file__), 'static', filename)
+
+        if os.path.isfile(path):
+            with open(path, 'rb') as file:
+                return HttpResponse(file.read(), content_type='application/javascript')
+        else:
+            return HttpResponseNotFound()
 
 # TODO: fix
