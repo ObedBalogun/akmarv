@@ -6,17 +6,13 @@ import { Table} from "react-bootstrap";
 const BeatList = ({selectedBeat,searchQuery}) => {
 
     const [beats, setBeats] = useState([])
-    var beatm= [
-        {"title":"ASS",
-        }
-        ]
 
     useEffect(() => {
         const handleBeatsList = (response) => {
-            setBeats(beatm);
+            setBeats(response.data);
         }
         handleBeatsList();
-        // apiGetBeats(handleBeatsList)
+        apiGetBeats(handleBeatsList)
     },[])
 
     // Search
