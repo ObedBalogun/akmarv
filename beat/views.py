@@ -27,7 +27,7 @@ AUDIO_FILE_TYPES = ['wav', 'mp3', 'ogg']
 class Assets(View):
 
     def get(self, _request, filename):
-        path = os.path.join(os.path.dirname(__file__), 'static', filename)
+        path = os.path.join(os.path.dirname(__file__), 'build/static', filename)
 
         if os.path.isfile(path):
             with open(path, 'rb') as file:
@@ -249,6 +249,7 @@ def manage_checkout(request):
 @api_view(["GET", ])
 @csrf_exempt
 def manage_payment_confirmation(request):
+    print('THANK GOODNESS')
     reference = request.GET.get('reference', None)
     transaction = Transaction(0, 'email@test.com')
     transaction_manager = TransactionsManager()
