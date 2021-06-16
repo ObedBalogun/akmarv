@@ -105,7 +105,7 @@ def manage_beats(request):
             beat.delete()
             return Response(success_msg("That beat was deleted successfully", None), status=status.HTTP_200_OK)
         except Beat.DoesNotExist:
-            return Response(error_msg("Beat with id does not exist.")) @ api_view(['GET', 'POST', 'DELETE', ])
+            return Response(error_msg("Beat with id does not exist."))
 
 
 @api_view(['GET', 'POST', 'DELETE', ])
@@ -217,7 +217,6 @@ def manage_checkout(request):
     transaction_manager = TransactionsManager()
     transaction = transaction_manager.initialize_transaction('STANDARD', transaction)
     url = transaction.authorization_url
-    print(url)
     reference = transaction.reference
 
     order.reference_id = reference
@@ -280,10 +279,10 @@ def manage_payment_confirmation(request):
                 order_list.extend([download_url_1, download_url_2, download_url_3])
         #
         beat_order_notification(order_list, order, 'b.obed@yahoo.com')
-        return HttpResponseRedirect(redirect_to='http://www.akmarv.com')
+        # return HttpResponseRedirect(redirect_to='http://www.akmarv.com')
 
-        # Response(success_msg("Beat order successful", 'added'),
-        #          status=status.HTTP_200_OK)
+        Response(success_msg("Beat order successful", None),
+                 status=status.HTTP_200_OK)
     else:
         beat_order_failed()
         Response(success_msg("Beat order failed", 'fail'),
