@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Card, Modal} from "react-bootstrap";
-import {Document, Page} from "react-pdf/dist/esm/entry.webpack";
+import {Document} from "react-pdf/dist/esm/entry.webpack";
 import hm from "../sample.pdf"
 
 
@@ -21,9 +21,7 @@ const License = ({license}) => {
             </Modal.Header>
             <Modal.Body>
                 <div className="pdf-body">
-                <Document file={hm}>
-                <Page pageNumber={1} />
-                </Document>
+                <Document file={hm}/>
                 </div>
 
             </Modal.Body>
