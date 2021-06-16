@@ -21,4 +21,3 @@ urlpatterns = [
     path('manage-payment/', manage_checkout, name='make-payment'),
     path('confirm-payment/', manage_payment_confirmation, name='payment-confirm'),
 ]
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

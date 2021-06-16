@@ -70,8 +70,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -159,7 +159,7 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 STATIC_URL = '/static/'
 # STATIC_ROOT = BASE_DIR / "staticfiles"
-STATIC_ROOT = os.path.join(BASE_DIR, 'build','staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'build','static')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "build/static"),

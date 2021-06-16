@@ -11,7 +11,7 @@ const BeatList = ({selectedBeat,searchQuery}) => {
         const handleBeatsList = (response) => {
             setBeats(response.data);
         }
-        handleBeatsList();
+        // handleBeatsList();
         apiGetBeats(handleBeatsList)
     },[])
 
