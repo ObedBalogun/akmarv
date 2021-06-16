@@ -16,7 +16,8 @@ from python_paystack.paystack_config import PaystackConfig
 import django_heroku
 import dotenv
 import dj_database_url
-
+import mimetypes
+mimetypes.add_type("text/css", ".css", True)
 
 
 
