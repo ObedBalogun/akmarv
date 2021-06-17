@@ -16,10 +16,6 @@ from python_paystack.paystack_config import PaystackConfig
 import django_heroku
 import dotenv
 import dj_database_url
-# import mimetypes
-#
-# mimetypes.add_type("text/javascript", ".js", True)
-# mimetypes.add_type("text/css", ".css", True)
 
 
 
@@ -158,7 +154,7 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 STATIC_URL = '/static/'
 # STATIC_ROOT = BASE_DIR / "staticfiles"
-STATIC_ROOT = os.path.join(BASE_DIR, 'build','staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'build','static')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "build/static"),
