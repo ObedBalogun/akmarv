@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Button, Card, Modal} from "react-bootstrap";
 import {Document} from "react-pdf/dist/esm/entry.webpack";
-import hm from "../sample.pdf"
+// import hm from "../sample.pdf"
 
 
 const License = ({license}) => {
