@@ -24,16 +24,16 @@ import webbrowser
 AUDIO_FILE_TYPES = ['wav', 'mp3', 'ogg']
 
 
-class Assets(View):
-
-    def get(self, _request, filename):
-        path = os.path.join(os.path.dirname(__file__), 'dist', filename)
-
-        if os.path.isfile(path):
-            with open(path, 'rb') as file:
-                return HttpResponse(file.read(), content_type='application/javascript')
-        else:
-            return HttpResponseNotFound()
+# class Assets(View):
+#
+#     def get(self, _request, filename):
+#         path = os.path.join(os.path.dirname(__file__), 'dist', filename)
+#
+#         if os.path.isfile(path):
+#             with open(path, 'rb') as file:
+#                 return HttpResponse(file.read(), content_type='application/javascript')
+#         else:
+#             return HttpResponseNotFound()
 
 @api_view(['GET', 'PUT', ])
 # @permission_classes((IsAuthenticatedOrReadOnly,))
