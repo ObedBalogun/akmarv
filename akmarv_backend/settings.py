@@ -85,7 +85,7 @@ ROOT_URLCONF = 'akmarv_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'build')],
+        'DIRS': [os.path.join(BASE_DIR, 'frontend/dist')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -154,7 +154,9 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "build"),
+    os.path.join(BASE_DIR, 'frontend/dist')
+
+    # os.path.join(BASE_DIR, "build"),
     # os.path.join(BASE_DIR, "static"),
 ]
 # STATIC_ROOT = BASE_DIR / "staticfiles"
