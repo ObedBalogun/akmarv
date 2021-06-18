@@ -8,18 +8,9 @@ module.exports = {
     entry: "./src/index.js",
     // context: path.resolve(__dirname, 'frontend'),
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, '/dist'),
         filename: "bundle.js",
         publicPath: '/'
-
-    },
-    devServer: {
-        proxy: {
-            "/api": "http://localhost:8000"
-        },
-        port: 3010,
-        watchContentBase: true,
-        historyApiFallback: true,
 
     },
     module: {
@@ -55,6 +46,16 @@ module.exports = {
             use: 'file-loader'
          }
         ],
+    },
+
+    devServer: {
+        proxy: {
+            "/api": "http://localhost:8000"
+        },
+        port: 3010,
+        watchContentBase: true,
+        historyApiFallback: true,
+
     },
     plugins: [
     new webpack.HotModuleReplacementPlugin(),
