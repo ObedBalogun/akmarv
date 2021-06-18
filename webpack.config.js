@@ -19,7 +19,6 @@ module.exports = {
         port: 3000,
         watchContentBase: true,
         historyApiFallback: true,
-        compress: true,
 
     },
     module: {
@@ -56,14 +55,5 @@ module.exports = {
          }
         ],
     },
-    optimization: {
-        minimize: true,
-    },
-    plugins: [
-        new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: JSON.stringify("development"),
-            },
-        }),
-    ],
+
 };
