@@ -36,9 +36,9 @@ DEBUG = False
 if DEBUG_MODE == 'OFF':
     DEBUG = False
 
-# ALLOWED_HOSTS = ['127.0.0.1','127.0.0.1:8000', 'localhost','akmarv.com','akmarv.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','akmarv.com/','akmarv.herokuapp.com/']
 # ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-ALLOWED_HOSTS =['*']
+# ALLOWED_HOSTS =['*']
 
 # Application definition
 
