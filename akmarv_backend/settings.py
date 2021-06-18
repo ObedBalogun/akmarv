@@ -155,6 +155,7 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "build/static"),
+    os.path.join(BASE_DIR, "src"),
 ]
 # STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
