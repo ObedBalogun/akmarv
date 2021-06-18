@@ -107,6 +107,8 @@ WSGI_APPLICATION = 'akmarv_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+
+
 DATABASES = {'default': dj_database_url.config(conn_max_age=600)}
 
 # Password validation
@@ -157,10 +159,10 @@ STATICFILES_DIRS = [
 ]
 # STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_TMP = os.path.join(BASE_DIR, 'static')
+# STATIC_TMP = os.path.join(BASE_DIR, 'static')
 
-os.makedirs(STATIC_TMP, exist_ok=True)
-os.makedirs(STATIC_ROOT, exist_ok=True)
+# os.makedirs(STATIC_TMP, exist_ok=True)
+# os.makedirs(STATIC_ROOT, exist_ok=True)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
