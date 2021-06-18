@@ -107,9 +107,7 @@ WSGI_APPLICATION = 'akmarv_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-
-
-DATABASES = {'default': dj_database_url.config()}
+DATABASES = {'default': dj_database_url.config(conn_max_age=600)}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -154,9 +152,8 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "build/static"),
-    os.path.join(BASE_DIR, "public"),
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "build"),
+    # os.path.join(BASE_DIR, "static"),
 ]
 # STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

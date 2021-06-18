@@ -1,11 +1,13 @@
 const path = require('path');
+const webpack = require("webpack");
+
 // var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
     entry: "./src/index.js",
     output: {
-        path: path.join(__dirname, '/build/static'),
+        path: path.join(__dirname, 'build'),
         filename: "index.bundle.js",
         publicPath: '/'
 
@@ -46,7 +48,17 @@ module.exports = {
                         }
                     }
                 ]
-            }
-        ]
-    }
+            },
+        ],
+    },
+    optimization: {
+        minimize: true,
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            "process.env": {
+                NODE_ENV: JSON.stringify("development"),
+            },
+        }),
+    ],
 };
