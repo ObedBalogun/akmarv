@@ -1,14 +1,14 @@
 const path = require('path');
 const webpack = require("webpack");
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
     entry: "./src/index.js",
-    context: path.resolve(__dirname, 'frontend'),
+    // context: path.resolve(__dirname, 'frontend'),
     output: {
-        path: path.join(__dirname, 'frontend/dist'),
+        path: path.join(__dirname, 'dist'),
         filename: "bundle.js",
         publicPath: '/'
 
@@ -58,11 +58,7 @@ module.exports = {
     },
     plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      template: 'src/index.html',
-      filename: 'index.html',
-      inject: 'body'
-    })
+
   ]
 
 };
