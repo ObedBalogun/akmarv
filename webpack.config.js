@@ -1,14 +1,25 @@
 const path = require('path');
 const webpack = require("webpack");
 
+// var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
-    entry:path.resolve(__dirname, './src/index.js'),
+    entry: "./src/index.js",
     output: {
         path: path.join(__dirname, 'build'),
         filename: "index.bundle.js",
         publicPath: '/'
+
+    },
+    devServer: {
+        proxy: {
+            "/api": "http://localhost:8000"
+        },
+        port: 3000,
+        watchContentBase: true,
+        historyApiFallback: true,
+        compress: true,
 
     },
     module: {
@@ -39,19 +50,11 @@ module.exports = {
                     }
                 ]
             },
+            {
+            test: /\.(pdf)?$/,
+            use: 'file-loader'
+         }
         ],
-    },
-
-    devServer: {
-        contentBase: path.resolve(__dirname, './build'),
-        proxy: {
-            "/api": "http://localhost:8000"
-        },
-        port: 3000,
-        watchContentBase: true,
-        historyApiFallback: true,
-        compress: true,
-
     },
     optimization: {
         minimize: true,
