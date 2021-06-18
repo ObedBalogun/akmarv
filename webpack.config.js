@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require("webpack");
 
-// var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
@@ -16,9 +16,10 @@ module.exports = {
         proxy: {
             "/api": "http://localhost:8000"
         },
-        port: 3010,
+        port: 3000,
         watchContentBase: true,
         historyApiFallback: true,
+        compress: true,
 
     },
     module: {
@@ -55,10 +56,14 @@ module.exports = {
         minimize: true,
     },
     plugins: [
-        new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: JSON.stringify("development"),
-            },
+        new HtmlWebpackPlugin({
+            template: "./src/index.html"
         }),
+        // new webpack.DefinePlugin({
+        //     "process.env": {
+        //         NODE_ENV: JSON.stringify("development"),
+        //     },
+        // }),
     ],
+
 };
