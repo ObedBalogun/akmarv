@@ -13,13 +13,13 @@ const LicenseList = () => {
         setIndex(selectedIndex);
     }
 
-
-    useEffect((response) => {
-        const handleLicenseList = () => {
+    useEffect(() => {
+        const handleLicenseList = (response) => {
             setLicenses(response.data);
         }
         apiGetLicense(handleLicenseList)
     },[])
+
 
     return (
         <>
