@@ -69,8 +69,12 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ]
 }
-CORS_ORIGIN_ALLOW_ALL = True
-
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+    'http://localhost:3010',
+    'https://paystack.com',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -161,7 +165,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "build"),
+    os.path.join(BASE_DIR, "build/static"),
     os.path.join(BASE_DIR, "public"),
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
