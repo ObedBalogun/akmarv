@@ -12,20 +12,14 @@ const LicenseList = () => {
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
     }
-    const test = [
-    {"license_type":"title",
-    "license_content":"hmm",
-    "license_price":120}
-    ]
 
-    useEffect(() => {
+
+    useEffect((response) => {
         const handleLicenseList = () => {
-            setLicenses(test);
+            setLicenses(response.data);
         }
-        handleLicenseList()
-        // apiGetLicense(handleLicenseList)
+        apiGetLicense(handleLicenseList)
     },[])
-console.log(licenses)
 
     return (
         <>
