@@ -46,7 +46,7 @@ const BeatList = ({selectedBeat,searchQuery}) => {
                 {filteredBeats.map((beat) => (
 
                     <tr key={beat.title} className={"h5"} onClick={()=>selectedBeat(beat)}>
-                        <Beat beat={beat}/>
+                        <Beat key={beat.id} beat={beat}/>
                     </tr>
                 ))}
                 </tbody>
