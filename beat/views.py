@@ -25,15 +25,15 @@ AUDIO_FILE_TYPES = ['wav', 'mp3', 'ogg']
 
 
 class Assets(View):
+
     def get(self, _request, filename):
-        path = os.path.join(os.path.dirname(__file__), 'static', filename)
+        path = os.path.join(os.path.dirname(__file__), 'dist', filename)
 
         if os.path.isfile(path):
             with open(path, 'rb') as file:
                 return HttpResponse(file.read(), content_type='application/javascript')
         else:
             return HttpResponseNotFound()
-
 
 @api_view(['GET', 'PUT', ])
 # @permission_classes((IsAuthenticatedOrReadOnly,))
@@ -237,6 +237,8 @@ def manage_checkout(request):
             order_item = OrderItem(license="premium", name=beat, price=item['price'])
             order_item.save()
             order.order_items.add(order_item)
+
+    webbrowser.open(url)
 
     return Response(success_msg("Payment initiation successful", url),
                     status=status.HTTP_200_OK)

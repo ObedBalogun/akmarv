@@ -5,6 +5,8 @@ import  {InputGroup, FormControl, Button,Form, Container, Row, Col} from "react-
 import Player from "../components/AudioPlayer";
 import Footer from "../components/Footer";
 import LicenseList from "../components/LicenseList";
+import background from "../../public/background.png"
+
 
 
 const IndexPage = () => {
@@ -31,7 +33,8 @@ const IndexPage = () => {
     return (
         <>
             <Navigation/>
-            <div className={'page-top main-bg'} style={{backgroundImage:"url('/static/background.png')",
+            <div className={'page-top main-bg'} style={{
+                backgroundImage:`url(${background})`,
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'}}>

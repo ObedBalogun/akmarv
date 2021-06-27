@@ -16,10 +16,6 @@ from python_paystack.paystack_config import PaystackConfig
 import django_heroku
 import dotenv
 import dj_database_url
-# import mimetypes
-#
-# mimetypes.add_type("text/javascript", ".js", True)
-# mimetypes.add_type("text/css", ".css", True)
 
 
 
@@ -40,9 +36,9 @@ DEBUG = False
 if DEBUG_MODE == 'OFF':
     DEBUG = False
 
-# ALLOWED_HOSTS = ['127.0.0.1','127.0.0.1:8000', 'localhost','akmarv.com','akmarv.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','akmarv.com/','akmarv.herokuapp.com/']
 # ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-ALLOWED_HOSTS =['*']
+# ALLOWED_HOSTS =['*']
 
 # Application definition
 
@@ -69,12 +65,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ]
 }
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-    'http://localhost:3010',
-    'https://paystack.com',
-)
+CORS_ALLOW_ALL_ORIGINS = True
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -93,7 +85,7 @@ ROOT_URLCONF = 'akmarv_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'build')],
+        'DIRS': [os.path.join(BASE_DIR, 'dist')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -161,14 +153,20 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = BASE_DIR / "staticfiles"
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "build/static"),
-    os.path.join(BASE_DIR, "public"),
-    os.path.join(BASE_DIR, "build"),
+    os.path.join(BASE_DIR, 'dist'),
+    os.path.join(BASE_DIR, 'dist/static')
+
+    # os.path.join(BASE_DIR, "build"),
+    # os.path.join(BASE_DIR, "static"),
 ]
+# STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_TMP = os.path.join(BASE_DIR, 'static')
+
+# os.makedirs(STATIC_TMP, exist_ok=True)
+# os.makedirs(STATIC_ROOT, exist_ok=True)
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
