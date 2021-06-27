@@ -1,17 +1,20 @@
+
 import {
   BrowserRouter as Router,
   Route,
 
 } from "react-router-dom";
-import React from "react";
-import IndexPage from "./pages/Index.jsx";
-import BeatsPage from "./pages/BeatsPage.jsx";
-import ContactPage from "./pages/ContactPage.jsx";
-import CartPage from "./pages/CartPage.jsx";
-import UploadPage from "./pages/UploadPage.jsx";
-import BeatDetailPage from "./pages/beat-detail.jsx";
+import React, {Component} from "react";
+import IndexPage from "./pages/Index";
+import BeatsPage from "./pages/BeatsPage";
+import ContactPage from "./pages/ContactPage";
+import CartPage from "./pages/CartPage";
+import UploadPage from "./pages/UploadPage";
+import BeatDetailPage from "./pages/beat-detail";
 
-export function App () {
+
+class App extends Component {
+  render() {
     return (
         <Router>
           <Route exact path="/" component={IndexPage}/>
@@ -23,4 +26,7 @@ export function App () {
           <Route exact path="/checkout" component={IndexPage}/>
         </Router>
     );
+  }
 }
+
+export default App;
