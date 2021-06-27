@@ -59,7 +59,7 @@ module.exports = {
     plugins: [
         new webpack({
             template:'./src/index.html',
-            filename: 'index-file.html'
+            filename: 'index.html'
         })
     ]
 
