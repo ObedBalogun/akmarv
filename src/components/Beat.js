@@ -181,18 +181,20 @@ function MyVerticallyCenteredModal(props) {
     );
 }
 
-const Beat = ({beat}) => {
+const Beat = ({beat,selectedBeat}) => {
     const [duration, setDuration] = useState(null)
 
     useEffect(()=>{
-        const AudioContext = window.AudioContext;
+        const AudioContext = (window.AudioContext|| window.webkitAudioContext)();
         const audioCtx = new AudioContext();
         fetch(beat.mp3_file)
             .then((data) => {
-                return data.arrayBuffer();
+                var rem = data.arrayBuffer();
+                console.log(rem)
+                 return data.arrayBuffer();
             })
-            .then((array) => {
-                audioCtx.decodeAudioData(array, (buffer) => {
+            .then((data) => {
+                audioCtx.decodeAudioData(data.response, (buffer) => {
                     // source.buffer = buffer
                     const beatDuration = buffer.duration;
                     console.log(beat.title + buffer.length + buffer.sampleRate)
@@ -234,7 +236,7 @@ const Beat = ({beat}) => {
 
     return (
         <>
-            <td>
+            <td onClick={()=>selectedBeat(beat)}>
                 <span >
                     <img src={beat.artwork} alt=""/>
                 </span>

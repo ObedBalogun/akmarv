@@ -6,13 +6,16 @@ import { Table} from "react-bootstrap";
 const BeatList = ({selectedBeat,searchQuery}) => {
 
     const [beats, setBeats] = useState([])
-
+    const sf = [
+        {},
+        {}
+    ]
     useEffect(() => {
+        setBeats(sf)
         const handleBeatsList = (response) => {
             setBeats(response.data);
         }
-        // handleBeatsList();
-        apiGetBeats(handleBeatsList)
+        // apiGetBeats(handleBeatsList)
     },[])
 
     // Search
@@ -45,8 +48,8 @@ const BeatList = ({selectedBeat,searchQuery}) => {
                 <tbody className={'font-weight-bold'}>
                 {filteredBeats.map((beat) => (
 
-                    <tr key={beat.title} className={"h5"} onClick={()=>selectedBeat(beat)}>
-                        <Beat key={beat.id} beat={beat}/>
+                    <tr key={beat.title} className={"h5"}>
+                        <Beat key={beat.id} beat={beat} selectedBeat={selectedBeat}/>
                     </tr>
                 ))}
                 </tbody>

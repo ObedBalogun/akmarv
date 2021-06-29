@@ -31,6 +31,8 @@ class License(models.Model):
     license_content = models.FileField(upload_to=f'licenses')
     license_price = models.IntegerField()
 
+
+
     def __str__(self):
         return f"{self.license_type}"
 
