@@ -93,6 +93,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3010",
     "http://localhost:3010",
 ]
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
