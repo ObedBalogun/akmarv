@@ -18,7 +18,7 @@ const Cart = () => {
       reference: (new Date()).getTime(),
       email: email,
       amount: cartTotal,
-      publicKey: env.PAYSTACK_PUBLIC_KEY,
+      publicKey: env.REACT_APP_PAYSTACK_PUBLIC_KEY,
   };
 
     const onSuccess = (reference) => {
