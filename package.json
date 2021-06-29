@@ -21,7 +21,7 @@
     "react-pdf": "^5.3.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^4.0.3",
     "react-use-cart": "^1.11.1",
     "web-vitals": "^1.0.1"
   },
@@ -50,8 +50,10 @@
       "last 1 safari version"
     ]
   },
-  "react-dotenv":{
-    "whitelist": ["REACT_APP_PAYSTACK_PUBLIC_KEY"]
+  "react-dotenv": {
+    "whitelist": [
+      "REACT_APP_PAYSTACK_PUBLIC_KEY"
+    ]
   },
   "devDependencies": {
     "jquery": "^3.6.0",
