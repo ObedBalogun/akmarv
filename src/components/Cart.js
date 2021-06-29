@@ -2,7 +2,9 @@ import React, {useState} from 'react';
 import { useCart} from "react-use-cart";
 import {Button, Col, Container, Form, Row, Table,Toast} from "react-bootstrap";
 import Navigation from "./Navigation";
+import { usePaystackPayment } from 'react-paystack';
 import axios from "axios";
+import env from "react-dotenv";
 
 const Cart = () => {
     const { items,totalUniqueItems,cartTotal,removeItem ,emptyCart} = useCart();
@@ -12,8 +14,37 @@ const Cart = () => {
 
     const [show, setShow] = useState(false);
 
+    const paymentConfig = {
+      reference: (new Date()).getTime(),
+      email: email,
+      amount: cartTotal,
+      publicKey: env.PAYSTACK_PUBLIC_KEY,
+  };
 
+    const onSuccess = (reference) => {
+    console.log(reference);
+    setTimeout(()=>{
+        window.location.replace(reference.redirecturl);
+        // emptyCart();
+        },5000)
+    // window.location.replace(reference.redirecturl);
 
+  };
+
+  const onClose = () => {
+    console.log('closed')
+  }
+
+  const PaystackHookExample = () => {
+      const initializePayment = usePaystackPayment(paymentConfig);
+      return (
+        <Row>
+            <button className={"button-2 mx-auto mb-5"} onClick={() => {
+                initializePayment(onSuccess, onClose)
+            }}>Proceed To Checkout</button>
+        </Row>
+      );
+  };
     const onSubmit = e => {
         setShow(true)
         e.preventDefault();
@@ -112,9 +143,10 @@ const Cart = () => {
                                         </Form.Group>
                                     </Form.Row>
 
-                                    <Row>
-                                        <Button className={"button-2 mx-auto mb-5"} type={"submit"}>Proceed To Checkout</Button>
-                                    </Row>
+                                    <div>
+                                        <PaystackHookExample />
+                                        {/*<Button className={"button-2 mx-auto mb-5"} type={"submit"}>Proceed To Checkout</Button>*/}
+                                    </div>
                                 </Form>
                             </Container>
                         </div>
