@@ -51,7 +51,7 @@
     ]
   },
   "react-dotenv":{
-    "whitelist": ["PAYSTACK_PUBLIC_KEY"]
+    "whitelist": ["REACT_APP_PAYSTACK_PUBLIC_KEY"]
   },
   "devDependencies": {
     "jquery": "^3.6.0",

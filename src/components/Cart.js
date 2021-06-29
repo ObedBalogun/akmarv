@@ -4,7 +4,7 @@ import {Button, Col, Container, Form, Row, Table,Toast} from "react-bootstrap";
 import Navigation from "./Navigation";
 import { usePaystackPayment } from 'react-paystack';
 import axios from "axios";
-import env from "react-dotenv";
+// import env from "react-dotenv";
 
 const Cart = () => {
     const { items,totalUniqueItems,cartTotal,removeItem ,emptyCart} = useCart();
@@ -18,7 +18,7 @@ const Cart = () => {
       reference: (new Date()).getTime(),
       email: email,
       amount: cartTotal,
-      publicKey: env.REACT_APP_PAYSTACK_PUBLIC_KEY,
+      publicKey: window.env.REACT_APP_PAYSTACK_PUBLIC_KEY,
   };
 
     const onSuccess = (reference) => {
