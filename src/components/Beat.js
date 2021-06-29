@@ -185,7 +185,7 @@ const Beat = ({beat,selectedBeat}) => {
     const [duration, setDuration] = useState(null)
 
     useEffect(()=>{
-        const AudioContext = (window.AudioContext|| window.webkitAudioContext)();
+        // const AudioContext = new (window.AudioContext|| window.webkitAudioContext)();
         const audioCtx = new AudioContext();
         fetch(beat.mp3_file)
             .then((data) => {
