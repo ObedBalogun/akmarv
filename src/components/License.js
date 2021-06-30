@@ -17,7 +17,7 @@ const License = ({license}) => {
                                     color:"white"}} closeButton>
                 <div className="beate-info ml-lg-auto">
                     {/*<h2>{props.license.license_type}</h2>*/}
-                    <h2>{props.license.license_type} License Info</h2>
+                    <h2>{props.license.license_type} Info</h2>
                 </div>
             </Modal.Header>
             <Modal.Body className={"license-modal-body"}>

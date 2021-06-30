@@ -171,7 +171,7 @@ AWS_S3_OBJECT_PARAMETERS = {
 
 AWS_LOCATION = 'static'
 
-DEFAULT_FILE_STORAGE = 'akmarv_backend.aws_uploader.MediaStorage'
+DEFAULT_FILE_STORAGE = 'akmarv.aws_uploader.MediaStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
