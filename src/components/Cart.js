@@ -2,9 +2,7 @@ import React, {useState} from 'react';
 import { useCart} from "react-use-cart";
 import {Button, Col, Container, Form, Row, Table,Toast} from "react-bootstrap";
 import Navigation from "./Navigation";
-import { usePaystackPayment } from 'react-paystack';
 import axios from "axios";
-import Flutter from "./Flutter";
 // import env from "react-dotenv";
 
 const Cart = () => {
