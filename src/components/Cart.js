@@ -143,7 +143,7 @@ const Cart = () => {
                                     </Form.Row>
                                     <div>
                                         {/*<PaystackHookExample />*/}
-                                        {/*<Button className={"button-2 mx-auto mb-5"} type={"submit"}>Proceed To Checkout</Button>*/}
+                                        <Button className={"button-2 mx-auto mb-5"} type={"submit"}>Proceed To Checkout</Button>
                                         {/*<Flutter/>*/}
                                     </div>
                                 </Form>
