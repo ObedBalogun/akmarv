@@ -8,7 +8,7 @@ const Payment = () => {
 
     return (
         <>
-
+        <h1>{ref}</h1>
         </>
     );
 
