@@ -4,6 +4,7 @@ import {Button, Col, Container, Form, Row, Table,Toast} from "react-bootstrap";
 import Navigation from "./Navigation";
 import { usePaystackPayment } from 'react-paystack';
 import axios from "axios";
+import Flutter from "./Flutter";
 // import env from "react-dotenv";
 
 const Cart = () => {
@@ -142,10 +143,10 @@ const Cart = () => {
                                             />
                                         </Form.Group>
                                     </Form.Row>
-
                                     <div>
                                         {/*<PaystackHookExample />*/}
-                                        <Button className={"button-2 mx-auto mb-5"} type={"submit"}>Proceed To Checkout</Button>
+                                        {/*<Button className={"button-2 mx-auto mb-5"} type={"submit"}>Proceed To Checkout</Button>*/}
+                                        {/*<Flutter/>*/}
                                     </div>
                                 </Form>
                             </Container>
