@@ -17,10 +17,7 @@ import django_heroku
 import dotenv
 import dj_database_url
 
-# import mimetypes
-#
-# mimetypes.add_type("text/javascript", ".js", True)
-# mimetypes.add_type("text/css", ".css", True)
+
 
 
 DEBUG_MODE = config('DEBUG', cast=bool)
@@ -41,7 +38,7 @@ if DEBUG_MODE == 'OFF':
 
 # ALLOWED_HOSTS = ['127.0.0.1','127.0.0.1:8000', 'localhost','akmarv.com','akmarv.herokuapp.com']
 # ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS =['*']
 
 # Application definition
 
@@ -71,11 +68,14 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny'
     ]
 }
+CORS_ALLOW_ALL_ORIGINS = True
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -84,16 +84,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'akmarv_backend.urls'
-
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:8080",
-#     "http://localhost:3000",
-#     "http://localhost:3010",
-#     "http://localhost:3010",
-# ]
-# SECURE_CONTENT_TYPE_NOSNIFF = True
 
 TEMPLATES = [
     {
@@ -120,6 +110,12 @@ WSGI_APPLICATION = 'akmarv_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     # 'default': {
+#     #     'ENGINE': 'django.db.backends.sqlite3',
+#     #     'NAME': BASE_DIR / 'db.sqlite3',
+#     # }
+# }
 
 DATABASES = {'default': dj_database_url.config(conn_max_age=600)}
 
@@ -154,7 +150,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
@@ -166,17 +162,17 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 STATIC_URL = '/static/'
 # STATIC_ROOT = BASE_DIR / "staticfiles"
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'build','staticfiles')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "build/static"),
     os.path.join(BASE_DIR, "public"),
-    os.path.join(BASE_DIR, "build"),
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'build', 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'build','media')
 
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_KEY')
