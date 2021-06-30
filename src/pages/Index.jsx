@@ -9,7 +9,7 @@ import LicenseList from "../components/LicenseList";
 
 const IndexPage = () => {
     const [beat, setBeat] = useState("")
-    const [showPlayer, setShowPlayer] = useState(false)
+    const [showPlayer, setShowPlayer] = useState(true)
 
 
     // Music Player

@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import { useCart} from "react-use-cart";
 import {Button, Col, Container, Form, Row, Table,Toast} from "react-bootstrap";
 import Navigation from "./Navigation";
+import { usePaystackPayment } from 'react-paystack';
 import axios from "axios";
-// import env from "react-dotenv";
+import env from "react-dotenv";
 
 const Cart = () => {
     const { items,totalUniqueItems,cartTotal,removeItem ,emptyCart} = useCart();
@@ -13,12 +14,12 @@ const Cart = () => {
 
     const [show, setShow] = useState(false);
 
-  //   const paymentConfig = {
-  //     reference: (new Date()).getTime(),
-  //     email: email,
-  //     amount: cartTotal,
-  //     publicKey: window.env.REACT_APP_PAYSTACK_PUBLIC_KEY,
-  // };
+    const paymentConfig = {
+      reference: (new Date()).getTime(),
+      email: email,
+      amount: cartTotal,
+      publicKey: window.env.REACT_APP_PAYSTACK_PUBLIC_KEY,
+  };
 
     const onSuccess = (reference) => {
     console.log(reference);
@@ -34,16 +35,16 @@ const Cart = () => {
     console.log('closed')
   }
 
-  // const PaystackHookExample = () => {
-  //     const initializePayment = usePaystackPayment(paymentConfig);
-  //     return (
-  //       <Row>
-  //           <button className={"button-2 mx-auto mb-5"} onClick={() => {
-  //               initializePayment(onSuccess, onClose)
-  //           }}>Proceed To Checkout</button>
-  //       </Row>
-  //     );
-  // };
+  const PaystackHookExample = () => {
+      const initializePayment = usePaystackPayment(paymentConfig);
+      return (
+        <Row>
+            <button className={"button-2 mx-auto mb-5"} onClick={() => {
+                initializePayment(onSuccess, onClose)
+            }}>Proceed To Checkout</button>
+        </Row>
+      );
+  };
     const onSubmit = e => {
         setShow(true)
         e.preventDefault();
@@ -64,7 +65,7 @@ const Cart = () => {
                     // console.log(response.data.data)
                 window.location.replace(response.data.data);
                 emptyCart();
-            },1000)
+            },5000)
         })
     }
        return (
@@ -141,10 +142,10 @@ const Cart = () => {
                                             />
                                         </Form.Group>
                                     </Form.Row>
+
                                     <div>
-                                        {/*<PaystackHookExample />*/}
-                                        <Button className={"button-2 mx-auto mb-5"} type={"submit"}>Proceed To Checkout</Button>
-                                        {/*<Flutter/>*/}
+                                        <PaystackHookExample />
+                                        {/*<Button className={"button-2 mx-auto mb-5"} type={"submit"}>Proceed To Checkout</Button>*/}
                                     </div>
                                 </Form>
                             </Container>

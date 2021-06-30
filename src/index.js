@@ -6,10 +6,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
 import { CartProvider } from "react-use-cart";
 ReactDOM.render(
-  <React.StrictMode>
-    <CartProvider>{<App />}</CartProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <CartProvider>{<App />}</CartProvider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

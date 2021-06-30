@@ -14,7 +14,7 @@ const LicenseList = () => {
     }
     const licenceList = [
         {
-            'license_type':"Mp3",
+            'license_type':"Mp3 License",
             'price': '$80',
             'recording': 'Used For Music Recording',
             'distribution':'Distribute up to 2500 copies',
@@ -25,7 +25,7 @@ const LicenseList = () => {
 
         },
         {
-            'license_type':"WAV",
+            'license_type':"WAV License",
             'recording': 'Used For Music Recording',
             'price': '$120',
             'distribution':'Distribute up to 3000 copies',
@@ -47,7 +47,7 @@ const LicenseList = () => {
 
         },
         {
-            'license_type':"Exclusive",
+            'license_type':"Exclusive License",
             'price': '$300',
             'recording':'Used For Music Recording',
             'distribution':'Distribute unlimited copies',

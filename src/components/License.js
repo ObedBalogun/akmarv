@@ -76,7 +76,7 @@ const License = ({license}) => {
                 <Card.Header >
                     <div className={"text-center card-info text-nowrap"} style={{paddingTop:"5em"}}>
                             <span className={"license-name d-block"}>
-                                {license.license_type} License
+                                {license.license_type}
                             </span>
                             <span className={"license-price d-block font-weight-bold"}>
                                 {license.price}

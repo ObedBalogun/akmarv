@@ -1,16 +1,11 @@
-from django.conf.urls.static import static
 from django.urls.conf import path
 
-from akmarv_backend import settings
 from .views import *
 
-from .auth import UserAuthToken
 
 app_name = 'beat'
 
 urlpatterns = [
-    path("auth/", UserAuthToken.as_view(), name="api-user-auth"),
-    path("wavegod/", UserAuthToken.as_view(), name="api-user-auth"),
     path("beats/", manage_beats, name="api-beats"),
     path("beat/<int:beat_id>/", manage_beat, name="api-manage-beat"),
     path('licenses/', manage_licenses, name='manage-licenses'),
