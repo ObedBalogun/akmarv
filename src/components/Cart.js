@@ -13,18 +13,18 @@ const Cart = () => {
     const [lastName, setLastName] = useState('');
 
     const [show, setShow] = useState(false);
-
-    const paymentConfig = {
-      reference: (new Date()).getTime(),
-      email: email,
-      amount: cartTotal,
-      publicKey: window.env.REACT_APP_PAYSTACK_PUBLIC_KEY,
-  };
+  //
+  //   const paymentConfig = {
+  //     reference: (new Date()).getTime(),
+  //     email: email,
+  //     amount: cartTotal,
+  //     publicKey: window.env.REACT_APP_PAYSTACK_PUBLIC_KEY,
+  // };
 
     const onSuccess = (reference) => {
     console.log(reference);
     setTimeout(()=>{
-        window.location.replace(reference.redirecturl);
+        // window.location.replace(reference.redirecturl);
         // emptyCart();
         },5000)
     // window.location.replace(reference.redirecturl);
@@ -35,16 +35,16 @@ const Cart = () => {
     console.log('closed')
   }
 
-  const PaystackHookExample = () => {
-      const initializePayment = usePaystackPayment(paymentConfig);
-      return (
-        <Row>
-            <button className={"button-2 mx-auto mb-5"} onClick={() => {
-                initializePayment(onSuccess, onClose)
-            }}>Proceed To Checkout</button>
-        </Row>
-      );
-  };
+  // const PaystackHookExample = () => {
+  //     const initializePayment = usePaystackPayment(paymentConfig);
+  //     return (
+  //       <Row>
+  //           <button className={"button-2 mx-auto mb-5"} onClick={() => {
+  //               initializePayment(onSuccess, onClose)
+  //           }}>Proceed To Checkout</button>
+  //       </Row>
+  //     );
+  // };
     const onSubmit = e => {
         setShow(true)
         e.preventDefault();
@@ -144,8 +144,7 @@ const Cart = () => {
                                     </Form.Row>
 
                                     <div>
-                                        <PaystackHookExample />
-                                        {/*<Button className={"button-2 mx-auto mb-5"} type={"submit"}>Proceed To Checkout</Button>*/}
+                                        <Button className={"button-2 mx-auto mb-5"} type={"submit"}>Proceed To Checkout</Button>
                                     </div>
                                 </Form>
                             </Container>
