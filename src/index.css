@@ -301,6 +301,9 @@ table th{
 .rhap_main-controls-button{
   color:black !important;
 }
+.rhap_controls-section {
+  margin-top:0 !important;
+}
 .rhap_progress-filled{
   background-color: #ae3131!important;
 }
@@ -409,6 +412,20 @@ table th{
     transform: scale(1.2,1.8) !important;
 
   }
+  .playing-song-title {
+    float: left !important;
+    left: 32% !important;
+    bottom: 3em !important;
+    /*padding: 5em 1em 100em 1em;*/
+    margin: 10px 0 5px 0;
+  }
+  .rhap_controls-section {
+    margin-top: 4em !important;
+  }
+  /*.playing-song-title {*/
+  /*  margin-top:2em !important;*/
+  /*}*/
+
 
 }
 
@@ -450,4 +467,35 @@ table th{
 .react-pdf__Page__canvas{
   width: 100% !important;
   height: 100% !important;
+}
+.playing-song-title{
+  position: fixed;
+  z-index: 100;
+  bottom: 1em;
+  left: 14em;
+  overflow:hidden;
+  width: 9rem;
+  white-space: nowrap;
+
+}
+.animated > * {
+  display: inline-block;
+  position: relative;
+  animation: 3s linear 0s infinite alternate move;
+}
+.animated > *.min {
+  min-width: 100%;
+}
+
+@keyframes move {
+  0%,
+  25% {
+    transform: translateX(0%);
+    left: 0%;
+  }
+  75%,
+  100% {
+    transform: translateX(-100%);
+    left: 100%;
+  }
 }

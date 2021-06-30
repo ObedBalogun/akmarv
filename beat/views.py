@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
 from rest_framework import status
+from rest_framework.parsers import JSONParser
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from python_paystack.objects.transactions import Transaction
 from python_paystack.managers import TransactionsManager
@@ -12,7 +13,7 @@ from python_paystack.managers import TransactionsManager
 from .helpers import error_msg, success_msg
 from akmarv_backend.aws_downloader import create_presigned_url
 from .mailer import beat_order_notification, beat_order_failed
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import api_view, permission_classes, parser_classes
 from rest_framework.response import Response
 from .serializers import BeatSerializer, OrderSerializer, LicenseSerializer
 from .models import Beat, License, OrderItem, Order, Customer, Payment
@@ -244,6 +245,7 @@ def manage_checkout(request):
 
 @api_view(["GET", ])
 @csrf_exempt
+@parser_classes([JSONParser])
 def manage_payment_confirmation(request):
     print('THANK GOODNESS')
     reference = request.GET.get('reference', None)

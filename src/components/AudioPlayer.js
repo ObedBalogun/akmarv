@@ -10,6 +10,9 @@ const Player = ({beat}) => {
                 src={beat.mp3_file}
                 onPlay={e => console.log("onPlay")}
                 />
+                <div className="playing-song-title button animated">
+                    <span>Now playing - {beat.title}</span>
+                </div>
         </>
     );
 }
