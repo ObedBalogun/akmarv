@@ -233,9 +233,9 @@ def manage_checkout(request):
             order_item = OrderItem(license="wav", name=beat, price=item['price'])
             order_item.save()
             order.order_items.add(order_item)
-        if item['license'] == 'premium':
+        if item['license'] == 'exclusive':
             beat = Beat.objects.get(title=item['name'])
-            order_item = OrderItem(license="premium", name=beat, price=item['price'])
+            order_item = OrderItem(license="exclusive", name=beat, price=item['price'])
             order_item.save()
             order.order_items.add(order_item)
 
@@ -264,7 +264,8 @@ def manage_payment_confirmation(request):
         order_list = []
         for item in order.order_items.all():
             if item.license == "mp3":
-                download_url = create_presigned_url(f"marvs_beats/mp3_files/{item.name}.mp3")
+                # download_url = create_presigned_url(f"marvs_beats/mp3_files/{item.name}.mp3")
+                download_url = create_presigned_url("marvs_beats/mp3_files/",{item.name},"mp3")
                 order_list.append(download_url)
             if item.license == "wav":
                 download_url = create_presigned_url(f"marvs_beats/wav_files/{item.name}.wav")

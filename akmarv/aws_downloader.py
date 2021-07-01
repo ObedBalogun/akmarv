@@ -31,3 +31,5 @@ def create_presigned_url(object_name, bucket_name=BUCKET_NAME, expiration=3600):
 
     # The response contains the presigned URL
     return response
+
+# print(create_presigned_url("marvs_beats/mp3_files/Moana.mp3"))

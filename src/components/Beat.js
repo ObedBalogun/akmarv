@@ -256,7 +256,7 @@ const Beat = ({beat,selectedBeat}) => {
                 </div>
                 <ButtonGroup>
                     <Button className={'mr-3 button-1 cart-btn'} onClick={() => setModalShow(true)}>
-                        {alreadyAdded ? "Added to Cart":"Add to Cart"}
+                        {alreadyAdded ? "Already in Cart":"Add to Cart"}
                     </Button>
                     <Button className={"button-1 share-btn"}>Share</Button>
                 </ButtonGroup>
