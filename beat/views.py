@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 # Create your views here.
 import os
 
@@ -214,7 +212,7 @@ def manage_checkout(request):
 
     order.total_amount = total_amount
 
-    transaction = Transaction(int(order.total_amount), 'customer.email@test.com')
+    transaction = Transaction(int(order.total_amount), email)
     transaction.metadata = {"order_id": order_count + 1}
 
     transaction_manager = TransactionsManager()
@@ -248,7 +246,6 @@ def manage_checkout(request):
 @api_view(["GET", ])
 @csrf_exempt
 def manage_payment_confirmation(request):
-    print('THANK GOODNESS')
     reference = request.GET.get('reference', None)
     transaction = Transaction(0, 'email@test.com')
     transaction_manager = TransactionsManager()
@@ -280,10 +277,10 @@ def manage_payment_confirmation(request):
                 order_list.extend([download_url_1, download_url_2, download_url_3])
         #
         beat_order_notification(order_list, order, 'b.obed@yahoo.com')
-        # return HttpResponseRedirect(redirect_to='http://www.akmarv.com')
+        return HttpResponseRedirect(redirect_to='http://www.akmarv.com')
 
-        Response(success_msg("Beat order successful", None),
-                 status=status.HTTP_200_OK)
+        # Response(success_msg("Beat order successful", None),
+        #          status=status.HTTP_200_OK)
     else:
         beat_order_failed()
         Response(success_msg("Beat order failed", 'fail'),

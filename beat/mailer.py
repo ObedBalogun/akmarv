@@ -9,7 +9,6 @@ def beat_order_notification(url, order, email):
     :param email: user object
     :return: Emails the user the beat order details
     """
-    print("herr")
 
     subject = "Beat Order from AKMarv"
     content = "Please click the link provided below to download the files attached to your order.\n" \
