@@ -277,8 +277,8 @@ def manage_payment_confirmation(request):
                 download_url_3 = create_presigned_url(f"marvs_beats/stem_files/{item.name}.mp3")
 
                 order_list.extend([download_url_1, download_url_2, download_url_3])
-        order_list = [item.replace('\'','') for item in order_list]
-        beat_order_notification(order_list, order, 'b.obed@yahoo.com')
+        order_list = [item.replace("'",' ') for item in order_list]
+        beat_order_notification(order_list, order, email)
         return HttpResponseRedirect(redirect_to='http://www.akmarv.com')
 
         # Response(success_msg("Beat order successful", None),
