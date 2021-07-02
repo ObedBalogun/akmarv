@@ -262,11 +262,12 @@ def manage_payment_confirmation(request):
 
     if payment_status == "success":
         order_list = []
+        order_list_2 = {}
         for item in order.order_items.all():
             if item.license == "mp3":
-                # download_url = create_presigned_url(f"marvs_beats/mp3_files/{item.name}.mp3")
-                download_url = create_presigned_url("marvs_beats/mp3_files/"+str(item.name)+".mp3")
+                download_url = create_presigned_url(f"marvs_beats/mp3_files/{item.name}.mp3")
                 order_list.append(download_url)
+                order_list_2['url'] = download_url
             if item.license == "wav":
                 download_url = create_presigned_url(f"marvs_beats/wav_files/{item.name}.wav")
                 order_list.append(download_url)
@@ -277,7 +278,7 @@ def manage_payment_confirmation(request):
 
                 order_list.extend([download_url_1, download_url_2, download_url_3])
         #
-        beat_order_notification(order_list, order, 'b.obed@yahoo.com')
+        beat_order_notification(order_list_2.items(), order, 'b.obed@yahoo.com')
         return HttpResponseRedirect(redirect_to='http://www.akmarv.com')
 
         # Response(success_msg("Beat order successful", None),
