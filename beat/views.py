@@ -265,7 +265,7 @@ def manage_payment_confirmation(request):
         for item in order.order_items.all():
             if item.license == "mp3":
                 # download_url = create_presigned_url(f"marvs_beats/mp3_files/{item.name}.mp3")
-                download_url = create_presigned_url("marvs_beats/mp3_files/"+item.name+"mp3")
+                download_url = create_presigned_url("marvs_beats/mp3_files/"+str(item.name)+"mp3")
                 order_list.append(download_url)
             if item.license == "wav":
                 download_url = create_presigned_url(f"marvs_beats/wav_files/{item.name}.wav")
