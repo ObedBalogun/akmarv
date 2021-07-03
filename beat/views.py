@@ -261,37 +261,30 @@ def manage_payment_confirmation(request):
     payment.save()
 
     if payment_status == "success":
-        order_list = []
-        order_list_2 = {}
+        order_dict= {}
         for item in order.order_items.all():
             if item.license == "mp3":
                 download_url = create_presigned_url(f"marvs_beats/mp3_files/{item.name}.mp3")
                 beat_order_notification(download_url, order, email)
-
-                # order_list.append(download_url)
-                # order_list_2['url'] = download_url
             if item.license == "wav":
                 download_url = create_presigned_url(f"marvs_beats/wav_files/{item.name}.wav")
                 beat_order_notification(download_url, order, email)
 
-                # order_list.append(download_url)
             if item.license == "exclusive":
                 download_url_1 = create_presigned_url(f"marvs_beats/mp3_files/{item.name}.mp3")
                 download_url_2 = create_presigned_url(f"marvs_beats/wav_files/{item.name}.mp3")
                 download_url_3 = create_presigned_url(f"marvs_beats/stem_files/{item.name}.mp3")
-
-                order_list.extend([download_url_1, download_url_2, download_url_3])
-        order_list = [item.replace("'",' ') for item in order_list]
-        beat_order_notification(order_list, order, email)
+                order_dict['Mp3'] = download_url_1
+                order_dict['Wav'] = download_url_2
+                order_dict['Stems'] = download_url_3
+                beat_order_notification(order_dict, order, email)
         return HttpResponseRedirect(redirect_to='http://www.akmarv.com')
 
-        # Response(success_msg("Beat order successful", None),
-        #          status=status.HTTP_200_OK)
+
     else:
         beat_order_failed()
         Response(success_msg("Beat order failed", 'fail'),
                  status=status.HTTP_402_PAYMENT_REQUIRED)
-    # Response(success_msg("Payment verification done", 'done'),
-    #          status=status.HTTP_200_OK)
+
 
 # TODO: fix
