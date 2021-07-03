@@ -274,10 +274,8 @@ def manage_payment_confirmation(request):
                 download_url_1 = create_presigned_url(f"marvs_beats/mp3_files/{item.name}.mp3")
                 download_url_2 = create_presigned_url(f"marvs_beats/wav_files/{item.name}.mp3")
                 download_url_3 = create_presigned_url(f"marvs_beats/stem_files/{item.name}.mp3")
-                order_dict['Mp3'] = download_url_1
-                order_dict['Wav'] = download_url_2
-                order_dict['Stems'] = download_url_3
-                beat_order_notification(order_dict, order, email,download_url_1,download_url_2,download_url_3)
+
+                beat_order_notification("",order, email,download_url_1,download_url_2,download_url_3)
         return HttpResponseRedirect(redirect_to='http://www.akmarv.com')
 
 
