@@ -30,7 +30,7 @@ function MyVerticallyCenteredModal(props) {
                                     <div id="mp3"  onClick={(e) => props.handleselection(props.beatItem,e) }>
                                     <span  style={{fontSize:1.5+"em"}}>Mp3 license</span> <br/>
                                     <span style={{fontSize:3.5+"em"}}>$80</span><br/>
-                                    <small className={'text-uppercase'}>Mp3 tagged.</small>
+                                    <small className={'text-uppercase'}>Mp3 untagged.</small>
                                     <label className="container">
                                         <input type="checkbox"/>
                                         <span className={'radio-buttons'}/>
@@ -46,7 +46,7 @@ function MyVerticallyCenteredModal(props) {
                                      <div id="wav"  onClick={(e) => props.handleselection(props.beatItem,e) }>
                                         <span style={{fontSize:1.5+"em"}}>WAV license</span> <br/>
                                         <span style={{fontSize:3.5+"em"}}>$120</span><br/>
-                                        <small className={'text-uppercase'}>Mp3 and Wav tagged.</small>
+                                        <small className={'text-uppercase'}>Mp3 and Wav untagged.</small>
                                         <label className="container">
                                         <input type="checkbox"/>
                                         <span className={'radio-buttons'}/>
@@ -62,7 +62,7 @@ function MyVerticallyCenteredModal(props) {
                                     <div id="trackouts" onClick={(e) => props.handleselection(props.beatItem,e) }>
                                         <span style={{fontSize:1.5+"em"}}>WAV + Trackouts </span> <br/>
                                         <span style={{fontSize:3.5+"em"}}>$150</span><br/>
-                                        <small className={'text-uppercase'}>Mp3 tagged.</small>
+                                        <small className={'text-uppercase'}>Mp3 untagged.</small>
                                         <label className="container">
                                         <input type="checkbox"/>
                                         <span className={'radio-buttons'}/>
@@ -77,7 +77,7 @@ function MyVerticallyCenteredModal(props) {
                                     <div id="exclusive" onClick={(e) => props.handleselection(props.beatItem,e) }>
                                         <span style={{fontSize:1.5+"em"}}>Exclusive license</span> <br/>
                                         <span style={{fontSize:3.5+"em"}}>$300</span><br/>
-                                        <small className={'text-uppercase'}>Mp3 tagged.</small>
+                                        <small className={'text-uppercase'}>Mp3 untagged.</small>
                                         <label className="container">
                                         <input type="checkbox"/>
                                         <span className={'radio-buttons'}/>
@@ -186,8 +186,11 @@ const Beat = ({beat,selectedBeat}) => {
 
     useEffect(()=>{
         // const AudioContext = new (window.AudioContext|| window.webkitAudioContext)();
+
+    },[])
         const audioCtx = new AudioContext();
-        fetch(beat.mp3_file)
+
+    fetch(beat.mp3_file)
             .then((data) => {
                 var rem = data.arrayBuffer();
                 console.log(rem)
@@ -204,7 +207,6 @@ const Beat = ({beat,selectedBeat}) => {
                     setDuration(timeString)
                 }).then(r  => console.log(r))
             })
-    },[])
 
     const { addItem,inCart } = useCart();
 
@@ -250,15 +252,27 @@ const Beat = ({beat,selectedBeat}) => {
             </td>
             <td>
                 <div>
-                  <span className={'mobile-btn mx-auto'} onClick={() => setModalShow(true)}>
-                      <i className={"fa fa-shopping-cart"}/>
-                  </span>
+                      {alreadyAdded ?
+                          <button className={'mobile-btn mx-auto'} disabled onClick={() => setModalShow(true)}>
+                              <i className={"fa fa-shopping-cart"}/>
+                          </button> :
+                          <button className={'mobile-btn mx-auto'} onClick={() => setModalShow(true)}>
+                              <i className={"fa fa-shopping-cart"}/>
+                          </button>
+ }
+
                 </div>
                 <ButtonGroup>
+                    {alreadyAdded   ?
+                        <Button className={'mr-3 button-1 cart-btn'} disabled onClick={() => setModalShow(true)}>
+                         Already in Cart
+                    </Button>   :
                     <Button className={'mr-3 button-1 cart-btn'} onClick={() => setModalShow(true)}>
-                        {alreadyAdded ? "Already in Cart":"Add to Cart"}
+                        Add to Cart
                     </Button>
+                    }
                     <Button className={"button-1 share-btn"}>Share</Button>
+
                 </ButtonGroup>
             </td>
             <MyVerticallyCenteredModal

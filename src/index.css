@@ -146,7 +146,7 @@ td img{
   padding: 10px 20px;
   font-size: 24px;
   border: none;
-  color: #000;
+  color: #fff;
   font-weight: 400;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -336,6 +336,9 @@ table th{
 
 .mobile-btn{
   display: none;
+  background: transparent;
+    color: black;
+    border: 0;
 }
 .phone-deck{
   display: none;
@@ -422,9 +425,9 @@ table th{
   .rhap_controls-section {
     margin-top: 4em !important;
   }
-  /*.playing-song-title {*/
-  /*  margin-top:2em !important;*/
-  /*}*/
+.beat-title-col {
+  margin-left: -2em !important;
+}
 
 
 }
@@ -437,22 +440,12 @@ table th{
   color: white !important;
 }
 .pdf-body{
-    /*width: calc(100% - 10%);*/
     display:flex;
     flex-wrap: wrap;
-    padding: 2em 5em 2em 5em;
+    padding: 1em 2em 1em 2em;
     border-radius:5px;
     max-width: 1110px;
-    /*display: flow;*/
-  /*flex-direction:row;*/
-  /*width: calc(100% - 10%);*/
-  /*max-width: 1110px;*/
-  /*margin-bottom: 4em;*/
-  /*margin-left: auto;*/
-  /*margin-right: auto;*/
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*font-size: 19px;*/
+
 }
 .pdf-body > div{
     flex:50%;
