@@ -1,7 +1,7 @@
 from django.core.mail import send_mail
 
 
-def beat_order_notification(url, order, email):
+def beat_order_notification(url, order, email, url_2=None, url_3=None,url_4=None):
     """
     Emails the User the download link.
     :param url: Download url for beat order
@@ -14,7 +14,7 @@ def beat_order_notification(url, order, email):
     content = "Please click the link provided below to download the files attached to your order.\n" \
               "Order Reference ID: {0} \n"\
               "Amount: {1} \n"\
-              "Download Link: {2}".format(order.reference_id, order.total_amount, url)
+              "Download Link: {2}".format(order.reference_id, order.total_amount, [url,url_2,url_3,url_4])
     send_mail(subject, content, 'AMarv', [email], fail_silently=False)
 
 def beat_order_failed():

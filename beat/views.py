@@ -277,7 +277,7 @@ def manage_payment_confirmation(request):
                 order_dict['Mp3'] = download_url_1
                 order_dict['Wav'] = download_url_2
                 order_dict['Stems'] = download_url_3
-                beat_order_notification(order_dict, order, email)
+                beat_order_notification(order, email,download_url_1,download_url_2,download_url_3)
         return HttpResponseRedirect(redirect_to='http://www.akmarv.com')
 
 
