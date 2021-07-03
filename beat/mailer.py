@@ -12,9 +12,9 @@ def beat_order_notification(url, order, email, url_2=None, url_3=None,url_4=None
 
     subject = "Beat Order from AKMarv"
     content = "Please click the link provided below to download the files attached to your order.\n" \
-              "Order Reference ID: {0} \n"\
-              "Amount: {1} \n"\
-              "Download Link: {2}".format(order.reference_id, order.total_amount, [url,url_2,url_3,url_4])
+              "Order Reference ID: {} \n"\
+              "Amount: {} \n"\
+              "Downloads: {} |\n{}\n{}\n{}".format(order.reference_id, order.total_amount, url,url_2,url_3,url_4)
     send_mail(subject, content, 'AMarv', [email], fail_silently=False)
 
 def beat_order_failed():
