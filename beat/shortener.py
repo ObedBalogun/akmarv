@@ -33,9 +33,9 @@ def url_shortener(url):
     import urllib
     import requests
     key = config("CUTTLY_API_KEY")
-    url = urllib.parse.quote(url)
+    urls = urllib.parse.quote(url)
     name = '{}'.format("akmarv_beat_link")
-    r = requests.get('http://cutt.ly/api/api.php?key={}&short={}&name={}'.format(key, url, name))
+    r = requests.get('http://cutt.ly/api/api.php?key={}&short={}&name={}'.format(key, urls, name))
     if not r:
         print(r,r.text)
     return r.text
