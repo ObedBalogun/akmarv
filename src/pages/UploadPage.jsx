@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import {Button, Col, Container, Form, Row,ProgressBar} from "react-bootstrap";
 import Navigation from "../components/Navigation";
 import axios from "axios";
 
@@ -10,6 +10,8 @@ const UploadPage = () => {
     const [wav, setWav] = useState();
     const [stems, setStems] = useState();
     const [artwork, setArtwork] = useState();
+    const [progress, setProgress] = useState()
+
 
     const changeHandlerMp3 = (e) => {
         setMp3(e.target.files[0])
@@ -39,7 +41,11 @@ const UploadPage = () => {
         axios.defaults.xsrfCookieName = 'csrftoken';
         axios.defaults.withCredentials = true;
 
-        axios.post('/api/client/beats/', formData).then(()=>{
+        axios.post('/api/client/beats/', formData,{
+            onUploadProgress:data => {
+                            setProgress(Math.round((100 * data.loaded) / data.total))
+        },
+    }).then(()=>{
             window.location.replace('/')
         })
     }
@@ -85,6 +91,7 @@ const UploadPage = () => {
                                     <Form.Control type="file" id={'stems'} onChange={changeHandlerStems} className={'upload-form-input rounded'}/>
                                 </Form.Group>
                             </Form.Row>
+                            {progress && <ProgressBar now={progress} label={`${progress}%`}/>}
                             <Row>
                                 <Button className={"button-2 mx-auto mb-5"} type={"submit"}>Upload File </Button>
                             </Row>
