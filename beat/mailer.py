@@ -1,6 +1,6 @@
 from django.core.mail import send_mail
 
-from beat.shortner import shortener
+from beat.shortener import shortener
 
 
 def beat_order_notification(url, order, email, url_2=None, url_3=None,url_4=None):
