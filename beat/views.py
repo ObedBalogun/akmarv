@@ -1,6 +1,7 @@
 # Create your views here.
 import os
 
+from django.core.mail import send_mail
 from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect
 from django.views import View
@@ -261,7 +262,7 @@ def manage_payment_confirmation(request):
     payment.save()
 
     if payment_status == "success":
-        order_dict= {}
+        order_dict = {}
         for item in order.order_items.all():
             if item.license == "mp3":
                 download_url = create_presigned_url(f"marvs_beats/mp3_files/{item.name}.mp3")
@@ -275,7 +276,7 @@ def manage_payment_confirmation(request):
                 download_url_2 = create_presigned_url(f"marvs_beats/wav_files/{item.name}.mp3")
                 download_url_3 = create_presigned_url(f"marvs_beats/stem_files/{item.name}.mp3")
 
-                beat_order_notification("",order, email,download_url_1,download_url_2,download_url_3)
+                beat_order_notification("", order, email, download_url_1, download_url_2, download_url_3)
         return HttpResponseRedirect(redirect_to='http://www.akmarv.com')
 
 
@@ -284,5 +285,18 @@ def manage_payment_confirmation(request):
         Response(success_msg("Beat order failed", 'fail'),
                  status=status.HTTP_402_PAYMENT_REQUIRED)
 
+
+@csrf_exempt
+@api_view(["POST", ])
+def contact_me(request):
+    subject = request.data.get('subject')
+    message = request.data.get('message')
+    name = request.data.get('name')
+    email = request.data.get('email')
+    content = message + "\n Reply To: " + email
+    send_mail(subject, content, name, ["itsakmarveh@gmail.com"], fail_silently=False)
+
+    return Response(success_msg("Mail sent successfully", "success"),
+                    status=status.HTTP_200_OK)
 
 # TODO: fix

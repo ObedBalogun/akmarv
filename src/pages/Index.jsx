@@ -1,17 +1,21 @@
 import React, { useState} from 'react';
 import BeatList from "../components/BeatList";
 import Navigation from "../components/Navigation"
-import  {InputGroup, FormControl, Button,Form, Container, Row, Col} from "react-bootstrap"
+import {InputGroup, FormControl, Button, Form, Container, Row, Col, Toast} from "react-bootstrap"
 import Player from "../components/AudioPlayer";
 import Footer from "../components/Footer";
 import LicenseList from "../components/LicenseList";
+import axios from "axios";
 
 
 const IndexPage = () => {
     const [beat, setBeat] = useState("")
     const [showPlayer, setShowPlayer] = useState(false)
-
-
+    const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+    const [subject, setSubject] = useState('');
+    const [message, setMessage] = useState('');
+    const [show, setShow] = useState(false);
     // Music Player
     const selectedBeat =(beat)=>{
         setBeat(beat);
@@ -19,6 +23,17 @@ const IndexPage = () => {
     }
     // Carousel
     const [index, setIndex] = useState(0);
+    //  Send Mail
+    const onSubmit = e => {
+        e.preventDefault();
+
+        axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
+        axios.defaults.xsrfCookieName = 'csrftoken';
+        axios.defaults.withCredentials = true;
+        axios.post('/api/client/contact-me', {subject, message, email,name}).then(r  => setShow(true))
+
+    }
+
 
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
@@ -31,6 +46,20 @@ const IndexPage = () => {
     return (
         <>
             <Navigation/>
+            <Row>
+                  <Col xs={6}>
+                    <Toast onClose={() => setShow(false)} show={show} delay={1000}
+                           style={{
+                               position: 'absolute',
+                               top: 0,
+                               right: 0,
+                           }}>
+                      <Toast.Header>
+                        <strong className="mr-auto">Processing Order</strong>
+                      </Toast.Header>
+                    </Toast>
+                  </Col>
+               </Row>
             <div className={'page-top main-bg'} style={{backgroundImage:"url('/static/background.png')",
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
@@ -83,7 +112,7 @@ const IndexPage = () => {
                     <h2 className={'text-center text-white font-weight-bold'}>Contact me for mixing and mastering orders.</h2>
                     <div className="contact-form m-5">
                         <Container>
-                            <Form>
+                            <Form onSubmit={onSubmit}>
                                 <Form.Row>
                                     <Form.Group as={Col}>
                                         <Form.Label>Name</Form.Label>
