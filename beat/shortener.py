@@ -15,7 +15,6 @@ def shortener(url):
     requestHeaders = {
         "Content-type": "application/json",
         "apikey": config("YOUR_API_KEY"),
-        "workspace": config("YOUR_WORKSPACE_ID")
     }
 
     r = requests.post("https://api.rebrandly.com/v1/links",
