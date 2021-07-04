@@ -3,7 +3,7 @@ from django.core.mail import send_mail
 from beat.shortener import shortener
 
 
-def beat_order_notification(url, order, email, url_2=None, url_3=None,url_4=None):
+def beat_order_notification(url, order, email, url_2=None, url_3=None, url_4=None):
     """
     Emails the User the download link.
     :param url: Download url for beat order
@@ -14,14 +14,14 @@ def beat_order_notification(url, order, email, url_2=None, url_3=None,url_4=None
 
     subject = "Beat Order from AKMarv"
     content = "Please click the link provided below to download the files attached to your order.\n" \
-              "Order Reference ID: {} \n"\
-              "Amount: {} \n"\
-              "Downloads: {} |\n|\n{}\n|\n{}\n|\n{}".format(order.reference_id, order.total_amount, shortener(url),
-                                                            shortener(url_2),shortener(url_3),shortener(url_4))
+              "Order Reference ID: {} \n" \
+              "Amount: {} \n" \
+              "Downloads: {} |\n\n{}\n\n{}\n\n{}".format(order.reference_id, order.total_amount, shortener(url),
+                                                         shortener(url_2), shortener(url_3), shortener(url_4))
     send_mail(subject, content, 'AMarv', [email], fail_silently=False)
 
-def beat_order_failed():
 
+def beat_order_failed():
     pass
 
 # def listener_booking_cancellation(session):
