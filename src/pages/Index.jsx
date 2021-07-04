@@ -30,7 +30,12 @@ const IndexPage = () => {
         axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
         axios.defaults.xsrfCookieName = 'csrftoken';
         axios.defaults.withCredentials = true;
-        axios.post('/api/client/contact-me/', {subject, message, email,name}).then(r  => setShow(true))
+        axios.post('/api/client/contact-me/', {subject, message, email,name}).then(
+             (r) => {
+                setShow(true)
+                window.location.replace("http://www.akmarv.com")
+            }
+        )
 
     }
 
@@ -46,20 +51,6 @@ const IndexPage = () => {
     return (
         <>
             <Navigation/>
-            <Row>
-                  <Col xs={6}>
-                    <Toast onClose={() => setShow(false)} show={show} delay={1000}
-                           style={{
-                               position: 'absolute',
-                               top: 0,
-                               right: 0,
-                           }}>
-                      <Toast.Header>
-                        <strong className="mr-auto">Processing Order</strong>
-                      </Toast.Header>
-                    </Toast>
-                  </Col>
-               </Row>
             <div className={'page-top main-bg'} style={{backgroundImage:"url('/static/background.png')",
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
@@ -112,6 +103,20 @@ const IndexPage = () => {
                     <h2 className={'text-center text-white font-weight-bold'}>Contact me for mixing and mastering orders.</h2>
                     <div className="contact-form m-5">
                         <Container>
+                            <Row>
+                  <Col xs={6}>
+                    <Toast onClose={() => setShow(false)} show={show} delay={1000}
+                           style={{
+                               position: 'absolute',
+                               top: 0,
+                               right: 0,
+                           }}>
+                      <Toast.Header>
+                        <strong className="mr-auto">Email Sent</strong>
+                      </Toast.Header>
+                    </Toast>
+                  </Col>
+               </Row>
                             <Form onSubmit={onSubmit}>
                                 <Form.Row>
                                     <Form.Group as={Col}>

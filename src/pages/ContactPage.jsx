@@ -20,7 +20,14 @@ const ContactPage = () => {
         axios.defaults.xsrfHeaderName = 'X-CSRFTOKEN';
         axios.defaults.xsrfCookieName = 'csrftoken';
         axios.defaults.withCredentials = true;
-        axios.post('/api/client/contact-me/', {subject, message, email,name}).then(r  => setShow(true))
+        axios.post('/api/client/contact-me/', {subject, message, email,name}).then(
+            ()  =>{
+                setShow(true)
+                setTimeout(()=> {
+                    window.location.replace("http://www.akmarv.com/contact-me")
+                },3000)
+
+        })
 
     }
     return (
