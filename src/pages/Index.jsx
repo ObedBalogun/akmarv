@@ -116,23 +116,23 @@ const IndexPage = () => {
                                 <Form.Row>
                                     <Form.Group as={Col}>
                                         <Form.Label>Name</Form.Label>
-                                        <Form.Control type="text" className={'contact-form-input'}/>
+                                        <Form.Control type="text" className={'contact-form-input'} onChange={e => setName(e.target.value) }/>
                                     </Form.Group>
                                     <Form.Group as={Col}>
                                         <Form.Label>Email</Form.Label>
-                                        <Form.Control type="email" className={'contact-form-input'}/>
+                                        <Form.Control type="email" className={'contact-form-input'} onChange={e => setEmail(e.target.value) }/>
                                     </Form.Group>
                                 </Form.Row>
                                 <Form.Row>
                                     <Form.Group as={Col}>
                                         <Form.Label>Subject</Form.Label>
-                                        <Form.Control type={"text"} className={'contact-form-input'}/>
+                                        <Form.Control type={"text"} className={'contact-form-input'} onChange={e => setSubject(e.target.value) }/>
                                     </Form.Group>
                                 </Form.Row>
                                 <Form.Row>
                                     <Form.Group as={Col}>
                                         <Form.Label>Message</Form.Label>
-                                        <Form.Control as="textarea" rows={3}  className={'contact-form-input'}/>
+                                        <Form.Control as="textarea" rows={3}  className={'contact-form-input'} onChange={e => setMessage(e.target.value) }/>
                                     </Form.Group>
                                 </Form.Row>
                                 <Row>
