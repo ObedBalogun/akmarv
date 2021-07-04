@@ -5,6 +5,7 @@ from decouple import config
 
 
 def shortener(url):
+
     linkRequest = {
         "destination": url
         , "domain": {"fullName": "rebrand.ly"}
@@ -26,3 +27,15 @@ def shortener(url):
         return link["shortUrl"]
     else:
         return ""
+
+
+def url_shortener(url):
+    import urllib
+    import requests
+    key = config("CUTTLY_API_KEY")
+    url = urllib.parse.quote(url)
+    name = '{}'.format("akmarv_beat_link")
+    r = requests.get('http://cutt.ly/api/api.php?key={}&short={}&name={}'.format(key, url, name))
+    if not r:
+        print(r,r.text)
+    return r.text
