@@ -185,28 +185,23 @@ const Beat = ({beat,selectedBeat}) => {
     const [duration, setDuration] = useState(null)
 
     useEffect(()=>{
-        // const AudioContext = new (window.AudioContext|| window.webkitAudioContext)();
+        var audioElement = new Audio(beat.mp3_file);
+        audioElement.addEventListener('loadeddata', () => {
+        let beat_duration = audioElement.duration;
 
+        var date = new Date(0);
+        date.setSeconds(beat_duration);  //specify value for SECONDS here
+        var timeString = date.toISOString().substr(14, 5);
+        setDuration(timeString)
+        // The duration variable now holds the duration (in seconds) of the audio clip
+        })
     },[])
-        const audioCtx = new AudioContext();
 
-    fetch(beat.mp3_file)
-            .then((data) => {
-                var rem = data.arrayBuffer();
-                console.log(rem)
-                 return data.arrayBuffer();
-            })
-            .then((data) => {
-                audioCtx.decodeAudioData(data.response, (buffer) => {
-                    // source.buffer = buffer
-                    const beatDuration = buffer.duration;
-                    console.log(beat.title + buffer.length + buffer.sampleRate)
-                    var date = new Date(0);
-                    date.setSeconds(beatDuration);  //specify value for SECONDS here
-                    var timeString = date.toISOString().substr(14, 5);
-                    setDuration(timeString)
-                }).then(r  => console.log(r))
-            })
+
+
+
+
+
 
     const { addItem,inCart } = useCart();
 
@@ -223,7 +218,7 @@ const Beat = ({beat,selectedBeat}) => {
 
         }
         else if(e.target.id === "trackouts"){
-            addItem({id:beat.title,name:beat.title,price:150,license:"WAV + Trackouts"})
+            addItem({id:beat.title,name:beat.title,price:150,license:"wtrackouts"})
             setModalShow(false)
 
         }

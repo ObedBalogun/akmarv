@@ -270,11 +270,15 @@ def manage_payment_confirmation(request):
             if item.license == "wav":
                 download_url = create_presigned_url(f"marvs_beats/wav_files/{item.name}.wav")
                 beat_order_notification(download_url, order, email)
+            if item.license == "wtrackouts":
+                download_url = create_presigned_url(f"marvs_beats/wav_files/{item.name}.wav")
+                download_url_2 = create_presigned_url(f"marvs_beats/stem_files/{item.name}.zip")
+                beat_order_notification("", order, email, download_url, download_url_2)
 
             if item.license == "exclusive":
                 download_url_1 = create_presigned_url(f"marvs_beats/mp3_files/{item.name}.mp3")
-                download_url_2 = create_presigned_url(f"marvs_beats/wav_files/{item.name}.mp3")
-                download_url_3 = create_presigned_url(f"marvs_beats/stem_files/{item.name}.mp3")
+                download_url_2 = create_presigned_url(f"marvs_beats/wav_files/{item.name}.wav")
+                download_url_3 = create_presigned_url(f"marvs_beats/stem_files/{item.name}.zip")
 
                 beat_order_notification("", order, email, download_url_1, download_url_2, download_url_3)
         return HttpResponseRedirect(redirect_to='http://www.akmarv.com')
