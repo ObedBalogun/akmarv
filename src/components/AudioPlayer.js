@@ -8,6 +8,7 @@ const Player = ({beat}) => {
             <AudioPlayer
                 autoPlay
                 src={beat.mp3_file}
+                showSkipControls={true}
                 onPlay={e => console.log("onPlay")}
                 />
                 <div className="playing-song-title button animated">
