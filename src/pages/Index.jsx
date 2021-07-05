@@ -16,6 +16,11 @@ const IndexPage = () => {
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
     const [show, setShow] = useState(false);
+    const {search} = window.location;
+    const query  = new URLSearchParams(search).get('s');
+    const [searchQuery, setSearchQuery] = useState(query || '');
+
+
     // Music Player
     const selectedBeat =(beat)=>{
         setBeat(beat);
@@ -36,13 +41,8 @@ const IndexPage = () => {
         )
 
     }
+    // change song
 
-
-
-
-    const {search} = window.location;
-    const query  = new URLSearchParams(search).get('s');
-    const [searchQuery, setSearchQuery] = useState(query || '');
 
     return (
         <>
@@ -76,7 +76,8 @@ const IndexPage = () => {
             </div>
             <div className="beatslist">
                 <Container>
-                <BeatList searchQuery={searchQuery} selectedBeat={selectedBeat}/>
+                <BeatList searchQuery={searchQuery} selectedBeat={selectedBeat}
+                          />
 
                 <div className={'show-more'}>
                     <Button className='mt-5 mb-5 button-2 col-sm-12 col-lg-2'>
