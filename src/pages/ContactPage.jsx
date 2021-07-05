@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import {Button, Col, Container, Form, Row, Toast} from "react-bootstrap";
@@ -9,7 +9,6 @@ const ContactPage = () => {
     const [name, setName] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
-    const [errors, setErrors] = useState(false);
     const [show, setShow] = useState(false);
 
 

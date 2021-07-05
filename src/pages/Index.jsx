@@ -21,8 +21,6 @@ const IndexPage = () => {
         setBeat(beat);
         setShowPlayer(true);
     }
-    // Carousel
-    const [index, setIndex] = useState(0);
     //  Send Mail
     const onSubmit = e => {
         e.preventDefault();
@@ -40,9 +38,7 @@ const IndexPage = () => {
     }
 
 
-    const handleSelect = (selectedIndex, e) => {
-        setIndex(selectedIndex);
-    }
+
 
     const {search} = window.location;
     const query  = new URLSearchParams(search).get('s');

@@ -5,7 +5,7 @@ import Navigation from "./Navigation";
 import axios from "axios";
 
 const Cart = () => {
-    const { items,totalUniqueItems,cartTotal,removeItem ,emptyCart} = useCart();
+    const { items,cartTotal,removeItem ,emptyCart} = useCart();
     const [email, setEmail] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -29,7 +29,6 @@ const Cart = () => {
         axios.post('/api/client/manage-payment/', {user,cartTotal,items})
             .then(function (response) {
                 setTimeout(()=>{
-                    // console.log(response.data.data)
                 window.location.replace(response.data.data);
                 emptyCart();
             },5000)

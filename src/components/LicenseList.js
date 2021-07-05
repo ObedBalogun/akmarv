@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {apiGetLicense} from "../backendQuery";
 import {CardDeck, Carousel, Container} from "react-bootstrap";
 import License from "./License";
 
