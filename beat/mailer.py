@@ -3,16 +3,17 @@ from django.core.mail import send_mail
 from beat.shortener import shortener
 
 
-def beat_order_notification(url, order, email, url_2=None, url_3=None,url_4=None):
+def beat_order_notification(item, url, order, email, url_2=None, url_3=None,url_4=None):
     """
     Emails the User the download link.
+    :param item: Item name
     :param url: Download url for beat order
     :param order: order object
     :param email: user object
     :return: Emails the user the beat order details
     """
 
-    subject = "Beat Order from AKMarv"
+    subject = "Beat Order from AKMarv - {}".format(item.name)
     content = "Please click the link provided below to download the files attached to your order.\n" \
               "Order Reference ID: {} \n"\
               "Amount: {} \n"\
