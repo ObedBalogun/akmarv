@@ -21,9 +21,11 @@ const BeatList = ({selectedBeat,searchQuery}) => {
         }
 
         return beats.filter((beat) => {
-            const beatTitle = beat.title.toLowerCase();
-            const beatGenre = beat.genre.toLowerCase();
-            return beatTitle.includes(query)|| beatGenre.includes(query);
+            const beatTitleLower = beat.title.toLowerCase();
+            const beatTitle = beat.title
+            const beatGenreLower = beat.genre.toLowerCase();
+            const beatGenre = beat.genre
+            return beatTitleLower.includes(query)||beatTitle.includes(query)||beatGenreLower.includes(query)||beatGenre.includes(query);
         });
     };
     const filteredBeats = filterBeats(beats, searchQuery);
