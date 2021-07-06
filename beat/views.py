@@ -213,7 +213,7 @@ def manage_checkout(request):
 
     order.total_amount = total_amount
 
-    transaction = Transaction(int(order.total_amount), email)
+    transaction = Transaction(int(order.total_amount*100), email)
     transaction.metadata = {"order_id": order_count + 1}
 
     transaction_manager = TransactionsManager()
