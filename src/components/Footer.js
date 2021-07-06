@@ -21,18 +21,18 @@ const Footer = () => {
                         <h6 className="footer-title">Socials</h6>
                         <ul style={{ listStyle:"none",display:"contents"}}>
                             <li>
-                                <Link to="#">Twitter &nbsp;
-                                    <i className="fa fa-twitter"/>
+                                <Link to="https://youtube.com/c/AkMarv">Youtube &nbsp;
+                                    <i className="fa fa-youtube"/>
                                 </Link>
                             </li>
                             <li>
-                                <Link to="#">Instagram &nbsp;
+                                <Link to="https://www.instagram.com/armvellous/">Instagram &nbsp;
                                     <i className="fa fa-instagram"/>
                                 </Link>
                             </li>
                             <li>
-                                <Link to="#">Facebook &nbsp;
-                                    <i className="fa fa-facebook"/>
+                                <Link to="#">Twitter &nbsp;
+                                    <i className="fa fa-twitter"/>
                                 </Link>
                             </li>
                         </ul>
