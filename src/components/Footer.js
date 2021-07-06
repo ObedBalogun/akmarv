@@ -31,7 +31,7 @@ const Footer = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="#">Twitter &nbsp;
+                                <Link to="https://www.twitter.com/Armvellous">Twitter &nbsp;
                                     <i className="fa fa-twitter"/>
                                 </Link>
                             </li>
