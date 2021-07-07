@@ -11,9 +11,9 @@ const Footer = () => {
                         <h6 className="footer-title">Quick Links</h6>
                         <ul style={{ listStyle:"none",display:"contents"}}>
                             <li><Link to="/">Home</Link></li>
-                            <li><Link to="/">Beats</Link></li>
-                            <li><Link to="/">Cart</Link></li>
-                            <li><Link to="/">Contact</Link></li>
+                            <li><Link to="/beats">Beats</Link></li>
+                            <li><Link to="/cart">Cart</Link></li>
+                            <li><Link to="/contact">Contact</Link></li>
                             <li><Link to="/">Licensing Information</Link></li>
                         </ul>
                     </div>
@@ -21,19 +21,31 @@ const Footer = () => {
                         <h6 className="footer-title">Socials</h6>
                         <ul style={{ listStyle:"none",display:"contents"}}>
                             <li>
-                                <Link to="https://youtube.com/c/AkMarv" target="_blank">Youtube &nbsp;
+                                <a href="https://youtube.com/c/AkMarv" target="_blank" rel="noreferrer">
+                                    Youtube &nbsp;
                                     <i className="fa fa-youtube"/>
-                                </Link>
+                                </a>
+                                {/*<Link to="https://youtube.com/c/AkMarv" target="_blank">Youtube &nbsp;*/}
+                                {/*    <i className="fa fa-youtube"/>*/}
+                                {/*</Link>*/}
                             </li>
                             <li>
-                                <Link to="https://www.instagram.com/armvellous/" target="_blank">Instagram &nbsp;
+                                <a href="https://www.instagram.com/armvellous/" target="_blank" rel="noreferrer">
+                                    Instagram &nbsp;
                                     <i className="fa fa-instagram"/>
-                                </Link>
+                                </a>
+                                {/*<Link to="https://www.instagram.com/armvellous/" target="_blank">Instagram &nbsp;*/}
+                                {/*    <i className="fa fa-instagram"/>*/}
+                                {/*</Link>*/}
                             </li>
                             <li>
-                                <Link to="https://www.twitter.com/Armvellous" target="_blank">Twitter &nbsp;
+                                <a href="https://www.twitter.com/Armvellous" target="_blank" rel="noreferrer">
+                                    Twitter &nbsp;
                                     <i className="fa fa-twitter"/>
-                                </Link>
+                                </a>
+                                {/*<Link to="https://www.twitter.com/Armvellous" target="_blank">Twitter &nbsp;*/}
+                                {/*    <i className="fa fa-twitter"/>*/}
+                                {/*</Link>*/}
                             </li>
                         </ul>
                     </div>
