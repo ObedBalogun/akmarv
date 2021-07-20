@@ -25,27 +25,18 @@ const Footer = () => {
                                     Youtube &nbsp;
                                     <i className="fa fa-youtube"/>
                                 </a>
-                                {/*<Link to="https://youtube.com/c/AkMarv" target="_blank">Youtube &nbsp;*/}
-                                {/*    <i className="fa fa-youtube"/>*/}
-                                {/*</Link>*/}
                             </li>
                             <li>
                                 <a href="https://www.instagram.com/armvellous/" target="_blank" rel="noreferrer">
                                     Instagram &nbsp;
                                     <i className="fa fa-instagram"/>
                                 </a>
-                                {/*<Link to="https://www.instagram.com/armvellous/" target="_blank">Instagram &nbsp;*/}
-                                {/*    <i className="fa fa-instagram"/>*/}
-                                {/*</Link>*/}
                             </li>
                             <li>
                                 <a href="https://www.twitter.com/Armvellous" target="_blank" rel="noreferrer">
                                     Twitter &nbsp;
                                     <i className="fa fa-twitter"/>
                                 </a>
-                                {/*<Link to="https://www.twitter.com/Armvellous" target="_blank">Twitter &nbsp;*/}
-                                {/*    <i className="fa fa-twitter"/>*/}
-                                {/*</Link>*/}
                             </li>
                         </ul>
                     </div>

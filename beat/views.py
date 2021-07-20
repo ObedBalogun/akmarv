@@ -40,6 +40,7 @@ class Assets(View):
 @api_view(['GET', 'PUT', ])
 # @permission_classes((IsAuthenticatedOrReadOnly,))
 def manage_beat(request, beat_id):
+    print("YOUUUUU")
     try:
         beat = Beat.objects.get(pk=int(beat_id))
     except Beat.DoesNotExist:
