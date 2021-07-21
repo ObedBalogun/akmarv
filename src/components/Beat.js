@@ -224,7 +224,7 @@ const Beat = ({beat,selectedBeat}) => {
 
     }
     const viewBeatDetails = () => {
-        window.location.replace(`/beat/${beat.id}/`)
+        localStorage.setItem("beat_title",beat.title)
     }
     const alreadyAdded = inCart(beat.title);
 
@@ -263,7 +263,7 @@ const Beat = ({beat,selectedBeat}) => {
                         Add to Cart
                     </Button>
                     }
-                    <Button className={"button-1 share-btn"} onClick={viewBeatDetails}>View Beat</Button>
+                    <Button className={"button-1 share-btn"} href={`/beat/${beat.title}`} onClick={viewBeatDetails}>View Beat</Button>
 
                 </ButtonGroup>
             </td>

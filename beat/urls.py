@@ -7,7 +7,7 @@ app_name = 'beat'
 
 urlpatterns = [
     path("beats/", manage_beats, name="api-beats"),
-    path("beat/<int:beat_id>/", manage_beat, name="api-manage-beat"),
+    path("beat/<slug:beat_title>/", manage_beat, name="api-manage-beat"),
     path('licenses/', manage_licenses, name='manage-licenses'),
     path('cart/add/<int:beat_id>/', cart_add, name='cart_add'),
     path('cart/item_clear/<int:id>/', item_clear, name='item_clear'),

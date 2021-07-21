@@ -13,7 +13,6 @@ import UploadPage from "./pages/UploadPage";
 import BeatDetailPage from "./pages/beat-detail";
 import SoundKitPage from "./pages/SoundKitPage";
 
-
 class App extends Component {
   render() {
     return (
@@ -23,7 +22,7 @@ class App extends Component {
           <Route exact path="/contact" component={ContactPage}/>
           <Route exact path="/beats" component={BeatsPage}/>
           <Route exact path="/soundkits" component={SoundKitPage}/>
-          <Route exact path="/beat/:id" component={BeatDetailPage}/>
+          <Route exact path="/beat/:title" component={BeatDetailPage}/>
           <Route exact path="/cart" component={CartPage}/>
           <Route exact path="/checkout" component={IndexPage}/>
         </Router>

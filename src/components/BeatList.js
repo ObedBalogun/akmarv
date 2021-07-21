@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {apiGetBeats} from "../backendQuery";
 import Beat from "./Beat";
 import { Table} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 const BeatList = ({selectedBeat,searchQuery}) => {
 
@@ -44,7 +45,6 @@ const BeatList = ({selectedBeat,searchQuery}) => {
                 </thead>
                 <tbody className={'font-weight-bold'}>
                 {filteredBeats.map((beat) => (
-
                     <tr key={beat.title} className={"h5"}>
                         <Beat key={beat.id} beat={beat} selectedBeat={selectedBeat}/>
                     </tr>

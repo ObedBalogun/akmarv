@@ -25,6 +25,7 @@ const IndexPage = () => {
     const selectedBeat =(beat)=>{
         setBeat(beat);
         setShowPlayer(true);
+
     }
     //  Send Mail
     const onSubmit = e => {
