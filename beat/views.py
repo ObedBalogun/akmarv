@@ -40,12 +40,11 @@ class Assets(View):
 @api_view(['GET', 'PUT', ])
 @csrf_exempt
 def manage_beat(request, beat_title):
-    try:
-        # beat = Beat.objects.get(pk=int(beat_id))
-        beat = Beat.objects.get(title=beat_title)
-    except Beat.DoesNotExist:
-        return Response(error_msg("Beat with id does not exist."))
     if request.method == 'GET':
+        try:
+            beat = Beat.objects.get(title=beat_title)
+        except Beat.DoesNotExist:
+            return Response(error_msg("Beat with id does not exist."))
         serialized = BeatSerializer(beat)
         return Response(success_msg("Beat retrieved successfully", serialized.data),
                         status=status.HTTP_200_OK)
