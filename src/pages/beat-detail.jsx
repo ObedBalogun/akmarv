@@ -3,8 +3,7 @@ import {apiGetBeat} from "../backendQuery";
 
 const BeatDetailPage = () => {
     const title = localStorage.getItem("beat_title")
-    console.log(title)
-    const [beat, setBeat] = useState();
+    const [beat, setBeat] = useState([]);
     useEffect(() =>{
         const setChosenBeat = (response) =>{
             setBeat(response.data);
@@ -12,9 +11,10 @@ const BeatDetailPage = () => {
         }
         apiGetBeat(setChosenBeat,title)
     },[])
+
     return (
         <div>
-            Hi{beat}
+            <h1>{beat.title}</h1>
         </div>
     );
 }
