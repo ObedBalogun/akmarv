@@ -22,7 +22,7 @@ class App extends Component {
           <Route exact path="/contact" component={ContactPage}/>
           <Route exact path="/beats" component={BeatsPage}/>
           <Route exact path="/soundkits" component={SoundKitPage}/>
-          <Route path="/beat/:title" component={BeatDetailPage}/>
+          <Route exact path="/view-beat/:title" component={BeatDetailPage}/>
           <Route exact path="/cart" component={CartPage}/>
           <Route exact path="/checkout" component={IndexPage}/>
         </Router>

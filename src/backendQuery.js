@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export function apiGetBeat(callback,title) {
-    axios.get('/api/client/beat/',{params:{title:title}}).then(r => callback(r.data,r.status))
+    axios.get('/api/client/get-beat/',{params:{title:title}}).then(r => callback(r.data,r.status))
 }
 
 export function apiGetBeats(callback) {
