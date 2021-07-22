@@ -5,7 +5,8 @@ import Footer from "../components/Footer";
 import {Container,Col,Row} from "react-bootstrap";
 
 const BeatDetailPage = () => {
-    const title = localStorage.getItem("beat_title")
+    // const title = localStorage.getItem("beat_title")
+    const title = "Monna"
     const [beat, setBeat] = useState("");
     useEffect(() =>{
         const setChosenBeat = (response) =>{
