@@ -429,7 +429,9 @@ table th{
   margin-left: -1em !important;
 }
 
-
+.progress-bar{
+  background-color: black !important;
+}
 }
 
 .toast-header{
