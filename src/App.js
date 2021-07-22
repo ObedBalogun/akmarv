@@ -10,7 +10,7 @@ import BeatsPage from "./pages/BeatsPage";
 import ContactPage from "./pages/ContactPage";
 import CartPage from "./pages/CartPage";
 import UploadPage from "./pages/UploadPage";
-import BeatDetailPage from "./pages/beat-detail";
+import BeatDetailPage from "./pages/BeatDetail";
 import SoundKitPage from "./pages/SoundKitPage";
 
 class App extends Component {
