@@ -51,6 +51,10 @@ def manage_beat(request,beat_title):
         return Response(success_msg("Beat retrieved successfully", serialized.data),
                         status=status.HTTP_200_OK)
     elif request.method == 'PUT':
+        try:
+            beat = Beat.objects.get(title=beat_title)
+        except Beat.DoesNotExist:
+            return Response(error_msg("Beat with id does not exist."))
         title = request.data.get('title', beat.title)
         mp3_file = request.data.get('mp3_file', beat.mp3_file)
         wav_file = request.data.get('wav_file', beat.wav_file)

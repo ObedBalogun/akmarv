@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {Button, Card, Modal} from "react-bootstrap";
-
+import {Document} from "react-pdf/dist/umd/entry.webpack";
+import hm from "../sample.pdf"
+import Page from "react-pdf/dist/umd/Page";
 
 
 const License = ({license}) => {
@@ -13,57 +15,18 @@ const License = ({license}) => {
             centered
             className={'beat-item'}
         >
-            <Modal.Header style={{ background: "#ae3131",
-                                    color:"white"}} closeButton>
-                <div className="beate-info ml-lg-auto">
-                    {/*<h2>{props.license.license_type}</h2>*/}
-                    <h2>{props.license.license_type} Info</h2>
+            <Modal.Header closeButton>
+                <div className="beat-info">
+                    <h2>{props.license.license_type}</h2>
                 </div>
             </Modal.Header>
-            <Modal.Body className={"license-modal-body"}>
+            <Modal.Body>
                 <div className="pdf-body">
-                    <div id="recording">
-                        <i className="fas fa-microphone-alt"/> &nbsp;
-                        <span>
-                            {props.license.recording}
-                        </span>
-                    </div>
-                    <div id="distribution">
-                        <i className="fas fa-layer-group"/> &nbsp;
-                        <span>
-                            {props.license.distribution}
-                        </span>
-                    </div>
-                    <div id="streams" style={{ position: "relative",
-                                  right: "0.3em"}}>
-                        <i className="fas fa-wifi"/> &nbsp;
-                        <span>
-                            {props.license.streams}
-                        </span>
-                    </div>
-                    <div id="videos">
-                        <i className="fas fa-video"/> &nbsp;
-                        <span>
-                            {props.license.videos}
-                        </span>
-                    </div>
-                    <div id="performances">
-                        <i className="fas fa-microphone"/> &nbsp;
-                        <span>
-                    {props.license.performances}
-                </span>
-                    </div>
-                    <div id="broadcasting">
-                        <i className="fas fa-broadcast-tower"/> &nbsp;
-                        <span>
-                            {props.license.broadcasting}
-                        </span>
-                    </div>
+                <Document file={hm}>
+                    <Page pageNumber={1} />
+                </Document>
                 </div>
-                {/*/!*<Document file={props.license.license_content}>*!/*/}
-                {/*<Document file={hm}>*/}
-                {/*        <Page pageNumber={1} />*/}
-                {/*</Document>*/}
+
             </Modal.Body>
         </Modal>
     );
@@ -79,7 +42,7 @@ const License = ({license}) => {
                                 {license.license_type}
                             </span>
                             <span className={"license-price d-block font-weight-bold"}>
-                                {license.price}
+                                ${license.license_price}
                             </span>
                             <span className={'text-uppercase font-weight-bold d-block'}>
                                 per unit
@@ -89,7 +52,7 @@ const License = ({license}) => {
                 </Card.Header>
                 <Card.Body>
                         <div className={"license-button"}>
-                            <Button onClick={()=>setModalShow(true)}>Read Permissions</Button>
+                            <Button onClick={()=>setModalShow(true)}>Read full license</Button>
                         </div>
                     </Card.Body>
             </Card>
