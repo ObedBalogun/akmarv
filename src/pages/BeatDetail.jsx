@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {apiGetBeat} from "../backendQuery";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import {Container,Col,Row} from "react-bootstrap";
+import {Container,Col} from "react-bootstrap";
 
 const BeatDetailPage = () => {
     const title = localStorage.getItem("beat_title")
