@@ -268,7 +268,7 @@ const Beat = ({beat,selectedBeat}) => {
                         <Link to ={`/beat/${beat.title}`}>
                             View Beat
                         </Link>
-                        </Button>
+                    </Button>
 
                 </ButtonGroup>
             </td>

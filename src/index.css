@@ -432,6 +432,14 @@ table th{
 .progress-bar{
   background-color: black !important;
 }
+.button-1 > a{
+  color: white !important
+}
+.button-1 > a:hover{
+  color: white !important;
+  text-decoration: none !important;
+}
+
 }
 
 .toast-header{
