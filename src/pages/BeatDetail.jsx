@@ -223,10 +223,8 @@ const BeatDetailPage = ({match}) => {
     useEffect(() => {
         const setChosenBeat = (response) => {
             setBeat(response.data);
-        }
-        apiGetBeat(setChosenBeat, beat_id)
-        var audioElement = new Audio(beat.mp3_file);
-        audioElement.addEventListener('loadeddata', () => {
+            var audioElement = new Audio(beat.mp3_file);
+            audioElement.addEventListener('loadeddata', () => {
             let beat_duration = audioElement.duration;
 
             var date = new Date(0);
@@ -235,6 +233,9 @@ const BeatDetailPage = ({match}) => {
             setDuration(timeString)
             // The duration variable now holds the duration (in seconds) of the audio clip
         })
+        }
+        apiGetBeat(setChosenBeat, beat_id)
+
     }, [])
 
     var beat_image = beat.artwork
@@ -244,11 +245,12 @@ const BeatDetailPage = ({match}) => {
                 <div className={"d-flex"}>
                     <img src={beat_image} className="mr-0" height={"150"} width={"150"} alt="No Picture"/>
                     <h2 className={"m-5"}>{beat.title}</h2>
-                    <div className={"d-block beat-labels modal-beat-label detail-length"}>{beat.genre}</div>
+                    <div className={"d-block mt-5 beat-labels modal-beat-label detail-length"}>{beat.genre}</div>
 
 
                 </div>
-                <Table className={'text-center mt-5'} hover>
+                <Container>
+                     <Table className={'text-center mx-auto mt-5 mb-5'} hover>
                     <thead>
                     <tr>
                         <th>Title</th>
@@ -302,10 +304,11 @@ const BeatDetailPage = ({match}) => {
                     </tr>
                     </tbody>
                 </Table>
+                </Container>
             </Container>
             {showPlayer ? <Player beat={beat}/> : null}
 
-            <Footer/>
+            <Footer className={"mt-5"}/>
 
         </>
     );
