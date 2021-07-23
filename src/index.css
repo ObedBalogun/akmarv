@@ -260,10 +260,11 @@ table th{
 }
 
 .modal-header,.modal-footer{
-  border-bottom: 0 !important;
   border-top: 0 !important;
 }
-
+.license-modal-body{
+    padding: 0 !important;
+}
 .license-types .card{
   background:#ae3131;
   color: white;
@@ -300,6 +301,9 @@ table th{
 .rhap_main-controls-button{
   color:black !important;
 }
+.rhap_controls-section {
+  margin-top:0 !important;
+}
 .rhap_progress-filled{
   background-color: #ae3131!important;
 }
@@ -332,6 +336,9 @@ table th{
 
 .mobile-btn{
   display: none;
+  background: transparent;
+    color: black;
+    border: 0;
 }
 .phone-deck{
   display: none;
@@ -345,6 +352,10 @@ table th{
   .license .card-deck{
     display: none;
   }
+  .pdf-body > div{
+    flex:100%;
+    padding: 10px;
+}
 }
 @media(max-width: 776px) {
 
@@ -396,10 +407,31 @@ table th{
     bottom: 30px;
     right: 30px;
   }
+  .pdf-body > div{
+    flex:100% !important;
+    padding: 10px;
+}
   .react-pdf__Page__canvas {
     transform: scale(1.2,1.8) !important;
 
   }
+  .playing-song-title {
+    float: left !important;
+    left: 32% !important;
+    bottom: 3em !important;
+    /*padding: 5em 1em 100em 1em;*/
+    margin: 10px 0 5px 0;
+  }
+  .rhap_controls-section {
+    margin-top: 4em !important;
+  }
+.beat-title-col {
+  margin-left: -1em !important;
+}
+
+
+
+
 
 }
 
@@ -411,16 +443,67 @@ table th{
   color: white !important;
 }
 .pdf-body{
-  width: calc(100% - 10%);
-  max-width: 1110px;
-  margin-bottom: 4em;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: center;
-  font-size: 19px;
+    display:flex;
+    flex-wrap: wrap;
+    padding: 1em 2em 1em 2em;
+    border-radius:5px;
+    max-width: 1110px;
+
+}
+.pdf-body > div{
+    flex:50%;
+    padding: 10px;
+}
+.pdf-body  i {
+  color: #ae3131 !important;
+}
+.modal-header .close{
+  color: white !important;
 }
 .react-pdf__Page__canvas{
   width: 100% !important;
   height: 100% !important;
+}
+.playing-song-title{
+  position: fixed;
+  z-index: 100;
+  bottom: 1em;
+  left: 14em;
+  overflow:hidden;
+  width: 9rem;
+  white-space: nowrap;
+
+}
+.animated > * {
+  display: inline-block;
+  position: relative;
+  animation: 3s linear 0s infinite alternate move;
+}
+.animated > *.min {
+  min-width: 100%;
+}
+
+@keyframes move {
+  0%,
+  25% {
+    transform: translateX(0%);
+    left: 0%;
+  }
+  75%,
+  100% {
+    transform: translateX(-100%);
+    left: 100%;
+  }
+}
+
+
+.progress-bar{
+  background-color: black !important;
+}
+.share-btn a{
+  color: white !important
+}
+.share-btn a:hover{
+  color: white !important;
+  text-decoration: none !important;
 }
