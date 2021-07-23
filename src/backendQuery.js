@@ -1,8 +1,9 @@
 import axios from "axios";
 
 
-export function apiGetBeat(callback,beatId) {
-    axios.get('/api/client/get-beat/',{params:{beat_id:beatId}}).then(r => callback(r.data,r.status))
+export function apiGetBeat(callback,beatTitle) {
+    // axios.get(`/api/client/get-beat/${beatTitle}`,{params:{beat_id:beatId}}).then(r => callback(r.data,r.status))
+    axios.get(`/api/client/get-beat/${beatTitle}`).then(r => callback(r.data,r.status))
 }
 
 export function apiGetBeats(callback) {

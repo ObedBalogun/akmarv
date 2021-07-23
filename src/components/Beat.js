@@ -263,7 +263,7 @@ const Beat = ({beat,selectedBeat}) => {
                     </Button>
                     }
                     <Button className={"button-1 share-btn"}>
-                        <Link to ={`/beats/${beat.id}`}>
+                        <Link to ={`/beats/${beat.title}`}>
                             View Beat
                         </Link>
                     </Button>
