@@ -14,16 +14,14 @@ const BeatDetailPage = () => {
         }
         apiGetBeat(setChosenBeat,title)
     },[])
-
+    var beat_image = beat.artwork
     return (
         <>
             <Navigation/>
-               <Container>
-                   <div>
-                       <Col lg={4}>
-                          <img src={beat.artwork} alt="None"/>
-                       </Col>
-                       <h2>{beat.title}</h2>
+               <Container className={"m-5"}>
+                   <div className={"d-flex"}>
+                          <img src={beat_image}  className="mr-0" height={"100"} width={"100"} alt="No Picture"/>
+                       <h2 className={"ml-0"}>{beat.title}</h2>
                    </div>
                </Container>
             <Footer/>

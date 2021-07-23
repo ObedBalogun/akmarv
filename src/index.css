@@ -429,16 +429,9 @@ table th{
   margin-left: -1em !important;
 }
 
-.progress-bar{
-  background-color: black !important;
-}
-.button-1 > a{
-  color: white !important
-}
-.button-1 > a:hover{
-  color: white !important;
-  text-decoration: none !important;
-}
+
+
+
 
 }
 
@@ -501,4 +494,16 @@ table th{
     transform: translateX(-100%);
     left: 100%;
   }
+}
+
+
+.progress-bar{
+  background-color: black !important;
+}
+.share-btn a{
+  color: white !important
+}
+.share-btn a:hover{
+  color: white !important;
+  text-decoration: none !important;
 }
