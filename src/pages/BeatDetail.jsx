@@ -223,7 +223,13 @@ const BeatDetailPage = ({match}) => {
     useEffect(() => {
         const setChosenBeat = (response) => {
             setBeat(response.data);
-            var audioElement = new Audio(beat.mp3_file);
+        }
+        apiGetBeat(setChosenBeat, beat_id)
+        beatDuration();
+
+    }, [])
+    const beatDuration =()=>{
+        var audioElement = new Audio(beat.mp3_file);
             audioElement.addEventListener('loadeddata', () => {
             let beat_duration = audioElement.duration;
 
@@ -233,10 +239,8 @@ const BeatDetailPage = ({match}) => {
             setDuration(timeString)
             // The duration variable now holds the duration (in seconds) of the audio clip
         })
-        }
-        apiGetBeat(setChosenBeat, beat_id)
 
-    }, [])
+    }
 
     var beat_image = beat.artwork
     return (
@@ -245,6 +249,7 @@ const BeatDetailPage = ({match}) => {
                 <div className={"d-flex"}>
                     <img src={beat_image} className="mr-0" height={"150"} width={"150"} alt="No Picture"/>
                     <h2 className={"m-5"}>{beat.title}</h2>
+                    <br/>
                     <div className={"d-block mt-5 beat-labels modal-beat-label detail-length"}>{beat.genre}</div>
 
 
