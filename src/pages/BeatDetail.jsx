@@ -8,7 +8,7 @@ import {useParams} from "react-router";
 const BeatDetailPage = () => {
     const {title} = useParams();
     const [beat, setBeat] = useState("");
-    useEffect(() =>{
+    useEffect(() => {
         const setChosenBeat = (response) =>{
             setBeat(response.data);
 

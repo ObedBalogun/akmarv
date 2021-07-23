@@ -40,6 +40,7 @@ class Assets(View):
 @api_view(['GET', 'PUT', ])
 @csrf_exempt
 def manage_beat(request):
+    print("TRUST")
     beat_title = request.GET.get('title',None)
     if request.method == 'GET':
         try:
