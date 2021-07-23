@@ -23,14 +23,15 @@ export const App =()=>{
             <Navigation/>
 
         <Switch>
+            <Route exact path="/beats" component={BeatsPage}/>
+            <Route path="/beats/:beatTitle" component={BeatDetailPage}/>
           <Route exact path="/homepage" component={IndexPage}/>
             <Route exact path="/">
                 <Redirect to ="/homepage"/>
             </Route>
           <Route exact path="/wavegod" component={UploadPage}/>
           <Route exact path="/contact" component={ContactPage}/>
-          <Route exact path="/beats" component={BeatsPage}/>
-          <Route path="/beats/:beatTitle" component={BeatDetailPage}/>
+
           <Route exact path="/soundkits" component={SoundKitPage}/>
           <Route exact path="/cart" component={CartPage}/>
           <Route exact path="/checkout" component={IndexPage}/>
