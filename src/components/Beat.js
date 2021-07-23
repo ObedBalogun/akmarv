@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, ButtonGroup, Card, CardDeck, Modal} from "react-bootstrap";
 import {useCart} from "react-use-cart";
+import {Link} from "react-router-dom";
 
 
 function MyVerticallyCenteredModal(props) {
@@ -263,7 +264,11 @@ const Beat = ({beat,selectedBeat}) => {
                         Add to Cart
                     </Button>
                     }
-                    <Button className={"button-1 share-btn"} href={`/beat/${beat.title}`} onClick={viewBeatDetails}>View Beat</Button>
+                    <Button className={"button-1 share-btn"} onClick={viewBeatDetails}>
+                        <Link to ={`/beat/${beat.title}`}>
+                            View Beat
+                        </Link>
+                        </Button>
 
                 </ButtonGroup>
             </td>
