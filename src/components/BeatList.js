@@ -7,14 +7,11 @@ import {Link} from "react-router-dom";
 const BeatList = ({selectedBeat,searchQuery}) => {
 
     const [beats, setBeats] = useState([])
-    const tester = [{"id":3,"title":"Lams"}]
     useEffect(() => {
         const handleBeatsList = (response) => {
-            // setBeats(response.data);
-            setBeats(tester);
+            setBeats(response.data);
         }
-        handleBeatsList();
-        // apiGetBeats(handleBeatsList)
+        apiGetBeats(handleBeatsList)
     },[])
 
     // Search
