@@ -3,9 +3,10 @@ import {apiGetBeat} from "../backendQuery";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import {Container,Col} from "react-bootstrap";
+import {useParams} from "react-router";
 
 const BeatDetailPage = () => {
-    const title = localStorage.getItem("beat_title")
+    const {title} = useParams();
     const [beat, setBeat] = useState("");
     useEffect(() =>{
         const setChosenBeat = (response) =>{

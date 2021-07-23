@@ -1,7 +1,7 @@
 
 import {
-  BrowserRouter as Router,
-  Route,
+    BrowserRouter as Router,
+    Route, Switch,
 
 } from "react-router-dom";
 import React, {Component} from "react";
@@ -22,7 +22,9 @@ class App extends Component {
           <Route exact path="/contact" component={ContactPage}/>
           <Route exact path="/beats" component={BeatsPage}/>
           <Route exact path="/soundkits" component={SoundKitPage}/>
-          <Route path="/beat/:title" component={BeatDetailPage}/>
+          <Switch>
+              <Route path="/beat/:title" component={BeatDetailPage}/>
+          </Switch>
           <Route exact path="/cart" component={CartPage}/>
           <Route exact path="/checkout" component={IndexPage}/>
         </Router>
