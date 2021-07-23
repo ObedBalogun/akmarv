@@ -6,7 +6,6 @@ import {
     FormControl,
     Form,
 } from "react-bootstrap"
-import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import BeatList from "../components/BeatList";
 import Player from "../components/AudioPlayer";
@@ -31,9 +30,6 @@ const BeatsPage = () => {
     return (
         <>
             <div id={"main-content"}>
-
-                <Navigation/>
-
 
 
              <Container className={'mt-5'}>

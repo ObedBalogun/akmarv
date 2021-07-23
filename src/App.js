@@ -13,12 +13,15 @@ import UploadPage from "./pages/UploadPage";
 import BeatDetailPage from "./pages/BeatDetail";
 import SoundKitPage from "./pages/SoundKitPage";
 import {Redirect} from "react-router";
+import Navigation from "./components/Navigation";
 
 
 
-export const Routes =()=>{
+export const App =()=>{
     return (
         <Router>
+            <Navigation/>
+
         <Switch>
           <Route exact path="/homepage" component={IndexPage}/>
             <Route exact path="/">
@@ -27,8 +30,9 @@ export const Routes =()=>{
           <Route exact path="/wavegod" component={UploadPage}/>
           <Route exact path="/contact" component={ContactPage}/>
           <Route exact path="/beats" component={BeatsPage}/>
+          <Route path="/beats/:beatId" component={BeatDetailPage}/>
+
           <Route exact path="/soundkits" component={SoundKitPage}/>
-          <Route path="/beats/:beatTitle" component={BeatDetailPage}/>
           <Route exact path="/cart" component={CartPage}/>
           <Route exact path="/checkout" component={IndexPage}/>
         </Switch>

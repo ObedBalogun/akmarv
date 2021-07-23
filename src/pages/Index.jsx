@@ -1,6 +1,5 @@
 import React, { useState} from 'react';
 import BeatList from "../components/BeatList";
-import Navigation from "../components/Navigation"
 import {InputGroup, FormControl, Button, Form, Container, Row, Col, Toast} from "react-bootstrap"
 import Player from "../components/AudioPlayer";
 import Footer from "../components/Footer";
@@ -47,7 +46,6 @@ const IndexPage = () => {
 
     return (
         <>
-            <Navigation/>
             <div className={'page-top main-bg'} style={{backgroundImage:"url('/static/background.png')",
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
