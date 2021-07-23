@@ -245,8 +245,8 @@ const BeatDetailPage = ({match}) => {
     var beat_image = beat.artwork
     return (
         <>
-            <Container>
-                <div className={"d-flex"}>
+            <Container className={"m-5"}>
+                <div>
                     <img src={beat_image} className="mr-0" height={"150"} width={"150"} alt="No Picture"/>
                     <h2 className={"m-5"}>{beat.title}</h2>
                     <br/>
