@@ -6,14 +6,14 @@ import {Container,Col} from "react-bootstrap";
 import {useParams} from "react-router";
 
 const BeatDetailPage = () => {
-    const {title} = useParams();
+    // const {title} = useParams();
     const [beat, setBeat] = useState("");
     useEffect(() =>{
         const setChosenBeat = (response) =>{
             setBeat(response.data);
 
         }
-        apiGetBeat(setChosenBeat,title)
+        // apiGetBeat(setChosenBeat,title)
     },[])
     var beat_image = beat.artwork
     return (
