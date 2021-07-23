@@ -150,10 +150,10 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'build/static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "build/static"),
-    # os.path.join(BASE_DIR, "public"),
+    os.path.join(BASE_DIR, "public"),
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
