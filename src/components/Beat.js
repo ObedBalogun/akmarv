@@ -264,7 +264,7 @@ const Beat = ({beat,selectedBeat}) => {
                         Add to Cart
                     </Button>
                     }
-                    <Button className={"button-1 share-btn"} onClick={viewBeatDetails}>
+                    <Button className={"button-1 share-btn"}>
                         <Link to ={`/beat/${beat.title}`}>
                             View Beat
                         </Link>
