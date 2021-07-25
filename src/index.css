@@ -445,7 +445,7 @@ table th {
 
 /*Responsiveness*/
 
-@media (min-width: 318px) {
+@media (max-width: 318px) {
     .license .card-deck {
         display: none;
     }
