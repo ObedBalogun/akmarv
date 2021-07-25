@@ -2,7 +2,15 @@ import React, {useEffect, useState} from 'react';
 import {apiGetBeat} from "../backendQuery";
 import Footer from "../components/Footer";
 import {useCart} from "react-use-cart";
-import {Container, Table, ButtonGroup, Button, Modal, CardDeck, Card} from "react-bootstrap";
+import {
+    Container,
+    Table,
+    ButtonGroup,
+    Button,
+    Modal,
+    CardDeck,
+    Card,
+} from "react-bootstrap";
 import Player from "../components/AudioPlayer";
 
 
@@ -245,12 +253,22 @@ const BeatDetailPage = ({match}) => {
     var beat_image = beat.artwork
     return (
         <>
-            <Container className={"m-5"}>
+            <div className={'page-top beat-bg'} style={{backgroundImage:`url('${beat_image}')`,
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat'}}>
+                <div className="headline">
+                    <div>
+                        <p className={"text-white font-weight-bold"}>{"Monna"}</p>
+                        <div className={"d-block mt-5 beat-labels modal-beat-label detail-length"}>{beat.genre}</div>
+
+                    </div>
+                </div>
+            </div>
+            <Container className={"mt-5"}>
                 <div>
-                    <img src={beat_image} className="mr-0" height={"150"} width={"150"} alt="No Picture"/>
                     <h2 className={"m-5"}>{beat.title}</h2>
                     <br/>
-                    <div className={"d-block mt-5 beat-labels modal-beat-label detail-length"}>{beat.genre}</div>
 
 
                 </div>
@@ -266,7 +284,9 @@ const BeatDetailPage = ({match}) => {
                     </thead>
                     <tbody className={'font-weight-bold'}>
                     <tr onClick={() => setShowPlayer(true)}>
-                        <td>{beat.title}</td>
+                        <td>
+                            <img src={beat_image} className="mr-0" height={"150"} width={"150"} alt="No Picture"/>
+                        </td>
                         <td>{duration}</td>
                         <td>
                             <span className={"beat-labels modal-beat-label detail-length"}>{beat.genre}</span>
