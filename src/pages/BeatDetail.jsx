@@ -12,8 +12,8 @@ import {
     Card,
 } from "react-bootstrap";
 import Player from "../components/AudioPlayer";
-import img from "../Faucet.png"
-import {Link} from "react-router-dom";
+// import img from "../Faucet.png"
+// import {Link} from "react-router-dom";
 import BeatList from "../components/BeatList";
 
 function MyVerticallyCenteredModal(props) {
@@ -261,7 +261,7 @@ const BeatDetailPage = ({match}) => {
                 backgroundRepeat: 'no-repeat'}}>
                 <div className="headline">
                     <div>
-                        <p className={"text-white "}>{"Monxna"}</p>
+                        <p className={"text-white "}>{beat.title}</p>
                         {/*<div className={"d-block mt-5 beat-labels modal-beat-label detail-length"}>{beat.genre}</div>*/}
 
                     </div>
@@ -270,15 +270,15 @@ const BeatDetailPage = ({match}) => {
             <Container fluid className={"mt-5"}>
                 <div className="detail-header">
                     <div>
-                        <img src={img} className="mr-0" height={"320"} width={"320"} alt="No Picture"/>
+                        <img src={beat_image} className="mr-0" height={"320"} width={"320"} alt="No Picture"/>
                     </div>
                     <div className="p-4 detail-body">
                         <span className="prefix">Track</span>
                         <br/>
                         <h1 className="">
-                            <span>Moanna {beat.title}</span>
+                            <span>{beat.title}</span>
                         </h1>
-                        <div className={"d-block beat-labels modal-beat-label detail-length"}>Hiphop{beat.genre}</div>
+                        <div className={"d-block beat-labels modal-beat-label detail-length"}>{beat.genre}</div>
                         <br/>
                         <div className="detail-buttons">
                             <Button className={'cart-btn mr-1'} onClick={() => setShowPlayer(true)}>
