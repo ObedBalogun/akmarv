@@ -4,8 +4,6 @@ import Footer from "../components/Footer";
 import {useCart} from "react-use-cart";
 import {
     Container,
-    Table,
-    ButtonGroup,
     Button,
     Modal,
     CardDeck,
@@ -13,7 +11,7 @@ import {
 } from "react-bootstrap";
 import Player from "../components/AudioPlayer";
 // import img from "../Faucet.png"
-// import {Link} from "react-router-dom";
+import copy from 'copy-to-clipboard';
 import BeatList from "../components/BeatList";
 
 function MyVerticallyCenteredModal(props) {
@@ -207,7 +205,10 @@ const BeatDetailPage = ({match}) => {
     const [modalShow, setModalShow] = React.useState(false);
     const [duration, setDuration] = useState(20)
 
-
+    const handleCopy = () => {
+        copy(`www.akmarv.com/beats/${beat.title}`)
+        alert('Copied')
+    }
     const handleSelection = (beat, e) => {
         if (e.target.id === "mp3") {
             addItem({id: beat.title, name: beat.title, price: 80, license: "mp3"});
@@ -309,7 +310,7 @@ const BeatDetailPage = ({match}) => {
                                     </span>
                                 </Button>
                                 }
-                            <Button className="share-btn">
+                            <Button className="share-btn" onClick={()=>handleCopy}>
                                 <i className="fas fa-share-alt"/>
                             </Button>
                         </div>
