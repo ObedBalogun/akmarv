@@ -5,13 +5,15 @@ import { Table} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
 const BeatList = ({selectedBeat,searchQuery}) => {
-
+const tester = [{"title":"Monna",
+                    "id":3}]
     const [beats, setBeats] = useState([])
     useEffect(() => {
         const handleBeatsList = (response) => {
-            setBeats(response.data);
+            setBeats(tester);
         }
-        apiGetBeats(handleBeatsList)
+        handleBeatsList();
+        // apiGetBeats(handleBeatsList)
     },[])
 
     // Search

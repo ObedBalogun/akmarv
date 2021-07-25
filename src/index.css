@@ -79,7 +79,7 @@ body::-webkit-scrollbar-thumb {
 .headline p {
     position: relative;
     background: rgba(0,0,0,0.6);
-    font-size: 6em;
+    font-size: 4em;
 }
 
 footer {
@@ -372,10 +372,7 @@ table th {
 }
 
 .footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    margin-top: 10em
 
 }
 
@@ -407,10 +404,48 @@ table th {
 .main-deck .card-body {
     padding: 0 !important;
 }
+.detail-header{
+    display:table !important;
+}
+.detail-header > div{
+    display: table-cell;
+}
+.prefix{
+    color:#999;
+}
+.detail-body .cart-btn{
+    border-color: transparent;
+    border-radius: 5em;
+    background-color:#ae3131;
+}
+.detail-body .cart-btn:hover,.detail-body .cart-btn:active{
+    background-color:black !important;
+    border-color:transparent !important
+}
+
+
+.detail-body .share-btn{
+    border-color: transparent;
+    border-radius: 1em;
+    background-color:black;
+    margin-left: 2em;
+}
+.detail-body .share-btn:hover {
+    background-color:#ae3131;
+    border-color:transparent !important
+
+}
+.detail-buttons{
+    display:flex;
+    flex-wrap: wrap;
+}
+.share-btn > i{
+    padding: .5em!important;
+}
 
 /*Responsiveness*/
 
-@media (max-width: 698px) {
+@media (min-width: 318px) {
     .license .card-deck {
         display: none;
     }
@@ -419,9 +454,12 @@ table th {
         flex: 100%;
         padding: 10px;
     }
+    .detail-buttons{
+        display: none !important;
+    }
 }
 
-@media (max-width: 776px) {
+@media(min-width: 320px) and (max-width: 776px) {
 
     .headliner {
         padding: 4em 0 4em !important;
@@ -437,6 +475,7 @@ table th {
     }
     .headline .beat-labels{
         height: 5px;
+        color: transparent;
     }
 
     .main-search {
@@ -450,6 +489,14 @@ table th {
     .main-search > button {
         top: -11px !important;
         right: -7px !important;
+    }
+    .detail-header{
+        display: flex !important;
+        flex-direction: column
+    }
+    .detail-header img{
+        height: 150px !important;
+        width: 150px !important;
     }
 
     .table {
@@ -476,7 +523,7 @@ table th {
         bottom: -70px !important;
     }
 
-    .cart-btn, .share-btn {
+    td .cart-btn, td .share-btn {
         display: none !important;
     }
 
@@ -522,6 +569,10 @@ table th {
         margin-left: -1em !important;
     }
 
+.detail-buttons{
+        display: flex !important;
+        flex-wrap: nowrap !important
+    }
 
 }
 

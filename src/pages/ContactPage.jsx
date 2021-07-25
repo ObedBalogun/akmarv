@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import {Button, Col, Container, Form, Row, Toast} from "react-bootstrap";
 import axios from "axios";
@@ -31,7 +30,6 @@ const ContactPage = () => {
     }
     return (
         <>
-            <Navigation/>
             <Row>
                   <Col xs={6}>
                     <Toast onClose={() => setShow(false)} show={show} delay={1000}
