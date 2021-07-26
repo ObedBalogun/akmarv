@@ -349,6 +349,7 @@ table th {
     position: fixed !important;
     bottom: -1px;
     z-index: 100;
+  transition: all 4s !important;
 }
 
 .rhap_main-controls-button {
@@ -573,12 +574,19 @@ table th {
         display: flex !important;
         flex-wrap: nowrap !important
     }
+.toast{
+    width: fit-content;
+}
 
 }
+
 
 .toast-header {
     background-color: #ae3131 !important;
     color: white !important;
+}
+.toast{
+    background-color: transparent !important;
 }
 
 .toast-header .close {

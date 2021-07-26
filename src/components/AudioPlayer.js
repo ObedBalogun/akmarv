@@ -6,6 +6,7 @@ const Player = ({beat}) => {
     return (
         <>
             <AudioPlayer
+                className="audio"
                 autoPlay
                 src={beat.mp3_file}
                 showSkipControls={false}
