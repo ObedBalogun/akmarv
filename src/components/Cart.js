@@ -36,7 +36,6 @@ const Cart = () => {
     }
        return (
            <>
-               <Navigation/>
                <Row>
                   <Col xs={6}>
                     <Toast onClose={() => setShow(false)} show={show} delay={1000}

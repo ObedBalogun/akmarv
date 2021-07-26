@@ -8,6 +8,7 @@ import {
     Modal,
     CardDeck,
     Card,
+    Toast, Col,
 } from "react-bootstrap";
 import Player from "../components/AudioPlayer";
 // import img from "../Faucet.png"
@@ -204,10 +205,12 @@ const BeatDetailPage = ({match}) => {
     const alreadyAdded = inCart(beat.title);
     const [modalShow, setModalShow] = React.useState(false);
     const [duration, setDuration] = useState(20)
+    const [show, setShow] = useState(false);
+
 
     const handleCopy = () => {
-        copy(`www.akmarv.com/beats/${beat.title}`)
-        alert('Copied')
+        copy(`www.akmarv.com/beats/${beat.title}`,{debug:true})
+        setShow(true)
     }
     const handleSelection = (beat, e) => {
         if (e.target.id === "mp3") {
@@ -256,6 +259,20 @@ const BeatDetailPage = ({match}) => {
     var beat_image = beat.artwork
     return (
         <>
+            <div>
+                  <Col xs={6}>
+                    <Toast onClose={() => setShow(false)} show={show} delay={1000}
+                           style={{
+                               position: 'absolute',
+                               top: 0,
+                               right: 0,
+                           }}>
+                      <Toast.Header>
+                        <strong className="mr-auto">Link Copied</strong>
+                      </Toast.Header>
+                    </Toast>
+                  </Col>
+               </div>
             <div className={'page-top beat-bg'} style={{backgroundImage:`url('${beat_image}')`,
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
@@ -263,7 +280,6 @@ const BeatDetailPage = ({match}) => {
                 <div className="headline">
                     <div>
                         <p className={"text-white "}>{beat.title}</p>
-                        {/*<div className={"d-block mt-5 beat-labels modal-beat-label detail-length"}>{beat.genre}</div>*/}
 
                     </div>
                 </div>
@@ -291,7 +307,7 @@ const BeatDetailPage = ({match}) => {
                                 </span>
                             </Button>
                             {alreadyAdded   ?
-                                <Button className={'mr-1 cart-btn'} disabled onClick={() => setModalShow(true)}>
+                                <Button className={'mr-1 cart-btn'} disabled >
                                     <span>Already in Cart</span>
                                     <span>
                                         <svg className="ml-1" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -310,13 +326,13 @@ const BeatDetailPage = ({match}) => {
                                     </span>
                                 </Button>
                                 }
-                            <Button className="share-btn" onClick={()=>handleCopy}>
+                            <Button className="share-btn" onClick={handleCopy}>
                                 <i className="fas fa-share-alt"/>
                             </Button>
                         </div>
                 </div>
                 </div>
-                <div>
+                <div className="mt-lg-3">
                     <h3>Other Beats</h3>
                     <BeatList/>
                 </div>
