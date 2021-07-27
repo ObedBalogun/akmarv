@@ -257,6 +257,9 @@ const BeatDetailPage = ({match}) => {
         })
 
     }
+    const refresh = () => {
+        setBeat({})
+    }
 
     var beat_image = beat.artwork
     return (
@@ -340,7 +343,7 @@ const BeatDetailPage = ({match}) => {
                 </div>
                 <div className="mt-lg-3">
                     <h3>Other Beats</h3>
-                    <BeatList onClick={this.setState({})}/>
+                    <BeatList onClick={refresh}/>
                 </div>
             </Container>
             {showPlayer ? <Player beat={beat}/> : null}
