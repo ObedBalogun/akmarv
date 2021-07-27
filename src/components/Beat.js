@@ -231,6 +231,7 @@ const Beat = ({beat,selectedBeat}) => {
     const alreadyAdded = inCart(beat.title);
 
     const refresh = () =>{
+        console.log("YIKES")
             window.location.reload()
 
     }
