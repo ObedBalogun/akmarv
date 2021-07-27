@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState,} from 'react';
 import {apiGetBeat} from "../backendQuery";
 import Footer from "../components/Footer";
 import {useCart} from "react-use-cart";
+
 import {
     Container,
     Button,
@@ -236,7 +237,9 @@ const BeatDetailPage = ({match}) => {
 
     useEffect(() => {
         const setChosenBeat = (response) => {
-            setBeat(response.data);
+            if(response.data.beat.title === beat_id){
+                setBeat(response.data);
+            }
         }
         apiGetBeat(setChosenBeat, beat_id)
 
@@ -261,6 +264,7 @@ const BeatDetailPage = ({match}) => {
     var beat_image = beat.artwork
     return (
         <>
+            {beat_id}
             <div className="fixed-top" >
                     <Toast autohide={true} className="mx-auto" onClose={() => setShow(false)} show={show} delay={1000}>
                         <Toast.Header>
