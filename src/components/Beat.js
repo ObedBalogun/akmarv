@@ -230,11 +230,6 @@ const Beat = ({beat,selectedBeat}) => {
 
     const alreadyAdded = inCart(beat.title);
 
-    const refresh = () =>{
-        console.log("YIKES")
-            window.location.reload()
-
-    }
 
     return (
         <>
@@ -260,7 +255,7 @@ const Beat = ({beat,selectedBeat}) => {
                               <i className={"fa fa-shopping-cart"} style={{marginTop: "4px"}}/>
                           </button>
  }
-                    {reload ? <button className={'mobile-btn'} onClick={refresh}>
+                    {reload ? <button className={'mobile-btn'} onClick={()=>window.location.reload()}>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -289,7 +284,7 @@ const Beat = ({beat,selectedBeat}) => {
                         Add to Cart
                     </Button>
                     }
-                    {reload ?<Button className={"button-1 share-btn"} onClick={refresh}>
+                    {reload ?<Button className={"button-1 share-btn"} onClick={()=>window.location.reload()}>
                         View Beat
                         </Button>
                     : <Button className={"button-1 share-btn"}>
