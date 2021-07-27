@@ -446,19 +446,19 @@ table th {
 
 /*Responsiveness*/
 
-/*@media (max-width: 318px) {*/
-/*    .license .card-deck {*/
-/*        display: none;*/
-/*    }*/
+@media (max-width: 318px) {
+    .license .card-deck {
+        display: none;
+    }
 
-/*    .pdf-body > div {*/
-/*        flex: 100%;*/
-/*        padding: 10px;*/
-/*    }*/
-/*    .detail-buttons{*/
-/*        display: none !important;*/
-/*    }*/
-/*}*/
+    .pdf-body > div {
+        flex: 100%;
+        padding: 10px;
+    }
+    .detail-buttons{
+        display: none !important;
+    }
+}
 
 @media(min-width: 320px) and (max-width: 776px) {
 
@@ -566,9 +566,9 @@ table th {
         margin-top: 4em !important;
     }
 
-    .beat-title-col {
-        margin-left: -1em !important;
-    }
+    /*.beat-title-col {*/
+    /*    margin-left: -1em !important;*/
+    /*}*/
 
 .detail-buttons{
         display: flex !important;
