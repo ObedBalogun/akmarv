@@ -8,7 +8,7 @@ import {
     Modal,
     CardDeck,
     Card,
-    Toast, Col,
+    Toast,
 } from "react-bootstrap";
 import Player from "../components/AudioPlayer";
 // import img from "../Faucet.png"
@@ -340,7 +340,7 @@ const BeatDetailPage = ({match}) => {
                 </div>
                 <div className="mt-lg-3">
                     <h3>Other Beats</h3>
-                    <BeatList/>
+                    <BeatList onClick={this.setState({})}/>
                 </div>
             </Container>
             {showPlayer ? <Player beat={beat}/> : null}

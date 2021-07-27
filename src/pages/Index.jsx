@@ -79,7 +79,7 @@ const IndexPage = () => {
                           />
 
                 <div className={'show-more'}>
-                    <Button className='mt-5 mb-5 button-2 col-sm-12 col-lg-2'>
+                    <Button className='mt-5 mb-5 button-2 col-sm-12 col-lg-2' href="/beats">
                         Browse All Tracks
                     </Button>
                 </div>
