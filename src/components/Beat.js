@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, ButtonGroup, Card, CardDeck, Modal} from "react-bootstrap";
 import {useCart} from "react-use-cart";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 
 function MyVerticallyCenteredModal(props) {
@@ -226,6 +226,13 @@ const Beat = ({beat,selectedBeat}) => {
     }
 
     const alreadyAdded = inCart(beat.title);
+    const location = useLocation();
+    var currentPage = `/beats/${beat.title}`
+    let reload = location.pathname === currentPage
+    console.log(reload)
+    const refresh = () =>{
+        window.location.reload()
+    }
 
     return (
         <>
@@ -269,11 +276,17 @@ const Beat = ({beat,selectedBeat}) => {
                         Add to Cart
                     </Button>
                     }
-                    <Button className={"button-1 share-btn"}>
-                        <Link to ={`/beats/${beat.title}`}>
-                            View Beat
-                        </Link>
-                    </Button>
+                    {reload ?<Button className={"button-1 share-btn"} onClick={refresh}>
+                        View Beat
+                        </Button>
+                    : <Button className={"button-1 share-btn"}>
+                            <Link to={`/beats/${beat.title}`}>
+                                View Beat
+                            </Link>
+                        </Button>
+
+                    }
+
 
                 </ButtonGroup>
             </td>
