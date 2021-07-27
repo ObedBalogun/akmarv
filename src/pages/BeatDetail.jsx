@@ -237,13 +237,11 @@ const BeatDetailPage = ({match}) => {
 
     useEffect(() => {
         const setChosenBeat = (response) => {
-            if(response.data.beat.title === beat_id){
                 setBeat(response.data);
-            }
         }
         apiGetBeat(setChosenBeat, beat_id)
 
-    }, [])
+    }, [beat_id])
     useEffect(() => {
         beatDuration()
     })
@@ -264,7 +262,6 @@ const BeatDetailPage = ({match}) => {
     var beat_image = beat.artwork
     return (
         <>
-            {beat_id}
             <div className="fixed-top" >
                     <Toast autohide={true} className="mx-auto" onClose={() => setShow(false)} show={show} delay={1000}>
                         <Toast.Header>
