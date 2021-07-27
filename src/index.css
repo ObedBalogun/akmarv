@@ -53,14 +53,13 @@ body::-webkit-scrollbar-thumb {
 .main-bg {
     background: #000;
 }
-.beat-bg::after{
+
+.beat-bg::after {
     content: '';
     background: #000;
     opacity: 0.2;
     position: absolute;
 }
-
-
 
 
 .headliner {
@@ -72,13 +71,13 @@ body::-webkit-scrollbar-thumb {
 .headline {
     padding: 10em;
     text-align: center;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
 
 }
 
 .headline p {
     position: relative;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     font-size: 4em;
 }
 
@@ -349,7 +348,7 @@ table th {
     position: fixed !important;
     bottom: -1px;
     z-index: 100;
-  transition: all 4s !important;
+    transition: all 4s !important;
 }
 
 .rhap_main-controls-button {
@@ -405,43 +404,51 @@ table th {
 .main-deck .card-body {
     padding: 0 !important;
 }
-.detail-header{
-    display:table !important;
+
+.detail-header {
+    display: table !important;
 }
-.detail-header > div{
+
+.detail-header > div {
     display: table-cell;
 }
-.prefix{
-    color:#999;
+
+.prefix {
+    color: #999;
 }
-.detail-body .cart-btn{
+
+.detail-body .cart-btn {
     border-color: transparent;
     border-radius: 5em;
-    background-color:#ae3131;
+    background-color: #ae3131;
 }
-.detail-body .cart-btn:hover,.detail-body .cart-btn:active{
-    background-color:black !important;
-    border-color:transparent !important
+
+.detail-body .cart-btn:hover, .detail-body .cart-btn:active {
+    background-color: black !important;
+    border-color: transparent !important
 }
 
 
-.detail-body .share-btn{
+.detail-body .share-btn {
     border-color: transparent;
     border-radius: 1em;
-    background-color:black;
+    background-color: black;
     margin-left: 2em;
 }
+
 .detail-body .share-btn:hover {
-    background-color:#ae3131;
-    border-color:transparent !important
+    background-color: #ae3131;
+    border-color: transparent !important
 
 }
-.detail-buttons{
-    display:flex;
+
+.detail-buttons {
+    display: flex;
     flex-wrap: wrap;
 }
-.share-btn > i{
-    padding: .5em!important;
+
+.share-btn > i {
+    padding: .5em !important;
 }
 
 /*Responsiveness*/
@@ -455,12 +462,13 @@ table th {
         flex: 100%;
         padding: 10px;
     }
-    .detail-buttons{
+
+    .detail-buttons {
         display: none !important;
     }
 }
 
-@media(min-width: 320px) and (max-width: 776px) {
+@media (min-width: 320px) and (max-width: 776px) {
 
     .headliner {
         padding: 4em 0 4em !important;
@@ -469,12 +477,14 @@ table th {
     .headline {
         padding: 2em !important;
     }
-    .headline p{
-        background: rgba(0,0,0,0);
+
+    .headline p {
+        background: rgba(0, 0, 0, 0);
         font-size: 3em;
 
     }
-    .headline .beat-labels{
+
+    .headline .beat-labels {
         height: 5px;
         color: transparent;
     }
@@ -491,11 +501,13 @@ table th {
         top: -11px !important;
         right: -7px !important;
     }
-    .detail-header{
+
+    .detail-header {
         display: flex !important;
         flex-direction: column
     }
-    .detail-header img{
+
+    .detail-header img {
         height: 150px !important;
         width: 150px !important;
     }
@@ -569,15 +581,21 @@ table th {
     /*.beat-title-col {*/
     /*    margin-left: -1em !important;*/
     /*}*/
-
-.detail-buttons{
+    .detail-buttons {
         display: flex !important;
         flex-wrap: nowrap !important
     }
-.toast{
-    width: fit-content;
+
+    .toast {
+        width: fit-content;
+    }
+
 }
 
+@media (min-width: 1020px) {
+    .beat-title-col{
+        margin-left: -1em !important;
+    }
 }
 
 
@@ -585,7 +603,8 @@ table th {
     background-color: #ae3131 !important;
     color: white !important;
 }
-.toast{
+
+.toast {
     background-color: transparent !important;
 }
 
