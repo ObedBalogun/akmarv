@@ -184,6 +184,9 @@ function MyVerticallyCenteredModal(props) {
 
 const Beat = ({beat,selectedBeat}) => {
     const [duration, setDuration] = useState(null)
+    const location = useLocation();
+    var currentPage = `/beats/${beat.title}`
+    let reload = location.pathname === currentPage
 
     useEffect(()=>{
         var audioElement = new Audio(beat.mp3_file);
@@ -226,14 +229,10 @@ const Beat = ({beat,selectedBeat}) => {
     }
 
     const alreadyAdded = inCart(beat.title);
-    const location = useLocation();
-    var currentPage = `/beats/${beat.title}`
-    let reload = location.pathname === currentPage
+
     const refresh = () =>{
-        if (reload){
             window.location.reload()
 
-        }
     }
 
     return (
@@ -260,7 +259,7 @@ const Beat = ({beat,selectedBeat}) => {
                               <i className={"fa fa-shopping-cart"} style={{marginTop: "4px"}}/>
                           </button>
  }
-                    {reload ? <button className={'mobile-btn'} onClick={()=>refresh()}>
+                    {reload ? <button className={'mobile-btn'} onClick={refresh}>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -289,7 +288,7 @@ const Beat = ({beat,selectedBeat}) => {
                         Add to Cart
                     </Button>
                     }
-                    {reload ?<Button className={"button-1 share-btn"} onClick={()=>refresh}>
+                    {reload ?<Button className={"button-1 share-btn"} onClick={refresh}>
                         View Beat
                         </Button>
                     : <Button className={"button-1 share-btn"}>
