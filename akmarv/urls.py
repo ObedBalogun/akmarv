@@ -18,10 +18,26 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.generic import TemplateView
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from rest_framework import permissions
+
+schema_view = get_schema_view(openapi.Info(
+    title="AKMarv beats API",
+    default_version="v1",
+    description="",
+    terms_of_service="https://www.akmarv.com/policies/terms/",
+    contact=openapi.Contact(email="contact@akmarv.local"),
+    license=openapi.License(name="BSD License")
+
+),
+    public=True,
+    permission_classes=(permissions.AllowAny,))
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('nimda/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
+    path('api-doc/', schema_view.with_ui('swagger', cache_timeout=0), name="schema-swagger"),
     path('api/client/', include('beat.urls')),
     re_path('.*',TemplateView.as_view(template_name='index.html'))
 
