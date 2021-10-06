@@ -261,7 +261,7 @@ const BeatDetailPage = ({match}) => {
 
     }
 
-    var beat_image = beat.artwork
+    // var beat_image = beat.artwork
     const alreadyAdded = inCart(beat.id);
 
     return (
@@ -274,7 +274,7 @@ const BeatDetailPage = ({match}) => {
                     </Toast>
             </div>
             <div className={'page-top beat-bg'} style={{
-                backgroundImage: `url('${beat_image}')`,
+                // backgroundImage: `url('${beat_image}')`,
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'
