@@ -40,7 +40,6 @@ class Assets(View):
 @api_view(['GET', 'PUT', ])
 @csrf_exempt
 def manage_beat(request,beat_title):
-    print("TRUST")
     # beat_title = request.GET.get('beat_id',None)
     if request.method == 'GET':
         try:
@@ -103,7 +102,7 @@ def manage_beats(request):
         beat.save()
         serialized = BeatSerializer(beat)
         return Response(success_msg("Beat created successfully", serialized.data),
-                        status=status.HTTP_200_OK)
+                        status=status.HTTP_201_CREATED)
     elif request.method == 'DELETE':
         beat_id = request.data.get('id', None)
         if not beat_id:

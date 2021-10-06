@@ -15,6 +15,7 @@ const IndexPage = () => {
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
     const [show, setShow] = useState(false);
+
     const {search} = window.location;
     const query  = new URLSearchParams(search).get('s');
     const [searchQuery, setSearchQuery] = useState(query || '');

@@ -203,7 +203,7 @@ const BeatDetailPage = ({match}) => {
     const beat_id = match.params.beatTitle;
     const [beat, setBeat] = useState({});
     const {addItem, inCart} = useCart();
-    const alreadyAdded = inCart(beat.title);
+    const alreadyAdded = inCart(beat.id);
     const [modalShow, setModalShow] = React.useState(false);
     const [duration, setDuration] = useState(20)
     const [show, setShow] = useState(false);
