@@ -200,10 +200,10 @@ function MyVerticallyCenteredModal(props) {
 
 const BeatDetailPage = ({match}) => {
     const [showPlayer, setShowPlayer] = useState(false)
-    const beat_id = match.params.beatTitle;
+    let beat_id = match.params.beatTitle;
+    beat_id = beat_id.replace('%20',' ')
     const [beat, setBeat] = useState({});
     const {addItem, inCart} = useCart();
-    const alreadyAdded = inCart(beat.id);
     const [modalShow, setModalShow] = React.useState(false);
     const [duration, setDuration] = useState(20)
     const [show, setShow] = useState(false);
@@ -260,6 +260,8 @@ const BeatDetailPage = ({match}) => {
     }
 
     var beat_image = beat.artwork
+    const alreadyAdded = inCart(beat.id);
+
     return (
         <>
             <div className="fixed-top" >
