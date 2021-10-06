@@ -289,7 +289,7 @@ const BeatDetailPage = ({match}) => {
             <Container fluid className={"mt-5"}>
                 <div className="detail-header">
                     <div>
-                        <img src={beat_image} className="mr-0" height={"320"} width={"320"} alt="No Picture"/>
+                        {/*<img src={beat_image} className="mr-0" height={"320"} width={"320"} alt="No Picture"/>*/}
                     </div>
                     <div className="p-4 detail-body">
                         <span className="prefix">Track</span>
