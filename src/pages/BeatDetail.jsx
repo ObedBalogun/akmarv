@@ -200,17 +200,17 @@ function MyVerticallyCenteredModal(props) {
 
 const BeatDetailPage = ({match}) => {
     const [showPlayer, setShowPlayer] = useState(false)
-    let beat_id = match.params.beatTitle;
-    beat_id = beat_id.replace('%20',' ')
+    const beat_id = match.params.beatId;
     const [beat, setBeat] = useState({});
     const {addItem, inCart} = useCart();
+    const alreadyAdded = inCart(beat.id);
     const [modalShow, setModalShow] = React.useState(false);
     const [duration, setDuration] = useState(20)
     const [show, setShow] = useState(false);
 
 
     const handleCopy = () => {
-        copy(`www.akmarv.com/beats/${beat.title}`, {debug: true})
+        copy(`www.akmarv.com/beats/${beat.id}`, {debug: true})
         setShow(true)
     }
     const handleSelection = (beat, e) => {
@@ -238,9 +238,7 @@ const BeatDetailPage = ({match}) => {
     useEffect(() => {
         const setChosenBeat = (response) => {
                 setBeat(response.data);
-                console.log(beat_id+"BROS"+response)
         }
-
         apiGetBeat(setChosenBeat, beat_id)
 
     }, [beat_id])
@@ -261,9 +259,7 @@ const BeatDetailPage = ({match}) => {
 
     }
 
-    // var beat_image = beat.artwork
-    const alreadyAdded = inCart(beat.id);
-
+    var beat_image = beat.artwork
     return (
         <>
             <div className="fixed-top" >
@@ -274,7 +270,7 @@ const BeatDetailPage = ({match}) => {
                     </Toast>
             </div>
             <div className={'page-top beat-bg'} style={{
-                // backgroundImage: `url('${beat_image}')`,
+                backgroundImage: `url('${beat_image}')`,
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'
@@ -289,7 +285,7 @@ const BeatDetailPage = ({match}) => {
             <Container fluid className={"mt-5"}>
                 <div className="detail-header">
                     <div>
-                        {/*<img src={beat_image} className="mr-0" height={"320"} width={"320"} alt="No Picture"/>*/}
+                        <img src={beat_image} className="mr-0" height={"320"} width={"320"} alt="No Picture"/>
                     </div>
                     <div className="p-4 detail-body">
                         <span className="prefix">Track</span>

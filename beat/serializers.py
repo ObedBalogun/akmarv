@@ -5,7 +5,7 @@ from .models import Beat, OrderItem,License
 class BeatSerializer(serializers.ModelSerializer):
     class Meta:
         model = Beat
-        fields = ['title', 'artwork', 'genre', 'mp3_file', 'wav_file', 'stem_tracks']
+        fields = ['id','title', 'artwork', 'genre', 'mp3_file', 'wav_file', 'stem_tracks']
 
 
 class LicenseSerializer(serializers.ModelSerializer):

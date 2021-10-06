@@ -24,7 +24,7 @@ export const App =()=>{
 
         <Switch>
             <Route exact path="/beats" component={BeatsPage}/>
-            <Route path="/beats/:beatTitle" component={BeatDetailPage}/>
+            <Route path="/beats/:beatId" component={BeatDetailPage}/>
           <Route exact path="/homepage" component={IndexPage}/>
             <Route exact path="/">
                 <Redirect to ="/homepage"/>

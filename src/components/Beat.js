@@ -185,7 +185,7 @@ function MyVerticallyCenteredModal(props) {
 const Beat = ({beat,selectedBeat}) => {
     const [duration, setDuration] = useState(null)
     const location = useLocation();
-    var currentPage = `/beats/${beat.title}`
+    var currentPage = `/beats/${beat.id}`
     let reload = location.pathname === currentPage
 
     useEffect(()=>{
@@ -228,7 +228,7 @@ const Beat = ({beat,selectedBeat}) => {
 
     }
 
-    const alreadyAdded = inCart(beat.title);
+    const alreadyAdded = inCart(beat.id);
 
 
     return (
@@ -264,7 +264,7 @@ const Beat = ({beat,selectedBeat}) => {
                                 </svg>
                             </button>
                         :   <button className={'mobile-btn'}>
-                                <Link to={`/beats/${beat.title}`}>
+                                <Link to={`/beats/${beat.id}`}>
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -288,7 +288,7 @@ const Beat = ({beat,selectedBeat}) => {
                         View Beat
                         </Button>
                     : <Button className={"button-1 share-btn"}>
-                            <Link to={`/beats/${beat.title}`}>
+                            <Link to={`/beats/${beat.id}`}>
                                 View Beat
                             </Link>
                         </Button>
