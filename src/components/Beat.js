@@ -237,7 +237,7 @@ const Beat = ({beat,selectedBeat}) => {
                 <span >
                     <img src={beat.artwork} alt=""/>
                 </span>
-                <span className={'beat-title-col'}>
+                <span className={'beat-title-col'} style={{marginTop:"10px"}}>
                     {beat.title}
                 </span>
             </td>
@@ -246,7 +246,7 @@ const Beat = ({beat,selectedBeat}) => {
                 <span className={"beat-labels modal-beat-label detail-length"}>{beat.genre}</span>
             </td>
             <td>
-                <div className="d-flex">
+                <div className="d-flex mt-1">
                       {alreadyAdded ?
                           <button className={'mobile-btn mx-auto'} disabled onClick={() => setModalShow(true)}>
                               <i className={"fa fa-shopping-cart"} style={{marginTop: "4px"}}/>

@@ -1,14 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import {apiGetBeats} from "../backendQuery";
 import Beat from "./Beat";
-import { Table} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import {Button, Table} from "react-bootstrap";
+import {Link, useLocation} from "react-router-dom";
 
-const BeatList = ({selectedBeat,searchQuery}) => {
+const BeatList = ({selectedBeat,searchQuery,beatsToShow}) => {
 // const tester = [{"title":"Monna",
 //                     "id":3},{"title":"Mnna",
 //                     "id":3}]
     const [beats, setBeats] = useState([])
+    const location = useLocation();
+    const currentPage = '/beats'
+    let showMore = location.pathname === currentPage
+    // const [showMore, setShowMore] = useState(false);
+
     useEffect(() => {
         const handleBeatsList = (response) => {
             // setBeats(tester);
@@ -34,10 +39,10 @@ const BeatList = ({selectedBeat,searchQuery}) => {
         });
     };
     const filteredBeats = filterBeats(beats, searchQuery);
-
+    const tableControl1 ={overflowY:"auto",height:"25em"}
 
     return (
-        <>
+        <div style={showMore?null:tableControl1}>
             <Table className={'text-center'} hover >
                 <thead>
                 <tr>
@@ -48,16 +53,21 @@ const BeatList = ({selectedBeat,searchQuery}) => {
                 </tr>
                 </thead>
                 <tbody className={'font-weight-bold'}>
-                {filteredBeats.map((beat) => (
+                {showMore ? filteredBeats.slice(0,beatsToShow).map((beat) => (
+                    <tr key={beat.id} className={"h5"}>
+                        <Beat key={beat.id} beat={beat} selectedBeat={selectedBeat}/>
+                    </tr>
+                )): filteredBeats.map((beat) => (
                     <tr key={beat.id} className={"h5"}>
                         <Beat key={beat.id} beat={beat} selectedBeat={selectedBeat}/>
                     </tr>
                 ))}
+
                 </tbody>
             </Table>
 
 
-        </>
+        </div>
     );
 }
 

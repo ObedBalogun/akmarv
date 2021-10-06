@@ -9,6 +9,8 @@ import {
 import Footer from "../components/Footer";
 import BeatList from "../components/BeatList";
 import Player from "../components/AudioPlayer";
+import {motion} from "framer-motion"
+
 
 
 
@@ -28,7 +30,10 @@ const BeatsPage = () => {
     }
 
     return (
-        <>
+         <motion.div
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}>
             <div id={"main-content"}>
 
 
@@ -69,7 +74,7 @@ const BeatsPage = () => {
             <Footer/>
 
 
-        </>
+         </motion.div>
 
     );
 }

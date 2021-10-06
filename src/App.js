@@ -15,10 +15,14 @@ import SoundKitPage from "./pages/SoundKitPage";
 import {Redirect} from "react-router";
 import Navigation from "./components/Navigation";
 
+import {AnimatePresence} from "framer-motion";
+
+
 
 
 export const App =()=>{
     return (
+        <AnimatePresence exitBeforeEnter>
         <Router>
             <Navigation/>
 
@@ -37,6 +41,7 @@ export const App =()=>{
           <Route exact path="/checkout" component={IndexPage}/>
         </Switch>
         </Router>
+        </AnimatePresence>
     );
 }
 // class App extends Component {

@@ -12,9 +12,10 @@ import {
     Toast,
 } from "react-bootstrap";
 import Player from "../components/AudioPlayer";
-// import img from "../Faucet.png"
 import copy from 'copy-to-clipboard';
 import BeatList from "../components/BeatList";
+import {motion} from "framer-motion"
+
 
 function MyVerticallyCenteredModal(props) {
     return (
@@ -261,7 +262,10 @@ const BeatDetailPage = ({match}) => {
 
     var beat_image = beat.artwork
     return (
-        <>
+         <motion.div
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}>
             <div className="fixed-top" >
                     <Toast autohide={true} className="mx-auto" onClose={() => setShow(false)} show={show} delay={1000}>
                         <Toast.Header>
@@ -354,7 +358,7 @@ const BeatDetailPage = ({match}) => {
                 beatItem={beat}
                 handleselection={handleSelection}
             />
-        </>
+         </motion.div>
     );
 }
 
