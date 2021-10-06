@@ -202,6 +202,7 @@ const BeatDetailPage = ({match}) => {
     const [showPlayer, setShowPlayer] = useState(false)
     let beat_id = match.params.beatTitle;
     beat_id = beat_id.replace('%20',' ')
+    console.log(beat_id)
     const [beat, setBeat] = useState({});
     const {addItem, inCart} = useCart();
     const [modalShow, setModalShow] = React.useState(false);
@@ -238,7 +239,9 @@ const BeatDetailPage = ({match}) => {
     useEffect(() => {
         const setChosenBeat = (response) => {
                 setBeat(response.data);
+                console.log(beat_id,response)
         }
+
         apiGetBeat(setChosenBeat, beat_id)
 
     }, [beat_id])
