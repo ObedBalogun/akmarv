@@ -49,7 +49,7 @@ const BeatList = ({selectedBeat,searchQuery}) => {
                 </thead>
                 <tbody className={'font-weight-bold'}>
                 {filteredBeats.map((beat) => (
-                    <tr key={beat.id} className={"h5"}>
+                    <tr key={beat.title} className={"h5"}>
                         <Beat key={beat.id} beat={beat} selectedBeat={selectedBeat}/>
                     </tr>
                 ))}

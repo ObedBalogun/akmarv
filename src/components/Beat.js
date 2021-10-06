@@ -284,16 +284,16 @@ const Beat = ({beat,selectedBeat}) => {
                         Add to Cart
                     </Button>
                     }
-                    {/*<Button className={"button-1 share-btn"} onClick={()=>window.location.reload()}>*/}
-                    {/*    View Beat*/}
-                    {/*    </Button>*/}
-                     <Button className={"button-1 share-btn"}>
+                    {reload ?<Button className={"button-1 share-btn"} onClick={()=>window.location.reload()}>
+                        View Beat
+                        </Button>
+                    : <Button className={"button-1 share-btn"}>
                             <Link to={`/beats/${beat.id}`}>
                                 View Beat
                             </Link>
                         </Button>
 
-
+                    }
 
 
                 </ButtonGroup>
