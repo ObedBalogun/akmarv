@@ -165,20 +165,23 @@ td img {
     float: left;
 
 }
-.table td{
+
+.table td {
     vertical-align: inherit !important;
 }
-.table-control{
+
+.table-control {
     overflow-y: auto;
     height: 25em;
     /*overflow:hidden;*/
 
 }
-.table-control thead th{
+
+.table-control thead th {
     position: sticky;
     top: 0;
     background-color: white;
-    z-index:10;
+    z-index: 10;
 }
 
 .beat-title-col {
@@ -470,11 +473,7 @@ td img {
 
 /*Responsiveness*/
 
-@media (max-width: 318px) {
-    .license .card-deck {
-        display: none;
-    }
-
+@media (max-width: 319px) {
     .pdf-body > div {
         flex: 100%;
         padding: 10px;
@@ -485,7 +484,7 @@ td img {
     }
 }
 
-@media (min-width: 320px) and (max-width: 776px) {
+@media (min-width: 320px) and (max-width: 966px) {
 
     .headliner {
         padding: 4em 0 4em !important;
@@ -522,6 +521,10 @@ td img {
     .detail-header {
         display: flex !important;
         flex-direction: column
+    }
+
+    .beat-labels {
+        padding: 3px !important;
     }
 
     .detail-header img {
@@ -587,7 +590,6 @@ td img {
         float: left !important;
         left: 32% !important;
         bottom: 3em !important;
-        /*padding: 5em 1em 100em 1em;*/
         margin: 10px 0 5px 0;
     }
 
@@ -607,12 +609,15 @@ td img {
         width: fit-content;
     }
 
+    .modal-dialog {
+        max-width: 800px !important;
+    }
 }
 
 @media (min-width: 1020px) {
-    .beat-title-col{
+    .beat-title-col {
         /*margin-left: -1em !important;*/
-        display:flow-root;
+        display: flow-root;
     }
 }
 
@@ -626,8 +631,16 @@ td img {
     background-color: transparent !important;
 }
 
-.toast-header .close {
+.license-item .close {
     color: white !important;
+    font-size: 2.5rem;
+
+}
+
+.beat-item .close {
+    color: black !important;
+    font-size: 2.5rem;
+
 }
 
 .pdf-body {
@@ -648,9 +661,9 @@ td img {
     color: #ae3131 !important;
 }
 
-.modal-header .close {
-    color: white !important;
-}
+/*.modal-header .close {*/
+/*    color: white !important;*/
+/*}*/
 
 .react-pdf__Page__canvas {
     width: 100% !important;

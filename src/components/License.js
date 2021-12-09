@@ -11,7 +11,7 @@ const License = ({license}) => {
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
-            className={'beat-item'}
+            className={'license-item'}
         >
             <Modal.Header style={{ background: "#ae3131",
                                     color:"white"}} closeButton>

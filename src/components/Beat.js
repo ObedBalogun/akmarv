@@ -13,7 +13,7 @@ function MyVerticallyCenteredModal(props) {
             centered
             className={'beat-item'}
         >
-            <Modal.Header closeButton>
+            <Modal.Header  closeButton>
                 <div style={{marginBottom:6.5 +"em"}}>
                     <img src={props.beatItem.artwork} alt="None"/>
                 </div>
