@@ -1,70 +1,77 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Logo](https://www.akmarv.com/static/aklogo.png)
 
-## Available Scripts
+
+# AKMarv
+
+
+This project was built as a platform for user to listen to and purchase beats made by music producer, AKMarv.
+## Technologies
+
+**FrontEnd:** React.
+
+**Backend:** Python, Django REST.
+
+**Database:** Postgresql.
+
+
+## Installation
+
+1. Clone this repository
+
+2. Create a virtual environment with python 3.6 or 3.7 for the project
+    * Click [here](https://docs.python.org/3/library/venv.html) to learn how to     create virtual environment for python project.
+
+
+3. Run the following commands to install the requirements for backend and frontend
+
+```bash
+  pip install -r requirements.txt
+  npm i
+```
+
+## Usage
+Add or make changes to 'akmarv/settings.py' with the following if they are not already included.
+
+Choose and configure database - Default is Sqlite.
+
+For help on Database, check Django documentation [here](https://docs.djangoproject.com/en/2.1/topics/install/#database-installation)
+
+```
+* Set environment variables for Secret Key - Ask For Secret Key
+
+* Once settings configuration is completed, make and create migrations for database.
+
+* Run the following commands
+```
+
+Make migrations
+```bash
+python manage.py makemigrations
+
+```
+
+Migrate with this command
+```bash
+python manage.py migrate
+
+```
+
+
+
+## Deployment
+
+The backend of this project was written in python, using the Django framework while the frontend was developed using ReactJS.
+
 
 In the project directory, you can run:
+```bash
+python manage.py runserver
+```
+This starts up a backend development server at default url, http://localhost:8000/
 
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Then to run the frontend app:
+```bash
+yarn start
+```
+This runs the app in the development mode. Open http://localhost:3000 to view it in the browser.
